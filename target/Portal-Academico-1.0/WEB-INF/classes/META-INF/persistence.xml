@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="app1">
+    <class>is2.Alumno</class>
+    <class>is2.Curso</class>
+    <class>is2.Docente</class>
+    <class>is2.Grupo</class>
+
+    <properties>
+      <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="eclipselink.jdbc.password" value="postgres" />
+      <property name="eclipselink.jdbc.user" value="postgres" />
+      <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/alumnos" />
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+    </properties>
+  </persistence-unit>
+</persistence>
