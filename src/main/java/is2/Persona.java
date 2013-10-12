@@ -1,10 +1,33 @@
-/*package is2;
+package is2;
 
-public class Persona {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
+
+@MappedSuperclass
+public abstract class Persona {
+	
+	@Id
+	@SequenceGenerator(name = "admin_ID_GENERATOR", sequenceName = "admin_id_admin_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_ID_GENERATOR")
+	private Integer id;
+	
+	@Column(name="Nombre")
 	private String nombre;
+	
+	@Column(name="Apellido")
 	private String apellido;
+
+	@Column(name="Fecha de nacimiento")
 	private String fecha_n;
+	
+	@Column(name="Telefono")
 	private String telefono;
+	
+	@Column(name="Contraseña")
 	private String contraseña;
 	
 	public String getNombre() {
@@ -41,4 +64,4 @@ public class Persona {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-}*/
+}
