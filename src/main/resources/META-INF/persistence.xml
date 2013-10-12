@@ -9,6 +9,7 @@
     <class>is2.Docente</class>
     <class>is2.Matricula</class>
     <class>is2.Nota</class>
+    <class>is2.Grupo</class>
 
     <properties>
       <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
