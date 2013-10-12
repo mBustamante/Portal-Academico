@@ -1,13 +1,11 @@
 package is2;
 
-//import javax.persistence.AttributeOverride;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="Admin")
-//@AttributeOverride(name="Nombre", column=@Column(name="Admi_name"))
+@Table (name="admin")
 public class Admin extends Persona{
 	
 	private String usuario;
