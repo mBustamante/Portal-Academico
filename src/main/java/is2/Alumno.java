@@ -31,6 +31,7 @@ public class Alumno {
 	@JoinTable(name="alumno_por_grupo",
 			joinColumns=@JoinColumn(name="alumno_id", referencedColumnName="id"),
 	        inverseJoinColumns=@JoinColumn(name="grupo_id", referencedColumnName="id"))
+	
 	private List<Grupo> grupos;
 
 	public Alumno() {

@@ -11,7 +11,7 @@
       <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
       <property name="eclipselink.jdbc.password" value="postgres" />
       <property name="eclipselink.jdbc.user" value="postgres" />
-      <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/alumnos" />
+      <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/portal_academico" />
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
     </properties>
   </persistence-unit>
