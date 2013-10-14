@@ -11,28 +11,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.TypedQuery;
 
 @Entity
 @Table(name = "alumno")
-public class Alumno {
+public class Alumno extends Persona{
 
 	@Id
 	@SequenceGenerator(name = "alumno_ID_GENERATOR", sequenceName = "alumno_id_alumno_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alumno_ID_GENERATOR")
 	private Integer id;
 
-	private String apellido;
+	private String colegio;
+	private String codigo;
+	private String apoderado;
 
+<<<<<<< HEAD
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="alumno_por_grupo",
 			joinColumns=@JoinColumn(name="alumno_id", referencedColumnName="id"),
 	        inverseJoinColumns=@JoinColumn(name="grupo_id", referencedColumnName="id"))
 	
 	private List<Grupo> grupos;
+=======
+	@ManyToOne
+	private Matricula matricula;
+>>>>>>> 8d5b68fcf9bc07a14591ebe0987bb410036e73f6
 
 	public Alumno() {
 	}
@@ -45,56 +52,41 @@ public class Alumno {
 		this.id = id;
 	}
 
-	public String getApellido() {
-		return this.apellido;
+	public String getColegio() {
+		return colegio;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setColegio(String colegio) {
+		this.colegio = colegio;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getApoderado() {
+		return apoderado;
+	}
+
+	public void setApoderado(String apoderado) {
+		this.apoderado = apoderado;
 	}
 
 	public static EntityManager entityManager() {
 		return (UnitPersistence.getInstance()).get();
 	}
 
-	public static List<Alumno> findAll() {
-		Alumno c = null;
-		EntityManager em = entityManager();
-		try {
-			em.getTransaction().begin();
-			TypedQuery<Alumno> query = em.createQuery(
-					"SELECT p FROM Alumno p", Alumno.class);
-			return query.getResultList();
-		} catch (Exception e) {
-			System.out.println("Error");
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-		return Collections.emptyList();
+	public Matricula getMatricula() {
+		return matricula;
 	}
 
-	public static Alumno find(Integer id) {
-		Alumno c = null;
-		EntityManager em = entityManager();
-		try {
-			em.getTransaction().begin();
-			c = em.find(Alumno.class, id);// select * from alumno where id=?
-		} catch (Exception e) {
-			System.out.println("Error");
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-		return c;
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
 	}
 
-	public List<Grupo> getGrupos() {
-		return grupos;
-	}
-
-	public void setGrupos(List<Grupo> grupos) {
-		this.grupos = grupos;
-	}
 
 }

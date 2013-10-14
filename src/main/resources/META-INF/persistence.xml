@@ -10,6 +10,10 @@
     <class>is2.Matricula</class>
     <class>is2.Nota</class>
     <class>is2.Grupo</class>
+    <class>is2.Carrera</class>
+    <class>is2.Malla</class>
+    <class>is2.BloqueHorario</class>
+    <class>is2.Periodo</class>
 
     <properties>
       <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
