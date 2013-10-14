@@ -8,8 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 
 @Entity
+@Table (name="grupo")
 public class Grupo {
 	
 	@Id
@@ -27,6 +30,10 @@ public class Grupo {
 	public Carrera getCarrera() {
 		return carrera;
 	}
+
+	@ManyToMany(mappedBy="grupo")
+	private List<Alumno> alumnos;
+
 
 	public void setCarrera(Carrera carrera) {
 		this.carrera = carrera;

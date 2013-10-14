@@ -29,11 +29,11 @@ public class Curso {
 	
 	private Integer maxAlumnos;
 	
-	/*@ManyToMany(fetch=FetchType.LAZY,mappedBy="prerequisitos")
+	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name= "prerequisitos",
 		joinColumns=@JoinColumn(name="curso_id", referencedColumnName="id"),
 		inverseJoinColumns=@JoinColumn(name="prerequisito_id", referencedColumnName="id"))
-	private List<Curso> prerequisitos;*/
+	private List<Curso> prerequisitos;
 	
 	
 	@ManyToOne
@@ -46,6 +46,8 @@ public class Curso {
 			joinColumns=@JoinColumn(name="curso_id", referencedColumnName="id"),
 	        inverseJoinColumns=@JoinColumn(name="grupo_id", referencedColumnName="id"))
 	private List<Grupo> grupos;
+
+
 	
 	
 	@ManyToMany(fetch=FetchType.LAZY)
@@ -63,6 +65,7 @@ public class Curso {
 	public Long getId() {
 		return id;
 	}
+	
 
 	public void setId(Long id) {
 		this.id = id;

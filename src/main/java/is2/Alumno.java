@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -24,10 +25,19 @@ public class Alumno extends Persona{
 	private String colegio;
 	private String codigo;
 	private String apoderado;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name= "alumno_por_grupo",
+	joinColumns=@JoinColumn(name="alumno_id",referencedColumnName="id"),
+	inverseJoinColumns=@JoinColumn(name="grupo_id",	referencedColumnName="id")) 
+	private List<Grupo> grupo;
+	
+	@ManyToOne
+	private Matricula matricula;
 
+	public Alumno() {
+	}
 
-	@OneToMany(mappedBy="alumno")
-	private List<Matricula> matriculas;
 
 
 	public String getColegio() {
@@ -58,16 +68,8 @@ public class Alumno extends Persona{
 		return (UnitPersistence.getInstance()).get();
 	}
 
-	public List<Matricula> getMatricula() {
-		return matriculas;
-	}
 
-	public void setMatricula(List<Matricula> matriculas) {
-		this.matriculas = matriculas;
-	}
 	
-	
-
 	public static List<Alumno> findAll() {
 		    EntityManager em = entityManager();
 		    try {
@@ -82,7 +84,6 @@ public class Alumno extends Persona{
 		      em.close();
 		    }
 		    return Collections.emptyList();
-	}
-
+		  } 
 
 }

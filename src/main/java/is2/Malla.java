@@ -26,7 +26,7 @@ public class Malla {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "malla_id_gen")
 	private Long id;
 	
-	private Date fecha;
+	private String fecha;
 	
 	private String descripcion;
 	
@@ -44,11 +44,11 @@ public class Malla {
 		this.id = id;
 	}
 	
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 	
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	
