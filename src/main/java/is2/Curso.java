@@ -6,8 +6,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.TypedQuery;
 
@@ -25,7 +28,14 @@ public class Curso {
 	@ManyToOne
 	@JoinColumn(name = "id_docente")
 	private Docente docente;
-
+	
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name= "cursos_por_malla",
+	joinColumns=@JoinColumn(name="curso_id",referencedColumnName="id"),
+	inverseJoinColumns=@JoinColumn(name="malla_id",	referencedColumnName="id")) 
+	private List<Malla> mallas;
+	
 	public String getCodigo() {
 		return codigo;
 	}
