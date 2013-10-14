@@ -16,6 +16,8 @@ public class Grupo {
 	@ManyToMany(mappedBy="grupos")
 	private List<Alumno> alumnos;
 	
+	
+	
 	public Integer getId() {
 		return id;
 	}
