@@ -61,12 +61,26 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("Alumnos:\n");
-      out.write("  <ul>\n");
-      out.write("    \n");
-      out.write("  </ul>\n");
+      out.write("\n");
       out.write("Cursos:\n");
       out.write("  <ul>\n");
-      out.write("    \n");
+      out.write("    ");
+
+    	for (Curso c : Curso.findAll()) {
+    
+      out.write("\n");
+      out.write("  <li>");
+      out.print(c.getId());
+      out.write(' ');
+      out.write('-');
+      out.write(' ');
+      out.print(c.getNombre());
+      out.write("</li>\n");
+      out.write("    ");
+
+    	}
+    
+      out.write("\n");
       out.write("  </ul>\n");
       out.write("</body>\n");
       out.write("</html>\n");

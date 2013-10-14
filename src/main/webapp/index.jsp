@@ -7,21 +7,13 @@
 </head>
 <body>
 Alumnos:
-  <ul>
-    <%
-    	for (Alumno a : Alumno.findAll()) {
-    %>
-  <li><%=a.getId()%> - <%=a.getApellido()%></li>
-    <%
-    	}
-    %>
-  </ul>
+
 Cursos:
   <ul>
     <%
     	for (Curso c : Curso.findAll()) {
     %>
-  <li><%=c.getCodigo()%> - <%=c.getNombre()%></li>
+  <li><%=c.getId()%> - <%=c.getNombre()%></li>
     <%
     	}
     %>

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.TypedQuery;
@@ -20,37 +21,14 @@ import javax.persistence.TypedQuery;
 @Table(name = "alumno")
 public class Alumno extends Persona{
 
-	@Id
-	@SequenceGenerator(name = "alumno_ID_GENERATOR", sequenceName = "alumno_id_alumno_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alumno_ID_GENERATOR")
-	private Integer id;
-
 	private String colegio;
 	private String codigo;
 	private String apoderado;
 
-<<<<<<< HEAD
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="alumno_por_grupo",
-			joinColumns=@JoinColumn(name="alumno_id", referencedColumnName="id"),
-	        inverseJoinColumns=@JoinColumn(name="grupo_id", referencedColumnName="id"))
-	
-	private List<Grupo> grupos;
-=======
-	@ManyToOne
-	private Matricula matricula;
->>>>>>> 8d5b68fcf9bc07a14591ebe0987bb410036e73f6
 
-	public Alumno() {
-	}
+	@OneToMany(mappedBy="alumno")
+	private List<Matricula> matriculas;
 
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getColegio() {
 		return colegio;
@@ -80,12 +58,30 @@ public class Alumno extends Persona{
 		return (UnitPersistence.getInstance()).get();
 	}
 
-	public Matricula getMatricula() {
-		return matricula;
+	public List<Matricula> getMatricula() {
+		return matriculas;
 	}
 
-	public void setMatricula(Matricula matricula) {
-		this.matricula = matricula;
+	public void setMatricula(List<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
+	
+	
+
+	public static List<Alumno> findAll() {
+		    EntityManager em = entityManager();
+		    try {
+		      em.getTransaction().begin();
+		      TypedQuery<Alumno> query = em.createQuery(
+		          "SELECT p FROM Alumno p", Alumno.class);
+		      return query.getResultList();
+		    } catch (Exception e) {
+		      System.out.println("Error");
+		      e.printStackTrace();
+		    } finally {
+		      em.close();
+		    }
+		    return Collections.emptyList();
 	}
 
 

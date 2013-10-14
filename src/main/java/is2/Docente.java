@@ -18,23 +18,12 @@ import javax.persistence.JoinTable;
 @Entity
 public class Docente extends Persona{
 
-	@Id
-	@SequenceGenerator(name = "docente_ID_GENERATOR", sequenceName = "docente_id_alumno_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "docente_ID_GENERATOR")
-	private Integer id;
 
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="docentes_por_cursos",
-		joinColumns=@JoinColumn(name="curso_id", referencedColumnName="id"))
+		joinColumns=@JoinColumn(name="docente_id", referencedColumnName="id"),
+		inverseJoinColumns=@JoinColumn(name="curso_id", referencedColumnName="id"))
 	private List<Curso> cursos;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public List<Curso> getCursos() {
 		return cursos;
