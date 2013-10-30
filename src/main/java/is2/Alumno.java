@@ -6,15 +6,10 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.TypedQuery;
 
@@ -23,7 +18,7 @@ import javax.persistence.TypedQuery;
 public class Alumno extends Persona{
 
 	private String colegio;
-	private String codigo;
+	
 	private String apoderado;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
@@ -48,13 +43,6 @@ public class Alumno extends Persona{
 		this.colegio = colegio;
 	}
 
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
 
 	public String getApoderado() {
 		return apoderado;

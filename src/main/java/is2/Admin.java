@@ -8,15 +8,6 @@ import javax.persistence.Table;
 @Table (name="admin")
 public class Admin extends Persona{
 	
-	private String usuario;
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 	
 	public static EntityManager entityManager() {
 		return (UnitPersistence.getInstance()).get();
