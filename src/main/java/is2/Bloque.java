@@ -2,10 +2,14 @@ package is2;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Bloque {
+	
+	@Id
+	private Long id;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Horario horario;

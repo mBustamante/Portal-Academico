@@ -6,8 +6,8 @@
   	<class>is2.Admin</class>
     <class>is2.Alumno</class>
     <class>is2.Aula</class>
-    <class>is2.Curso</class>
     <class>is2.CursoDictado</class>
+    <class>is2.Curso</class>    
     <class>is2.CursoMalla</class>
     <class>is2.Docente</class>
     <class>is2.Matricula</class>

@@ -18,15 +18,9 @@ public class Docente extends Persona{
 	@JoinTable(name="docente_por_curso_dictado",
 		joinColumns=@JoinColumn(name="docente_id", referencedColumnName="id"),
 		inverseJoinColumns=@JoinColumn(name="curso_dictado_id", referencedColumnName="id"))
-	private List<Curso> cursosDictados;
+	private List<CursoDictado> cursosDictados;
 
-	public List<Curso> getCursosDictados() {
-		return cursosDictados;
-	}
 
-	public void setCursosDictados(List<Curso> cursosDictados) {
-		this.cursosDictados = cursosDictados;
-	}
 
 
 
