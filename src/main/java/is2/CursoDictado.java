@@ -14,4 +14,7 @@ public class CursoDictado {
 	
 	@OneToMany(mappedBy="cursoDictado")
 	private List<Matricula> matriculas;
+	
+	@OneToMany(mappedBy="cursoDictado")
+	private List<Bloque> bloques;
 }
