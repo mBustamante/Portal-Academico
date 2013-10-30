@@ -28,9 +28,27 @@ public class Matricula {
 	private Alumno alumno;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	private Curso curso;
+	private CursoDictado cursoDictado;
 	
 	@OneToMany(mappedBy="matricula")
 	private List<Nota> notas;
+
+
+
+	public Integer getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 	
 }
