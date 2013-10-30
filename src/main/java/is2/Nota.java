@@ -16,13 +16,30 @@ public class Nota {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "nota_id_gen")
 	private Long id;
 	
-	private String nombre;
-	
 	private Double nota;
 	
 	private Double peso;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Matricula matricula;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private CategoriaNota categoria;
+
+	public Double getNota() {
+		return nota;
+	}
+
+	public void setNota(Double nota) {
+		this.nota = nota;
+	}
+
+	public Double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
 	
 }
