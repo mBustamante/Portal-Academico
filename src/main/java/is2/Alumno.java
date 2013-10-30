@@ -5,10 +5,6 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TypedQuery;
@@ -20,12 +16,7 @@ public class Alumno extends Persona{
 	private String colegio;
 	
 	private String apoderado;
-	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name= "alumno_por_grupo",
-	joinColumns=@JoinColumn(name="alumno_id",referencedColumnName="id"),
-	inverseJoinColumns=@JoinColumn(name="grupo_id",	referencedColumnName="id")) 
-	private List<Grupo> grupo;
+
 	
 	@ManyToOne
 	private Matricula matricula;
