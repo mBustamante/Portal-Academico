@@ -1,5 +1,6 @@
 package is2;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,14 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
 public class Periodo {
+	
 	@Id
 	private Long id;
+	
 	private String nombre;
-	private String fecha_inicio;
-	private String fecha_fin;
+	
+	private Date fecha_inicio;
+	
+	private Date fecha_fin;
 	
 	@OneToMany(mappedBy = "periodo")
-	private List<Curso> cursos;
+	private List<CursoDictado> cursosDictados;
 	
 	public Long getId() {
 		return id;
@@ -31,22 +36,25 @@ public class Periodo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public String getFecha_inicio() {
+
+	public Date getFecha_inicio() {
 		return fecha_inicio;
 	}
-	
-	public void setFecha_inicio(String fecha_inicio) {
+
+	public void setFecha_inicio(Date fecha_inicio) {
 		this.fecha_inicio = fecha_inicio;
 	}
-	
-	public String getFecha_fin() {
+
+	public Date getFecha_fin() {
 		return fecha_fin;
 	}
-	
-	public void setFecha_fin(String fecha_fin) {
+
+	public void setFecha_fin(Date fecha_fin) {
 		this.fecha_fin = fecha_fin;
 	}
+
+
+
 	
 
 }
