@@ -1,6 +1,5 @@
 package is2;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -10,12 +9,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.TypedQuery;
-import javax.xml.crypto.Data;
 
 @Entity
 @Table (name = "malla")
@@ -26,15 +23,19 @@ public class Malla {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "malla_id_gen")
 	private Long id;
 	
-	private String fecha;
+	private Date fecha;
 	
 	private String descripcion;
+	
+	private Boolean vigencia;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Carrera carrera;
 	
-	@ManyToMany(mappedBy="mallas")
-	private List<Curso> cursos;
+	@OneToMany(mappedBy="malla")
+	private List<CursoMalla> cursos;
+	
+	
 	
 	public Long getId() {
 		return id;
@@ -43,14 +44,7 @@ public class Malla {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getFecha() {
-		return fecha;
-	}
-	
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
+
 	
 	public String getDescripcion() {
 		return descripcion;
@@ -85,6 +79,22 @@ public class Malla {
 			em.close();
 		}
 		return c;
+	}
+
+	public Boolean getVigencia() {
+		return vigencia;
+	}
+
+	public void setVigencia(Boolean vigencia) {
+		this.vigencia = vigencia;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 	
 	/*

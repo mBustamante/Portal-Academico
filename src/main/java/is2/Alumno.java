@@ -29,6 +29,9 @@ public class Alumno extends Persona{
 	
 	@ManyToOne
 	private Matricula matricula;
+	
+	@ManyToOne
+	private Carrera carrera;
 
 	public Alumno() {
 	}

@@ -1,8 +1,6 @@
 package is2;
 
 import java.util.List;
-import java.util.Collection;
-import java.util.Collections;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -11,11 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.TypedQuery;
 
 @Entity
-@Table (name="carrera")
 public class Carrera {
 
 	@Id
@@ -25,13 +20,13 @@ public class Carrera {
 	
 	private String nombre;
 	
-	private String director;
 	
 	@OneToMany(mappedBy = "carrera")
 	private List<Malla> mallas;
 	
-	@OneToMany(mappedBy = "carrera")
-	private List<Grupo> grupos;
+	@OneToMany(mappedBy="carrera")
+	private List<Alumno> alumnos;
+
 	
 	public Long getId() {
 		return id;
@@ -41,13 +36,6 @@ public class Carrera {
 		this.id = id;
 	}
 	
-	public String getDirector() {
-		return director;
-	}
-	
-	public void setDirector(String director) {
-		this.director = director;
-	}
 	
 	public String getNombre() {
 		return nombre;

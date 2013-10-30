@@ -12,4 +12,7 @@ public class CursoMalla {
 	
 	@ManyToOne
 	private Curso curso;
+	
+	@ManyToOne
+	private Malla malla;
 }
