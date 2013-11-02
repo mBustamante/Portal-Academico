@@ -11,8 +11,8 @@ import javax.persistence.criteria.CriteriaQuery;
 
 public abstract class JpaGenericDao<T,PK extends Number>  implements GenericDao<T, PK> {
 	
-	 private Class<T> classtype;
-	 private EntityManager entityManager;
+	 protected Class<T> classtype;
+	 protected EntityManager entityManager;
 	 
 	 public static EntityManager entityManager() {
 			return (UnitPersistence.getInstance()).get();
