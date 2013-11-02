@@ -5,23 +5,24 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import repository.AdminDao;
-import is2.Admin;
 import is2.Alumno;
+import is2.Matricula;
+import repository.MatriculaDao;
 
-public class JpaAdminDao extends JpaGenericDao<Admin,Long> implements AdminDao {
+public class JpaMatriculaDao extends JpaGenericDao<Matricula, Long> implements MatriculaDao{
 
-	public JpaAdminDao(Class<Admin> classtype) {
+	public JpaMatriculaDao(Class<Matricula> classtype) {
 		super(classtype);
+		
 	}
 	
 	@Override
-	public List<Admin> findAll()
+	public List<Matricula> findAll()
 	{
 		try {
 		      entityManager.getTransaction().begin();
-		      TypedQuery<Admin> query = entityManager.createQuery(
-		          "SELECT p FROM admin p", Admin.class);
+		      TypedQuery<Matricula> query = entityManager.createQuery(
+		          "SELECT p FROM matricula p", Matricula.class);
 		      return query.getResultList();
 		    } catch (Exception e) {
 		      System.out.println("Error");
@@ -31,5 +32,5 @@ public class JpaAdminDao extends JpaGenericDao<Admin,Long> implements AdminDao {
 		    }
 		    return Collections.emptyList();
 	}
-
+	
 }

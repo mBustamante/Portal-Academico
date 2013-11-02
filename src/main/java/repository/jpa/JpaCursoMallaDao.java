@@ -15,7 +15,7 @@ public class JpaCursoMallaDao extends JpaGenericDao<CursoMalla, Long> implements
 		super(classtype);
 	}
 	
-	
+	@Override
 	public List<CursoMalla> findAll()
 	{
 		try {

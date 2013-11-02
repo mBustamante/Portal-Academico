@@ -14,6 +14,7 @@ public class JpaAlumnoDao extends JpaGenericDao<Alumno, Long> implements AlumnoD
 		super(classtype);
 	}
 	
+	@Override
 	public List<Alumno> findAll()
 	{
 		try {
