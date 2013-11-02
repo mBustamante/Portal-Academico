@@ -5,15 +5,19 @@
  	<class>is2.Persona</class>
   	<class>is2.Admin</class>
     <class>is2.Alumno</class>
-    <class>is2.Curso</class>
+    <class>is2.Aula</class>
+    <class>is2.CursoDictado</class>
+    <class>is2.Curso</class>    
+    <class>is2.CursoMalla</class>
     <class>is2.Docente</class>
     <class>is2.Matricula</class>
     <class>is2.Nota</class>
-    <class>is2.Grupo</class>
+    <class>is2.CategoriaNota</class>
     <class>is2.Carrera</class>
     <class>is2.Malla</class>
-    <class>is2.BloqueHorario</class>
+    <class>is2.Horario</class>
     <class>is2.Periodo</class>
+    <class>is2.Bloque</class>
 
     <properties>
       <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
