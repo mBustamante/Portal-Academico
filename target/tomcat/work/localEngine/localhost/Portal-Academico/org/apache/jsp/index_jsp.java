@@ -3,8 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import repository.jpa.JpaCursoDao;
 import is2.Alumno;
 import is2.Curso;
+import repository.CursoDao;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -55,6 +57,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!doctype html>\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n");
@@ -66,7 +70,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  <ul>\n");
       out.write("    ");
 
-    	for (Curso c : Curso.findAll()) {
+    	CursoDao f = new JpaCursoDao();
+    	for (Curso c : f.findAll()) {
     
       out.write("\n");
       out.write("  <li>");
