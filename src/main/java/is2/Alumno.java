@@ -18,8 +18,8 @@ public class Alumno extends Persona{
 	private String apoderado;
 
 	
-	@ManyToOne
-	private Matricula matricula;
+	@OneToMany(mappedBy="alumno")
+	private List<Matricula> matriculas;
 	
 	@ManyToOne
 	private Carrera carrera;
