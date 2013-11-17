@@ -1,0 +1,8 @@
+<html>
+<body>
+<ul>
+ <li><a href="user/list.html">Usuarios</a></li>
+ <li><a href="producto/list.html">Productos</a></li>
+</ul>
+</body>
+</html>

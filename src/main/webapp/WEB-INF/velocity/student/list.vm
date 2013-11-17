@@ -1,0 +1,14 @@
+<html>
+<body>
+#if($students.empty)
+	<div>No hay Estudiantes registrados</div>
+	<a href="add.html">Aggregar Nuevo</a>
+#else
+	<ul>
+	#foreach($student in $students)
+		<li><a href="${student.id}/details.html">$student.firstName $student.lastName</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>

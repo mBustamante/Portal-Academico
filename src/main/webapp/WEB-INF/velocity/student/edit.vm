@@ -1,0 +1,30 @@
+<html>
+##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+<form action="#springUrl("/student/save.html")" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!student.id<input type="hidden" name="id" value="$!student.id" /><td>
+		</tr>
+		<tr>
+			<td><b>First Name:</b></td>
+			<td><input type="text" name="firstName" value="$!student.firstName"/><td>
+		</tr>
+		<tr>
+			<td><b>Last Name:</b></td>
+			<td><input type="text" name="lastName" value="$!student.lastName"/><td>
+		</tr>
+		<tr>
+			<td><b>Email:</b></td>
+			#springBind("student.email")
+    		##springFormInput("student.email", "")
+			<td><input type="text" name="email" value="$!student.email"/><td>
+    		#springShowErrors("<br />", "")
+		</tr>
+	</table>
+  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>
+##parse("student/details.vm")

@@ -2,22 +2,23 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="app1">
- 	<class>is2.Persona</class>
-  	<class>is2.Admin</class>
-    <class>is2.Alumno</class>
-    <class>is2.Aula</class>
-    <class>is2.CursoDictado</class>
-    <class>is2.Curso</class>    
-    <class>is2.CursoMalla</class>
-    <class>is2.Docente</class>
-    <class>is2.Matricula</class>
-    <class>is2.Nota</class>
-    <class>is2.CategoriaNota</class>
-    <class>is2.Carrera</class>
-    <class>is2.Malla</class>
-    <class>is2.Horario</class>
-    <class>is2.Periodo</class>
-    <class>is2.Bloque</class>
+    <class>is2.domain.Account</class>
+ 	<class>is2.domain.Persona</class>
+  	<class>is2.domain.Admin</class>
+    <class>is2.domain.Alumno</class>
+    <class>is2.domain.Aula</class>
+    <class>is2.domain.CursoDictado</class>
+    <class>is2.domain.Curso</class>    
+    <class>is2.domain.CursoMalla</class>
+    <class>is2.domain.Docente</class>
+    <class>is2.domain.domain.Matricula</class>
+    <class>is2.domain.domain.Nota</class>
+    <class>is2.domain.CategoriaNota</class>
+    <class>is2.domain.Carrera</class>
+    <class>is2.domain.Malla</class>
+    <class>is2.domain.Horario</class>
+    <class>is2.domain.Periodo</class>
+    <class>is2.domain.Bloque</class>
 
     <properties>
       <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />

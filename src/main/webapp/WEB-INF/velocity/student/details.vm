@@ -1,0 +1,26 @@
+<html>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$student.id<td>
+		</tr>
+		<tr>
+			<td><b>First Name:</b></td>
+			<td>$student.firstName<td>
+		</tr>
+		<tr>
+			<td><b>Last Name:</b></td>
+			<td>$student.lastName<td>
+		</tr>
+		<tr>
+			<td><b>Email:</b></td>
+			<td>$student.email<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>

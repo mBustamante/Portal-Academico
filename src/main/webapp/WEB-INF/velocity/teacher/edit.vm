@@ -1,0 +1,18 @@
+<html>
+#set($saveUrl = "save.html")
+<form action="#if($producto.id)../#end$saveUrl" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!producto.id<input type="hidden" name="id" value="$!producto.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Name:</b></td>
+			<td><input type="text" name="name" value="$!producto.name"/><td>
+		</tr>
+	</table>
+  #foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>

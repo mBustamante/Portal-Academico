@@ -1,0 +1,12 @@
+<html>
+#springBind("student.*")
+#if ($status.errorMessages.empty)
+	Se guardo el usuario sin problemas
+	<br /><a href="list.html">Ver Lista</a>
+#else
+Los siguiente errores fueron encontrados:
+<ol>
+	#foreach($error in $status.errorMessages) <li>$error</li>#end
+</ol>
+#end
+</html>
