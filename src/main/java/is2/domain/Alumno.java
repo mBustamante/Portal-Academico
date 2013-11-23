@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @NamedQuery(name = Alumno.FIND_BY_USER, query = "SELECT s FROM Alumno s WHERE s.usuario = :usuario")
 public class Alumno extends Persona implements BaseEntity<Long>{
 	
-	public static final String FIND_BY_USER = "Alumno.findIdByUsername";
+	public static final String FIND_BY_USER = "Alumno.findByUsername";
 
 	@Id
 	@SequenceGenerator(name = "STUDENT_ID_GENERATOR", sequenceName = "STUDENT_STUDY_ID_SEQ", allocationSize = 1)

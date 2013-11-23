@@ -36,6 +36,7 @@
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
                 <a href="/Portal-Academico" th:href="@{/Portal-Academico}">Back to home</a></p>
+                <b>Signin Fail
             </div>
         </div>
     </fieldset>

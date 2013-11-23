@@ -1,5 +1,7 @@
 package is2.repository.jpa;
 
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 
 import is2.domain.Admin;
@@ -14,21 +16,24 @@ public class JpaAdminDao extends JpaGenericDao<Admin,Long> implements AdminDao {
 	}
 
 	@Override
-	public Admin findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+	public Admin findByUsername(String usuario) {
+		TypedQuery<Admin> query = entityManager.createNamedQuery(Admin.FIND_BY_USER, Admin.class);
+		query.setParameter("usuario", usuario);
+		return getFirstResult(query);
 	}
 
 	@Override
 	public boolean existsAdministrator(String username, String password) {
-		// TODO Auto-generated method stub
-		return false;
+		Admin test = findByUsername(username);
+		if (test!=null && test.getPassword().equals(password)) return true;
+		else return false;
 	}
 
 	@Override
 	public boolean existsByUsername(String username) {
-		// TODO Auto-generated method stub
-		return false;
+		Admin test = findByUsername(username);
+		if (test != null)return true;
+		else return false;
 	}
 
 }

@@ -6,7 +6,7 @@
 #else
 	<ul>
 	#foreach($student in $students)
-		<li><a href="${student.id}/details.html">$student.firstName $student.lastName</a></li>
+		<li><a href="${student.id}/details.html">$student.nombre $student.apellido</a></li>
 	#end
 	</ul>
 #end

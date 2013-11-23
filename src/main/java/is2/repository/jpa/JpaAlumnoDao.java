@@ -19,14 +19,17 @@ public class JpaAlumnoDao extends JpaGenericDao<Alumno, Long> implements AlumnoD
 
 	@Override
 	public boolean existsUser(String username, String password) {
-		// TODO Auto-generated method stub
-		return false;
+		Alumno test = findByUsername(username);
+		if (test!=null && test.getPassword().equals(password)) {
+			return true;}
+		else return false;
 	}
 
 	@Override
 	public boolean existsByUsername(String username) {
-		// TODO Auto-generated method stub
-		return false;
+		Alumno test = findByUsername(username);
+		if (test != null)return true;
+		else return false;
 	}
 
 	@Override

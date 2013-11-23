@@ -1,0 +1,8 @@
+<html>
+<body>
+<title>Home Alumno</title>
+Welcome Alumno: id:$id_user  usuario:$username  </br></br>
+    
+    <a href="logout"><button>Logout</button></a></br>
+</body>
+</html>

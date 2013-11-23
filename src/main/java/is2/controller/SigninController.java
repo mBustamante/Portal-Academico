@@ -8,6 +8,6 @@ public class SigninController {
 
 	@RequestMapping(value = "signin")
 	public String signin() {
-        return "login";
+        return "signin";
     }
 }
