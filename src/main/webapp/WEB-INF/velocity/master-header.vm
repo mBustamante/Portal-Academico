@@ -2,10 +2,10 @@
 
 <ul class="nav nav-pills nav-justified">
 	<li class="active">
-		<a href="#">Home</a>
+		<a href="/Portal-Academico/">Home</a>
 	</li>
 	<li>
-		<a href="#">Asistencias</a>
+		<a href="/Portal-Academico/signin">Sign in</a>
 	</li>
 	<li>
 		<a href="/Portal-Academico/alumno/list.html">Lista de alumnos</a>
