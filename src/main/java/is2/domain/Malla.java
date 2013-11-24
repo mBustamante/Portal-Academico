@@ -100,6 +100,14 @@ public class Malla implements BaseEntity<Long> {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+
+	public List<CursoMalla> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<CursoMalla> cursos) {
+		this.cursos = cursos;
+	}
 	
 	/*
 	public static List<Malla> findAll(){

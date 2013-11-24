@@ -22,7 +22,7 @@ public class Matricula implements BaseEntity<Long>{
 	
 	private Date fecha;
 	
-	private Integer estado;
+	private Integer estado;		// 0 jalado, 1 en curso, 2 aprobado
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Alumno alumno;
@@ -33,8 +33,12 @@ public class Matricula implements BaseEntity<Long>{
 	@OneToMany(mappedBy="matricula")
 	private List<Nota> notas;
 
-	public Integer getEstado() {
-		return estado;
+	public String getEstado() {
+		if( estado == 0 )
+			return "desaprobado";
+		if( estado == 1 )
+			return "en curso";
+		return "aprobado";
 	}
 
 	public void setEstado(Integer estado) {

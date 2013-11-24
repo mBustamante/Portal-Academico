@@ -70,6 +70,14 @@ public class Carrera implements BaseEntity<Long>{
 		}
 		return c;
 	}
+
+	public List<Malla> getMallas() {
+		return mallas;
+	}
+
+	public void setMallas(List<Malla> mallas) {
+		this.mallas = mallas;
+	}
 	
 	/*
 	public static List<Carrera> findAll(){

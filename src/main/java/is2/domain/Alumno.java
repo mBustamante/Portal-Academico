@@ -78,4 +78,12 @@ public class Alumno extends Persona implements BaseEntity<Long>{
 		this.matriculas = matriculas;
 	}
 
+	public Carrera getCarrera() {
+		return carrera;
+	}
+
+	public void setCarrera(Carrera carrera) {
+		this.carrera = carrera;
+	}
+
 }
