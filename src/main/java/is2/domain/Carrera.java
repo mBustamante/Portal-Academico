@@ -7,12 +7,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "carrera")
+@NamedQuery(name = Carrera.FIND_ALL , query = "SELECT s FROM Carrera s")
 public class Carrera implements BaseEntity<Long>{
 
+	public static final String FIND_ALL = "Carrera.findAll";
 	@Id
 	@SequenceGenerator(name = "carrera_id_gen", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "carrera_id_gen")

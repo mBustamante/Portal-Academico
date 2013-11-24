@@ -1,5 +1,15 @@
 <html>
 <body>
-aki va algo
+#if($carreras.empty)
+	<div> No hay aulas registrados</div>
+	<a href="add.html">Agregar Nuevo</a>
+#else
+	<ul>
+	#foreach($carrera in $carreras)
+		<li><a href="${carrera.id}/details.html">$carrera.nombre</a></li>
+	#end
+	</ul>
+#end
+<a href="add.html">Agregar nueva carrera</a>
 </body>
 </html>

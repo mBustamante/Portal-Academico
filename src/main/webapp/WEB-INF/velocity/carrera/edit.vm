@@ -1,0 +1,20 @@
+<html>
+<body>
+##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+<form action="#springUrl("/carrera/save.html")" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!carrera.id<input type="hidden" name="id" value="$!carrera.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Nombre de la Carrera Profesional:</b></td>
+			<td><input type="text" name="nombre" value="$!carrera.nombre"/><td>
+		</tr>
+	</table>
+  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</body>
+</html>
