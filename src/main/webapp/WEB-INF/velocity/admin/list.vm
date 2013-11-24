@@ -1,0 +1,15 @@
+<html>
+<body>
+#if($admin.empty)
+	<div> No hay admins registrados</div>
+	<a href="add.html">Agregar Nuevo</a>
+#else
+	<ul>
+	#foreach($admin in $admins)
+		<li><a href="${admin.id}/details.html">$admin.nombre $admin.apellido</a></li>
+	#end
+	</ul>
+#end
+<a href="add.html">Agregar nuevo admin</a>
+</body>
+</html>
