@@ -22,8 +22,6 @@ public class CursoController {
 	@Inject
 	CursoDao cursoDao;
 	
-	// validator
-	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
 		return new ModelAndView("curso/list" , "cursos" , cursoDao.findAll());

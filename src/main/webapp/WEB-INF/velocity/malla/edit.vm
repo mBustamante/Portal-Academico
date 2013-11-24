@@ -1,0 +1,29 @@
+<html>
+<body>
+##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+<form action="#springUrl("/malla/save.html")" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!malla.id<input type="hidden" name="id" value="$!malla.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Descripcion:</b></td>
+			<td><input type="text" name="descripcion" value="$!malla.descripcion"/><td>
+		</tr>
+		<tr>
+			<td><b>Fecha:</b></td>
+			<td><input type="text" name="fecha" value="$!malla.fecha"/><td>
+		</tr>
+		<tr>
+			<td><b>Vigencia :</b></td>
+			<td><input type="text" name="vigencia" value="$!malla.vigencia"/><td>
+		</tr>
+	</table>
+  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</body>
+</html>
+##parse("student/details.vm")

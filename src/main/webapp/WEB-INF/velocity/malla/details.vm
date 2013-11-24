@@ -5,20 +5,19 @@
 	<table>
 		<tr>
 			<td><b>Id:</b></td>
-			<td>$curso.id<td>
+			<td>$malla.id<td>
 		</tr>
 		<tr>
-			<td><b>Nombre :</b></td>
-			<td>$curso.nombre<td>
+			<td><b>Descripcion :</b></td>
+			<td>$malla.descripcion<td>
 		</tr>
 		<tr>
-			<td><b>Id Equivalencia:</b></td>
-			<td>$curso.idEquivalencia<td>
-			
+			<td><b>Fecha:</b></td>
+			<td>$malla.fecha<td>
 		</tr>
 		<tr>
 			<td><b>Vigencia :</b></td>
-			<td>$curso.vigencia<td>
+			<td>$malla.vigencia<td>
 		</tr>
 	</table>
 	<br />

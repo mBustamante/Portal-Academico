@@ -1,0 +1,15 @@
+<html>
+<body>
+#if($mallas.empty)
+	<div> No hay mallas registradas</div>
+	<a href="add.html">Agregar Nuevo</a>
+#else
+	<ul>
+	#foreach($malla in $mallas)
+		<li><a href="${malla.id}/details.html">$malla.id</a></li>
+	#end
+	</ul>
+#end
+<a href="add.html">Agregar nuevo malla</a>
+</body>
+</html>

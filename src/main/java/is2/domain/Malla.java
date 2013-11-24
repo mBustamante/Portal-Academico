@@ -10,14 +10,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table (name = "malla")
+@NamedQuery(name = Malla.FIND_ALL, query = "SELECT s FROM Malla s")
 public class Malla implements BaseEntity<Long> {
 	
+	public static final String FIND_ALL = "Malla.findAll";
 	@Id
 	@SequenceGenerator(name = "malla_id_gen", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "malla_id_gen")
@@ -44,6 +47,8 @@ public class Malla implements BaseEntity<Long> {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
 	
 	public String getDescripcion() {
 		return descripcion;

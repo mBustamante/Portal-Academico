@@ -1,7 +1,7 @@
 package is2.controller;
 
-import is2.domain.Carrera;
-import is2.repository.CarreraDao;
+import is2.domain.Malla;
+import is2.repository.MallaDao;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -16,53 +16,52 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/carrera")
-public class CarreraController {
+@RequestMapping("/malla")
+public class MallaController {
 
 	@Inject
-	CarreraDao carreraDao;
+	MallaDao mallaDao;
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
-		return new ModelAndView("carrera/list" , "carreras" , carreraDao.findAll());
+		return new ModelAndView("malla/list" , "mallas" , mallaDao.findAll());
 	}
 	
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("carrera", carreraDao.find(id));
-		view.setViewName("carrera/details");
+		view.addObject("malla", mallaDao.find(id));
+		view.setViewName("malla/details");
 		return view;
 	}
 
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("carrera", carreraDao.find(id));
-		view.setViewName("carrera/edit");
+		view.addObject("malla", mallaDao.find(id));
+		view.setViewName("malla/edit");
 		return view;
 	}
 	
 	@RequestMapping("/add.html")
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();
-		view.addObject("carrera", new Carrera());
-		view.setViewName("carrera/edit");
+		view.addObject("malla", new Malla());
+		view.setViewName("malla/edit");
 		return view;
 	}
 	
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("carrera") @Valid Carrera carrera, BindingResult result, SessionStatus status) {
-		if (carrera.getId() == null) {
-			carreraDao.persist(carrera);
+	public ModelAndView save(@ModelAttribute("malla") @Valid Malla malla, BindingResult result, SessionStatus status) {
+		if (malla.getId() == null) {
+			mallaDao.persist(malla);
 			status.setComplete();
 		}
 		else {
-			carreraDao.merge(carrera);
+			mallaDao.merge(malla);
 			status.setComplete();
 		}
-		return new ModelAndView(result.getErrorCount() > 0 ? "carrera/edit" : "redirect:list.html");
-//		return new ModelAndView("Student/save");
+		return new ModelAndView(result.getErrorCount() > 0 ? "student/edit" : "redirect:list.html");
 	}
 
 }

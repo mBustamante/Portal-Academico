@@ -24,8 +24,6 @@ public class AulaController {
 	@Inject
 	AulaDao aulaDao;
 	
-	// validator
-	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
 		return new ModelAndView("aula/list" , "aulas" , aulaDao.findAll());
