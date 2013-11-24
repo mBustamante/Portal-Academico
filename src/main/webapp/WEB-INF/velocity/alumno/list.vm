@@ -1,17 +1,38 @@
+#parse( "declaraciones.vm" )
 <html>
+<head>
+	#parse( "head.vm" )
+</head>
+
 <body>
-#if($alumno.empty)
-	<div> No hay alumnos registrados</div>
-	<a href="add.html">Agregar Nuevo</a>
-#else
-	<ul>
-	#foreach($alumno in $alumnos)
-		<li><a href="${alumno.id}/details.html">$alumno.nombre $alumno.apellido</a>
-			<a href="${alumno.id}/notas.html"> Notas</a>
-		</li>
-	#end
-	</ul>
-#end
-<a href="add.html">Agregar nuevo alumno</a>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+			#if($alumno.empty)
+				<div> No hay alumnos registrados</div>
+				<a href="add.html">Agregar Nuevo</a>
+			#else
+				<table class="table table-hover">
+				<tr><th>Alumno</th><th>Notas</th></tr>
+				#foreach($alumno in $alumnos)
+					<tr>
+						<td><a href="${alumno.id}/details.html">$alumno.nombre $alumno.apellido</a></td>
+						<td><a href="${alumno.id}/notas.html">Ver notas</a></td>
+					</tr>
+				#end
+				</table>
+			#end
+			<a href="add.html"><button class="btn btn-default" type="button">Agregar nuevo alumno</button></a>
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
 </body>
 </html>
