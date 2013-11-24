@@ -1,6 +1,9 @@
 package is2.controller;
 
+import is2.domain.Alumno;
 import is2.domain.Curso;
+import is2.repository.AulaDao;
+import is2.domain.Aula;
 import is2.repository.CursoDao;
 
 import javax.inject.Inject;
@@ -16,51 +19,53 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/curso")
-public class CursoController {
+@RequestMapping("/aula")
+public class AulaController {
 
+	
 	@Inject
-	CursoDao cursoDao;
+	AulaDao aulaDao;
 	
 	// validator
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
-		return new ModelAndView("curso/list" , "cursos" , cursoDao.findAll());
+		return new ModelAndView("aula/list" , "aulas" , aulaDao.findAll());
 	}
 	
+
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("curso", cursoDao.find(id));
-		view.setViewName("curso/details");
+		view.addObject("aula", aulaDao.find(id));
+		view.setViewName("aula/details");
 		return view;
 	}
 
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("curso", cursoDao.find(id));
-		view.setViewName("curso/edit");
+		view.addObject("aula", aulaDao.find(id));
+		view.setViewName("aula/edit");
 		return view;
 	}
 	
 	@RequestMapping("/add.html")
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();
-		view.addObject("curso", new Curso());
-		view.setViewName("curso/edit");
+		view.addObject("aula", new Curso());
+		view.setViewName("aula/edit");
 		return view;
 	}
 	
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("curso") @Valid Curso curso, BindingResult result, SessionStatus status) {
-		if (curso.getId() == null) {
-			cursoDao.persist(curso);
+	public ModelAndView save(@ModelAttribute("aula") @Valid Aula aula, BindingResult result, SessionStatus status) {
+		if (aula.getId() == null) {
+			aulaDao.persist(aula);
 			status.setComplete();
 		}
 		else {
-			cursoDao.merge(curso);
+			aulaDao.merge(aula);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "student/edit" : "redirect:list.html");

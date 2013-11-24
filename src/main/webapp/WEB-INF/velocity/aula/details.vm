@@ -1,0 +1,23 @@
+<html>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$aula.id<td>
+		</tr>
+		<tr>
+			<td><b>Nombre :</b></td>
+			<td>$aula.nombre<td>
+		</tr>
+		<tr>
+			<td><b>Maximo de Alumnos:</b></td>
+			<td>$aula.maxAlumnos<td>
+			
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>

@@ -22,11 +22,11 @@ public class JpaCursoDao extends JpaGenericDao<Curso, Long> implements CursoDao{
 	{
 		return Curso.class.getName();
 	}
-	
+/*	
 	@Override
 	public List<Curso> findAll() {
 		TypedQuery<Curso> query = entityManager.createNamedQuery(Curso.FIND_ALL, Curso.class);
 		return query.getResultList();
 }
-
+*/
 }

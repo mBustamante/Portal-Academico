@@ -1,0 +1,24 @@
+<html>
+<body>
+##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+<form action="#springUrl("/aula/save.html")" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!aula.id<input type="hidden" name="id" value="$!aula.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Nombre de la Aula:</b></td>
+			<td><input type="text" name="nombre" value="$!aula.nombre"/><td>
+		</tr>
+		<tr>
+			<td><b>Maximo de Alumnos:</b></td>
+			<td><input type="text" name="maxAlumnos" value="$!aula.maxAlumnos"/><td>
+		</tr>
+	</table>
+  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</body>
+</html>
