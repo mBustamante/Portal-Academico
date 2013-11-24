@@ -17,55 +17,55 @@ import is2.domain.Alumno;
 import is2.repository.AlumnoDao;
 
 @Controller
-@RequestMapping("/student")
-public class StudentController {
+@RequestMapping("/alumno")
+public class AlumnoController {
 
 	@Inject
-	AlumnoDao studentDao;
+	AlumnoDao alumnoDao;
 
 	@Inject
 	Validator validator;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
-		return new ModelAndView("student/list", "students", studentDao.findAll());
+		return new ModelAndView("alumno/list", "alumnos", alumnoDao.findAll());
 	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("student", studentDao.find(id));
-		view.setViewName("student/details");
+		view.addObject("alumno", alumnoDao.find(id));
+		view.setViewName("alumno/details");
 		return view;
 	}
 
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("student", studentDao.find(id));
-		view.setViewName("student/edit");
+		view.addObject("alumno", alumnoDao.find(id));
+		view.setViewName("alumno/edit");
 		return view;
 	}
 
 	@RequestMapping("/add.html")
 	public ModelAndView add() {
 		ModelAndView view = new ModelAndView();
-		view.addObject("student", new Alumno());
-		view.setViewName("student/edit");
+		view.addObject("alumno", new Alumno());
+		view.setViewName("alumno/edit");
 		return view;
 	}
 
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("student") @Valid Alumno Student, BindingResult result, SessionStatus status) {
-		if (Student.getId() == null) {
-			studentDao.persist(Student);
+	public ModelAndView save(@ModelAttribute("alumno") @Valid Alumno Alumno, BindingResult result, SessionStatus status) {
+		if (Alumno.getId() == null) {
+			alumnoDao.persist(Alumno);
 			status.setComplete();
 		}
 		else {
-			studentDao.merge(Student);
+			alumnoDao.merge(Alumno);
 			status.setComplete();
 		}
-		return new ModelAndView(result.getErrorCount() > 0 ? "student/edit" : "redirect:list.html");
-//		return new ModelAndView("Student/save");
+		return new ModelAndView(result.getErrorCount() > 0 ? "alumno/edit" : "redirect:list.html");
+//		return new ModelAndView("Alumno/save");
 	}
 }

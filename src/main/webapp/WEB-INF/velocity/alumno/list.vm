@@ -1,0 +1,15 @@
+<html>
+<body>
+#if($alumno.empty)
+	<div> No hay alumnos registrados</div>
+	<a href="add.html">Agregar Nuevo</a>
+#else
+	<ul>
+	#foreach($alumno in $alumnos)
+		<li><a href="${alumno.id}/details.html">$alumno.nombre $alumno.apellido</a></li>
+	#end
+	</ul>
+#end
+<a href="add.html">Agregar nuevo alumno</a>
+</body>
+</html>
