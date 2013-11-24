@@ -7,7 +7,7 @@ public class JpaCarreraDao extends JpaGenericDao<Carrera, Long> implements Carre
 
 	@Override
 	protected Class<Carrera> getClase() {
-		return Carrera.class;
+		return null;
 	}
 
 }

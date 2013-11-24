@@ -1,0 +1,14 @@
+<html>
+<body>
+#if($cursos.empty)
+	<div> No hay cursos registrados</div>
+	<a href="add.html">Agregar Nuevo</a>
+#else
+	<ul>
+	#foreach($curso in $cursos)
+		<li><a href="${curso.id}/details.html">$curso.nombre</a></li>
+	#end
+	</ul>
+#end
+</body>
+</html>
