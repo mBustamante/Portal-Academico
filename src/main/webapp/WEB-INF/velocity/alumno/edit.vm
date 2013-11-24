@@ -1,31 +1,55 @@
+#parse( "declaraciones.vm" )
 <html>
-##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
-<form action="#springUrl("/alumno/save.html")" method="POST">
-	<table>
-		<tr>
-			<td><b>Id:</b></td>
-			<td>$!alumno.id<input type="hidden" name="id" value="$!alumno.id" /><td>
-		</tr>
-		<tr>
-			<td><b>Nombre :</b></td>
-			<td><input type="text" name="nombre" value="$!alumno.nombre"/><td>
-		</tr>
-		<tr>
-			<td><b>Apellido:</b></td>
-			<td><input type="text" name="apellido" value="$!alumno.apellido"/><td>
-		</tr>
-		<tr>
-			<td><b>Nombre de Usuario:</b></td>
-			<td><input type="text" name="usuario" value="$!alumno.usuario"/><td>
-		</tr>
-		<tr>
-			<td><b>Telefono:</b></td>
-			<td><input type="text" name="telefono" value="$!alumno.telefono"/><td>
-		</tr>
-	</table>
-  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
-  <br>
-  <input type="submit" value="Guardar"/>
-</form>
+<head>
+	#parse( "head.vm" )
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+
+			##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+			<form action="#springUrl("/alumno/save.html")" method="POST">
+				<table>
+					<tr>
+						<td><b>Id:</b></td>
+						<td>$!alumno.id<input type="hidden" name="id" value="$!alumno.id" /><td>
+					</tr>
+					<tr>
+						<td><b>Nombre :</b></td>
+						<td><input type="text" name="nombre" value="$!alumno.nombre"/><td>
+					</tr>
+					<tr>
+						<td><b>Apellido:</b></td>
+						<td><input type="text" name="apellido" value="$!alumno.apellido"/><td>
+					</tr>
+					<tr>
+						<td><b>Nombre de Usuario:</b></td>
+						<td><input type="text" name="usuario" value="$!alumno.usuario"/><td>
+					</tr>
+					<tr>
+						<td><b>Telefono:</b></td>
+						<td><input type="text" name="telefono" value="$!alumno.telefono"/><td>
+					</tr>
+				</table>
+			  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+			  <br>
+			  <input type="submit" value="Guardar"/>
+			</form>
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
 </html>
-##parse("alumno/details.vm")
+
