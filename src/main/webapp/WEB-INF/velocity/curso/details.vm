@@ -1,0 +1,27 @@
+<html>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$curso.id<td>
+		</tr>
+		<tr>
+			<td><b>Nombre :</b></td>
+			<td>$curso.nombre<td>
+		</tr>
+		<tr>
+			<td><b>Id Equivalencia:</b></td>
+			<td>$curso.idEquivalencia<td>
+			
+		</tr>
+		<tr>
+			<td><b>Creditos :</b></td>
+			<td>$curso.creditos<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>

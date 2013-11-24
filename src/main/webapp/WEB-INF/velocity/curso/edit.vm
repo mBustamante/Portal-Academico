@@ -1,0 +1,29 @@
+<html>
+<body>
+##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+<form action="#springUrl("/curso/save.html")" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!curso.id<input type="hidden" name="id" value="$!curso.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Nombre del Curso:</b></td>
+			<td><input type="text" name="nombre" value="$!curso.nombre"/><td>
+		</tr>
+		<tr>
+			<td><b>Creditos:</b></td>
+			<td><input type="text" name="creditos" value="$!curso.creditos"/><td>
+		</tr>
+		<tr>
+			<td><b>Id Equivalencia:</b></td>
+			<td><input type="text" name="idEquivalencia" value="$!curso.idEquivalencia"/><td>
+		</tr>
+	</table>
+  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</body>
+</html>
+##parse("student/details.vm")
