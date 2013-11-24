@@ -14,6 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Docente;
+import is2.repository.CursoDictadoDao;
 import is2.repository.DocenteDao;
 
 @Controller
@@ -21,7 +22,10 @@ import is2.repository.DocenteDao;
 public class DocenteController {
 
 	@Inject
-	DocenteDao docenteDao;
+	CursoDictadoDao cursoDictadoDao;
+	
+	@Inject
+	DocenteDao docenteDao;	
 
 	@Inject
 	Validator validator;
@@ -36,6 +40,22 @@ public class DocenteController {
 		ModelAndView view = new ModelAndView();
 		view.addObject("docente", docenteDao.find(id));
 		view.setViewName("docente/details");
+		return view;
+	}
+	
+	@RequestMapping("/{id}/cursos.html")
+	public ModelAndView cursos(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("docente", docenteDao.find(id));
+		view.setViewName("docente/cursos");
+		return view;
+	}
+	
+	@RequestMapping("/{id}/alumnos.html")
+	public ModelAndView alumnos(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+		view.addObject("curso", cursoDictadoDao.find(id));
+		view.setViewName("docente/alumnos");
 		return view;
 	}
 

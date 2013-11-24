@@ -45,4 +45,12 @@ public class Docente extends Persona implements BaseEntity<Long>{
 		this.id = id;
 	}
 
+	public List<CursoDictado> getCursosDictados() {
+		return cursosDictados;
+	}
+
+	public void setCursosDictados(List<CursoDictado> cursosDictados) {
+		this.cursosDictados = cursosDictados;
+	}
+
 }
