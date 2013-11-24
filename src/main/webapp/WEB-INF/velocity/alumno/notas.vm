@@ -1,0 +1,36 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+			Notas de $alumno.nombre
+			<ul>
+				#foreach( $matricula in $alumno.matriculas )
+				<li> $matricula.cursoDictado.curso.nombre
+					<ul>
+					#foreach( $nota in $matricula.notas )
+						<li> $nota.categoria.nombre $nota.nota </li>
+					#end
+					</ul>
+				</li>
+				#end
+			</ul>
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
+

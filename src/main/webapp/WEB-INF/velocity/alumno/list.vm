@@ -6,7 +6,9 @@
 #else
 	<ul>
 	#foreach($alumno in $alumnos)
-		<li><a href="${alumno.id}/details.html">$alumno.nombre $alumno.apellido</a></li>
+		<li><a href="${alumno.id}/details.html">$alumno.nombre $alumno.apellido</a>
+			<a href="${alumno.id}/notas.html"> Notas</a>
+		</li>
 	#end
 	</ul>
 #end

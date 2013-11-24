@@ -38,4 +38,12 @@ public class CursoDictado implements BaseEntity<Long>{
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 }

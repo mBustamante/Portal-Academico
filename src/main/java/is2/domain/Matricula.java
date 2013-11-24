@@ -58,5 +58,21 @@ public class Matricula implements BaseEntity<Long>{
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public List<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
+
+	public CursoDictado getCursoDictado() {
+		return cursoDictado;
+	}
+
+	public void setCursoDictado(CursoDictado cursoDictado) {
+		this.cursoDictado = cursoDictado;
+	}
 	
 }

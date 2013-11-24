@@ -51,5 +51,13 @@ public class Nota implements BaseEntity<Long>{
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public CategoriaNota getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaNota categoria) {
+		this.categoria = categoria;
+	}
 	
 }

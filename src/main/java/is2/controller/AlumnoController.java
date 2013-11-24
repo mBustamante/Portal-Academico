@@ -46,6 +46,15 @@ public class AlumnoController {
 		view.setViewName("alumno/edit");
 		return view;
 	}
+	
+	@RequestMapping("/{id}/notas.html")
+	public ModelAndView notas(@PathVariable Long id)
+	{
+		ModelAndView view = new ModelAndView();
+		view.addObject("alumno", alumnoDao.find(id));
+		view.setViewName("alumno/notas");
+		return view;
+	}
 
 	@RequestMapping("/add.html")
 	public ModelAndView add() {

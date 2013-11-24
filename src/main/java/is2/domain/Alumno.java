@@ -70,4 +70,12 @@ public class Alumno extends Persona implements BaseEntity<Long>{
 		    + ", Usuario: " + getUsuario() + "}";
 	}
 
+	public List<Matricula> getMatriculas() {
+		return matriculas;
+	}
+
+	public void setMatriculas(List<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
+
 }

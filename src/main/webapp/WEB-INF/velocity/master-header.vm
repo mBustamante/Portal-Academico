@@ -8,7 +8,7 @@
 		<a href="#">Asistencias</a>
 	</li>
 	<li>
-		<a href="#">Evaluaciones</a>
+		<a href="/Portal-Academico/alumno/list.html">Lista de alumnos</a>
 	</li>
 	<li>
 		<a href="#">Horario</a>
