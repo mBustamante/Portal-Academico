@@ -25,8 +25,12 @@ public class UserService implements UserDetailsService {
 	
 	@PostConstruct	
 	protected void initialize() {
-		accountDao.persist(new Account("user", "demo", "ROLE_USER"));
-		accountDao.persist(new Account("admin", "admin", "ROLE_ADMIN"));
+		Account user = accountDao.findByEmail("user");
+		if(user == null)
+			accountDao.persist(new Account("user", "demo", "ROLE_USER"));
+		Account admin = accountDao.findByEmail("user");
+		if(admin == null)
+			accountDao.persist(new Account("admin", "admin", "ROLE_ADMIN"));
 	}
 	
 	@Override
