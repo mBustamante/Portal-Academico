@@ -12,15 +12,8 @@
 		</div>
 
 		<div class="master-content">
-			
-			<h1>Portal Academico</h1>
-	        <p>
-	            Home
-	        </p>
-	        <p>
-	            <a href="signin" th:href="@{signin}" class="btn btn-large btn-success">Sign in</a>
-	        </p>
-
+			<h1>Hola mundo!</h1>
+			Aquí va el contenido
 		</div>
 
 		<div class="master-footer">

@@ -1,0 +1,16 @@
+.header-title{
+	padding:30px;
+	background: #032F52;
+}
+
+
+.master-content{
+	min-height: 600px;
+	padding:30px;
+}
+
+.master-footer{
+	border-top: 1px solid #eee;
+	padding: 30px;
+	color:#aaa;
+}
