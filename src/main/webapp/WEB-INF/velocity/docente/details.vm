@@ -1,0 +1,30 @@
+<html>
+<body>
+	<a href="../list.html">Ver todos</a>
+	<br /><br />
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$docente.id<td>
+		</tr>
+		<tr>
+			<td><b>Nombre:</b></td>
+			<td>$docente.nombre<td>
+		</tr>
+		<tr>
+			<td><b>Apellido:</b></td>
+			<td>$docente.apellido<td>
+		</tr>
+		<tr>
+			<td><b>Nombre de Usuario:</b></td>
+			<td>$docente.usuario<td>
+		</tr>
+		<tr>
+			<td><b>Telefono:</b></td>
+			<td>$docente.telefono<td>
+		</tr>
+	</table>
+	<br />
+	<a href="edit.html">Modificar</a>
+</body>
+</html>

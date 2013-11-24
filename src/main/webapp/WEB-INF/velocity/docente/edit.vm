@@ -1,0 +1,31 @@
+<html>
+##<script type="text/javascript" src="#springUrl("/resources/js/main.js")"></script>
+<form action="#springUrl("/docente/save.html")" method="POST">
+	<table>
+		<tr>
+			<td><b>Id:</b></td>
+			<td>$!docente.id<input type="hidden" name="id" value="$!docente.id" /><td>
+		</tr>
+		<tr>
+			<td><b>Nombre :</b></td>
+			<td><input type="text" name="nombre" value="$!docente.nombre"/><td>
+		</tr>
+		<tr>
+			<td><b>Apellido:</b></td>
+			<td><input type="text" name="apellido" value="$!docente.apellido"/><td>
+		</tr>
+		<tr>
+			<td><b>Nombre de Usuario:</b></td>
+			<td><input type="text" name="usuario" value="$!docente.usuario"/><td>
+		</tr>
+		<tr>
+			<td><b>Telefono:</b></td>
+			<td><input type="text" name="telefono" value="$!docente.telefono"/><td>
+		</tr>
+	</table>
+  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+  <br>
+  <input type="submit" value="Guardar"/>
+</form>
+</html>
+##parse("docente/details.vm")

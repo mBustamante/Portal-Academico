@@ -1,10 +1,8 @@
 package is2.controller;
 
-import is2.domain.Alumno;
 import is2.domain.Curso;
 import is2.repository.AulaDao;
 import is2.domain.Aula;
-import is2.repository.CursoDao;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
