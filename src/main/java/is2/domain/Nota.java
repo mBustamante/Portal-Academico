@@ -59,5 +59,13 @@ public class Nota implements BaseEntity<Long>{
 	public void setCategoria(CategoriaNota categoria) {
 		this.categoria = categoria;
 	}
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
 	
 }

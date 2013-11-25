@@ -1,0 +1,42 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+
+			<h1>$service.alumno.nombre $service.alumno.apellido</h1>
+			<h2>Notas</h2>
+			
+			<table class="table table-hover">
+				<tr>
+					<th>Categoria</th>
+					<th>Nota</th>
+					<th>Editar</th>
+				</tr>
+				#foreach($nota in $service.notas)
+				<tr>
+					<td>$nota.categoria.nombre</td>
+					<td>$nota.nota</td>
+					<td><a href="../$nota.id/editar_nota.html">Editar</a></td>
+				</tr>			
+				#end
+			</table>		
+			
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
