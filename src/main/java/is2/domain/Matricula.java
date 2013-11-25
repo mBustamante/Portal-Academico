@@ -49,6 +49,7 @@ public class Matricula implements BaseEntity<Long>{
 		return fecha;
 	}
 
+	
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
