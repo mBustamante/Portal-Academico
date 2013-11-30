@@ -17,19 +17,21 @@ import is2.domain.Docente;
 import is2.domain.Nota;
 import is2.repository.CursoDictadoDao;
 import is2.repository.DocenteDao;
-import is2.repository.MatriculaDao;
-import is2.repository.NotaDao;
-import is2.service.NotasDocenteService;
+import is2.service.MatriculaService;
+import is2.service.NotaService;
 
 @Controller
 @RequestMapping("/docente")
 public class DocenteController {
 
-	@Inject
-	NotaDao notaDao;
+	
+	@Inject 
+	NotaService notaService;
 	
 	@Inject
-	MatriculaDao matriculaDao;
+	MatriculaService matriculaService;
+	
+
 	
 	@Inject
 	CursoDictadoDao cursoDictadoDao;
@@ -72,9 +74,7 @@ public class DocenteController {
 	@RequestMapping("/{id_matricula}/notas.html")
 	public ModelAndView notas(@PathVariable Long id_matricula) {
 		ModelAndView view = new ModelAndView();
-		NotasDocenteService service = new NotasDocenteService();
-		service.cargar_datos(id_matricula, matriculaDao);
-		view.addObject("service", service);
+		view.addObject("matricula", matriculaService.find(id_matricula));
 		view.setViewName("docente/notas");
 		return view;
 	}
@@ -82,7 +82,7 @@ public class DocenteController {
 	@RequestMapping("/{id_nota}/editar_nota.html")
 	public ModelAndView editar_nota(@PathVariable Long id_nota) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("nota", notaDao.find(id_nota));
+		view.addObject("nota", notaService.find(id_nota));
 		view.setViewName("docente/editar_nota");
 		return view;
 	}
@@ -106,14 +106,14 @@ public class DocenteController {
 	@RequestMapping(value = "/save_nota.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("nota") @Valid Nota nota, BindingResult result, SessionStatus status) {
 		if (nota.getId() == null) {
-			notaDao.persist(nota);
+			notaService.persist(nota);
 			status.setComplete();
 		}
 		else {
-			notaDao.merge(nota);
+			notaService.cambiar_nota(nota.getId(), nota.getNota());
 			status.setComplete();
 		}
-		return notas(nota.getMatricula().getId());
+		return new ModelAndView("redirect:list.html");
 //		return new ModelAndView("Docente/save");
 	}
 
@@ -128,7 +128,7 @@ public class DocenteController {
 			status.setComplete();
 		}
 		
-		return new ModelAndView("redirect:list.html");
+		return new ModelAndView(result.getErrorCount() > 0 ? "docente/edit" : "redirect:list.html");
 //		return new ModelAndView("Docente/save");
 	}
 }

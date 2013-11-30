@@ -15,12 +15,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Alumno;
 import is2.repository.AlumnoDao;
-import is2.service.AvanceCurricularService;
+import is2.service.AlumnoService;
 
 @Controller
 @RequestMapping("/alumno")
 public class AlumnoController {
 
+	@Inject 
+	AlumnoService alumnoService;
+	
 	@Inject
 	AlumnoDao alumnoDao;
 
@@ -61,9 +64,7 @@ public class AlumnoController {
 	public ModelAndView avance_curricular(@PathVariable Long id)
 	{
 		ModelAndView view = new ModelAndView();
-		AvanceCurricularService service = new AvanceCurricularService();
-		service.cargar_datos(id, alumnoDao);
-		view.addObject("service", service);
+		view.addObject("alumno", alumnoService.find(id));
 		view.setViewName("alumno/avance_curricular");
 		return view;
 	}

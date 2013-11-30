@@ -16,6 +16,7 @@
 
 			<h1>$nota.categoria.nombre</h1>
 			<form action="../save_nota.html" method=post>
+				<input type="hidden" name="id" value="$nota.id" />
 				Nota: <input type="text" name="nota" value="$!nota.nota" />
 				<input type="submit" />
 			</form>
