@@ -42,15 +42,7 @@ public class Nota implements BaseEntity<Long>{
 		this.peso = peso;
 	}
 	
-	@Override
-	public Long getId() {
-		return id;
-	}
 
-	@Override
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public CategoriaNota getCategoria() {
 		return categoria;
@@ -58,6 +50,24 @@ public class Nota implements BaseEntity<Long>{
 
 	public void setCategoria(CategoriaNota categoria) {
 		this.categoria = categoria;
+	}
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;		
 	}
 	
 }

@@ -1,30 +1,50 @@
+#parse( "declaraciones.vm" )
 <html>
+<head>
+	#parse( "head.vm" )
+</head>
+
 <body>
-	<a href="../list.html">Ver todos</a>
-	<br /><br />
-	<table>
-		<tr>
-			<td><b>Id:</b></td>
-			<td>$docente.id<td>
-		</tr>
-		<tr>
-			<td><b>Nombre:</b></td>
-			<td>$docente.nombre<td>
-		</tr>
-		<tr>
-			<td><b>Apellido:</b></td>
-			<td>$docente.apellido<td>
-		</tr>
-		<tr>
-			<td><b>Nombre de Usuario:</b></td>
-			<td>$docente.usuario<td>
-		</tr>
-		<tr>
-			<td><b>Telefono:</b></td>
-			<td>$docente.telefono<td>
-		</tr>
-	</table>
-	<br />
-	<a href="edit.html">Modificar</a>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+
+			<table class="table table-hover">
+				<tr>
+					<td><b>Id:</b></td>
+					<td>$docente.id<td>
+				</tr>
+				<tr>
+					<td><b>Nombre:</b></td>
+					<td>$docente.nombre<td>
+				</tr>
+				<tr>
+					<td><b>Apellido:</b></td>
+					<td>$docente.apellido<td>
+				</tr>
+				<tr>
+					<td><b>Nombre de Usuario:</b></td>
+					<td>$docente.usuario<td>
+				</tr>
+				<tr>
+					<td><b>Telefono:</b></td>
+					<td>$docente.telefono<td>
+				</tr>
+			</table>
+			
+			<a href="edit.html"><button type="button" class="btn btn-default">Modificar</button></a>
+			<a href="../list.html"><button type="button" class="btn btn-default">Ver todos</button></a>
+			
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
 </body>
 </html>

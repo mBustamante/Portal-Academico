@@ -1,0 +1,32 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+
+
+			<h1>$nota.categoria.nombre</h1>
+			<form action="../save_nota.html" method=post>
+				<input type="hidden" name="id" value="$nota.id" />
+				Nota: <input type="text" name="nota" value="$!nota.nota" />
+				<input type="submit" />
+			</form>
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>

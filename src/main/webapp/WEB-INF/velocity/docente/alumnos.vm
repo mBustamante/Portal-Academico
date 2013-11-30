@@ -18,10 +18,11 @@
 				<div> No hay alumnos registrados</div>
 			#else
 				<table class="table table-hover">
-				<tr><th>Alumno</th></tr>
+				<tr><th>Alumno</th><th>Subir Notas</th></tr>
 				#foreach($matricula in $curso.matriculas)
 					<tr>
 						<td>$matricula.alumno.nombre $matricula.alumno.apellido</td>
+						<td><a href="../$matricula.id/notas.html">Notas</a></td>
 					</tr>
 				#end
 				</table>

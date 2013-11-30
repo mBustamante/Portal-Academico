@@ -13,26 +13,24 @@
 
 		<div class="master-content">
 
-
-			<h1>Avance curricular de $alumno.nombre</h1>
-			<h2>$alumno.carrera.nombre</h2>
+			<h1>$matricula.alumno.nombre $matricula.alumno.apellido</h1>
+			<h2>Notas</h2>
 			
 			<table class="table table-hover">
 				<tr>
-					<th>Curso</th>
-					<th>Creditos</th>
-					<th>Estado</th>
+					<th>Categoria</th>
+					<th>Nota</th>
+					<th>Editar</th>
 				</tr>
-				#foreach($matricula in $alumno.matriculas)
+				#foreach($nota in $matricula.notas)
 				<tr>
-					<td>$matricula.cursoDictado.curso.nombre</td>
-					<td>$matricula.cursoDictado.curso.creditos</td>
-					<td>$matricula.estado</td>
-				</tr>
+					<td>$nota.categoria.nombre</td>
+					<td>$nota.nota</td>
+					<td><a href="../$nota.id/editar_nota.html">Editar</a></td>
+				</tr>			
 				#end
-			</table>
-
-
+			</table>		
+			
 		</div>
 
 		<div class="master-footer">
