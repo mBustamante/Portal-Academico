@@ -1,7 +1,32 @@
+#parse( "declaraciones.vm" )
 <html>
+<head>
+	#parse( "head.vm" )
+</head>
+
 <body>
-<ul>
- 	<li><a href="/Portal-Academico">Algun error ocurrio</a></li>
-</ul>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+
+
+			<h1>Hay algun error en tu codigo</h1>
+			<h4>Intenta no llorar...<h4>
+		 	<a href="/Portal-Academico"><button type="button" class="btn btn-default">Llora</button></a>
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
 </body>
 </html>
+
+

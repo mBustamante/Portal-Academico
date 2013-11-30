@@ -13,9 +13,7 @@
 
 		<div class="master-content">
 
-			<a href="../list.html">Ver todos</a>
-			<br /><br />
-			<table>
+			<table class="table table-hover">
 				<tr>
 					<td><b>Id:</b></td>
 					<td>$alumno.id<td>
@@ -38,7 +36,9 @@
 				</tr>
 			</table>
 			<br />
-			<a href="edit.html">Modificar</a>
+			
+			<a href="edit.html"><button type="button" class="btn btn-default">Modificar</button></a>
+			<a href="../list.html"><button type="button" class="btn btn-default">Ver todos</button></a>
 
 
 		</div>

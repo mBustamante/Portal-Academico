@@ -12,8 +12,6 @@
 		</div>
 
 		<div class="master-content">
-		
-			<h1>Modificar datos de $docente.nombre $docente.apellido</h1>
 			
 			<form class="form-horizontal" role="form" action="#springUrl("/docente/save.html")" method="POST">
 				<input type="hidden" name="id" value="$!docente.id" />
@@ -47,7 +45,11 @@
 				</div>
 
 			  ##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
-			  <button type="submit" class="btn btn-default">Guardar</button>
+			  <div class="form-group">
+		            <div class="col-sm-offset-2 col-sm-10">
+		            	<button type="submit" class="btn btn-default">Guardar</button>
+	            	</div>
+            	</div>
 			</form>
 
 		</div>
