@@ -1,0 +1,7 @@
+<html>
+<body>
+	<title>Home Admin</title>
+	Bienvenido Admin
+	<a href="/Portal-Academico/j_spring_security_logout">Log Out</a>
+</body>
+</html>

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -19,6 +20,9 @@ public class Admin extends Persona implements BaseEntity<Long>{
 	@SequenceGenerator(name = "ADMIN_ID_GENERATOR", sequenceName = "ADMIN_STUDY_ID_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADMIN_ID_GENERATOR")
 	private Long id;
+	
+	@ManyToOne
+	private Role role;
 
 	@Override
 	public Long getId() {
@@ -28,6 +32,14 @@ public class Admin extends Persona implements BaseEntity<Long>{
 	@Override
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getRole() {
+		return role.getRole();
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 		
 }

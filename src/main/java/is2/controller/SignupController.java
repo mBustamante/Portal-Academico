@@ -41,7 +41,7 @@ public class SignupController {
 			return SIGNUP_VIEW_NAME;
 		}
 		Account account = accountDao.persist(signupForm.createAccount());
-		userService.signin(account);
+		//userService.signin(account);
 		// see /WEB-INF/i18n/messages.properties and
 		// /WEB-INF/views/homeSignedIn.html
 		MessageHelper.addSuccessAttribute(ra, "signup.success");

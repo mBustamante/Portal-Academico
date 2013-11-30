@@ -1,41 +1,45 @@
-INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1,'Bustamante Mora','26/03/1991','Alejandra','bma1234',987253008,'alejandra.bustmante');
+﻿INSERT INTO role( id, role) VALUES (1, 'ROLE_ADMIN');
+INSERT INTO role( id, role) VALUES (2, 'ROLE_DOCENTE');
+INSERT INTO role( id, role) VALUES (3, 'ROLE_ALUMNO');
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (2,'Morales Muñoz','6/10/1988','Elizabeth','mm5678',959784123,'elizabeth.morales');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1,'Bustamante Mora','26/03/1991','Alejandra','bma1234',987253008,'alejandra.bustmante',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (3,'Aguirre Concha','24/23/1990','Karla','ack9101',998563210,'karla.aguirre');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (2,'Morales Muñoz','6/10/1988','Elizabeth','mm5678',959784123,'elizabeth.morales',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (4,'Garcia Toledo','21/12/1989','Stephanie','gts1213',959632864,'stephanie.garcia');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (3,'Aguirre Concha','24/23/1990','Karla','ack9101',998563210,'karla.aguirre',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (5,'Ligarda Gutierres','26/04/1990','Fabiola','lgf1415',958632475,'fabiola.ligarda');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (4,'Garcia Toledo','21/12/1989','Stephanie','gts1213',959632864,'stephanie.garcia',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (6,'Bustamante Cayo','3/04/1994','Miguel','bcm1617',958469632,'miguel.bustmante');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (5,'Ligarda Gutierres','26/04/1990','Fabiola','lgf1415',958632475,'fabiola.ligarda',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (7,'Aguirre Corrales','25/06/1990','Jeffrey','acj1819',959784236,'jeffrey.corrales');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (6,'Bustamante Cayo','3/04/1994','Miguel','bcm1617',958469632,'miguel.bustmante',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (8,'Tejada Bejazo','29/10/1992','MariaFernanda','tb2021',958632145,'maria.tejada');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (7,'Aguirre Corrales','25/06/1990','Jeffrey','acj1819',959784236,'jeffrey.corrales',1);
 
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (9,'Yana Chavez','05/12/1987','Elder','yce2223',958632145,'elder.yana');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (8,'Tejada Bejazo','29/10/1992','MariaFernanda','tb2021',958632145,'maria.tejada',1);
+
 INSERT INTO admin(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (10,'Loayza Soto','15/04/1992','Jennifer','ls2425',958462032,'jennifer.loayza');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (9,'Yana Chavez','05/12/1987','Elder','yce2223',958632145,'elder.yana',1);
+INSERT INTO admin(
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (10,'Loayza Soto','15/04/1992','Jennifer','ls2425',958462032,'jennifer.loayza',1);
 
 INSERT INTO aula(
             id, maxalumnos, nombre)
@@ -145,26 +149,26 @@ INSERT INTO curso(
     VALUES (2010, 5, 200108,'Base de Datos II');
     
     INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1101,'Vasquez','10/01/1985','Luz Marina','vql1001',952365478,'luzmarina.vasquez');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1101,'Vasquez','10/01/1985','Luz Marina','vql1001',952365478,'luzmarina.vasquez',2);
 INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1102,'Arias','23/06/1988','Diego','apd5234',958536147,'diego.arias');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1102,'Arias','23/06/1988','Diego','apd5234',958536147,'diego.arias',2);
 INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1103,'Medina','02/012/1987','Tatiana','mtt1895',958539672,'tatiana.medina');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1103,'Medina','02/012/1987','Tatiana','mtt1895',958539672,'tatiana.medina',2);
 INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1104,'Basurco','10/01/1985','Luis Fernando','dbl1265',93016782,'luis.basurco');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1104,'Basurco','10/01/1985','Luis Fernando','dbl1265',93016782,'luis.basurco',2);
 INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1105,'Linares','23/05/1985','Rubel','ldr5364',98236100,'rubel.linares');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1105,'Linares','23/05/1985','Rubel','ldr5364',98236100,'rubel.linares',2);
 INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1106,'Jordan','14/11/1984','Monica','jm1263',975230010,'monica.jordan');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1106,'Jordan','14/11/1984','Monica','jm1263',975230010,'monica.jordan',2);
 INSERT INTO docente(
-            id, apellido, fecha_n, nombre, password, telefono, usuario)
-    VALUES (1107,'Tejada','26/09/1982','Javier','tjk4203',954910234,'javier.tejada');
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1107,'Tejada','26/09/1982','Javier','tjk4203',954910234,'javier.tejada',2);
     
     INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
@@ -319,54 +323,54 @@ INSERT INTO prerequisitos(
 
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1001,'Carrillo Pino','Jose Carrillo','San Juan','10/06/1992','Jose Enrique','cpj1234', 
-            958563024,'jose.carrillo',00198);
+            958563024,'jose.carrillo',00198,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1002,'Arana Gonzales','Maria Arana','Nstra Sra de la Asuncion','16/02/1990','Sthefany','ags4567', 
-            958426691,'sthefany.arana',005102);
+            958426691,'sthefany.arana',005102,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1003,'Medina Pampa','Paola Pampa','Nstra Sra de la Asuncion','04/06/1992','Rosario','mpr6789', 
-            974562201,'rosario.medina',00299);
+            974562201,'rosario.medina',00299,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1004,'Garcia Toledo','Roberto Garcia','La Salle','21/12/1989','Stephanie','gts1470', 
-            912458793,'stephanie.garcia',003100);
+            912458793,'stephanie.garcia',003100,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1005,'Loayza Soto','Jennifer Soto','San Carlos','19/03/1991','Rossmery','lsr8521', 
-            958441203,'rossmery.loayza',004101);
+            958441203,'rossmery.loayza',004101,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1006,'Marticorena Rios','Miguel Marticorena','San Jose','30/04/1992','Jean','mrj9632', 
-            94302659,'jean.marticorena',006103);
+            94302659,'jean.marticorena',006103,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1007,'Quispe Condori','Carol Condori','San Juan','25/10/1992','Jhoel Darwin','qcj9510', 
-            974635271,'jhoel.quispe',00198);
+            974635271,'jhoel.quispe',00198,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1008,'Jurado Aguirre','Jenny Aguirre','Nstra Sra de Fatima','20/03/1990','Stephany','jas1022', 
-            946320152,'stephany.jurado',005102);
+            946320152,'stephany.jurado',005102,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1009,'Jurado Aguirre','Percy Jurado','Santisimo Salvador','17/08/1996','Alejandra','jaa8463', 
-            958500234,'alejandra.jurado',00299);
+            958500234,'alejandra.jurado',00299,3);
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
-            telefono, usuario, carrera_id)
+            telefono, usuario, carrera_id, role_id)
     VALUES (1010,'Tejada Begazo','Maria Begazo','Mercedario','31/10/1993','Maria Fernanda','tbm4867', 
-            920136920,'maria.tejada',004101);
+            920136920,'maria.tejada',004101,3);
 
 INSERT INTO cursodictado(
             id, curso_id, periodo_id)
@@ -636,3 +640,8 @@ INSERT INTO bloque(
 INSERT INTO bloque(
             id, aula_id, cursodictado_id, horario_id)
     VALUES (15010,8010,4004,1305);
+
+
+update alumno set password= 'ed6296326e7e82dab1a737d129ee74e314911403ac305a2e1ed18826d4165dec644f58cd3aea272a';
+update docente set password= 'ed6296326e7e82dab1a737d129ee74e314911403ac305a2e1ed18826d4165dec644f58cd3aea272a';
+update admin set password= 'ed6296326e7e82dab1a737d129ee74e314911403ac305a2e1ed18826d4165dec644f58cd3aea272a';

@@ -1,7 +1,9 @@
 package is2.repository.jpa;
 
+import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import is2.domain.Admin;
@@ -9,6 +11,9 @@ import is2.repository.AdminDao;
 
 @Repository
 public class JpaAdminDao extends JpaGenericDao<Admin,Long> implements AdminDao {
+		
+	@Inject 
+	PasswordEncoder encoder;
 	
 	@Override
 	protected Class<Admin> getClase() {
@@ -22,6 +27,12 @@ public class JpaAdminDao extends JpaGenericDao<Admin,Long> implements AdminDao {
 		return getFirstResult(query);
 	}
 
+	@Override
+	public Admin persist(Admin entity) {
+		entity.setPassword(encoder.encode(entity.getPassword()));
+		return super.persist(entity);
+	};
+	
 	@Override
 	public boolean existsAdministrator(String username, String password) {
 		Admin test = findByUsername(username);

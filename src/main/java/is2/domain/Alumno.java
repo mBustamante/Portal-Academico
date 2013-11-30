@@ -33,6 +33,9 @@ public class Alumno extends Persona implements BaseEntity<Long>{
 	
 	@ManyToOne
 	private Carrera carrera;
+	
+	@ManyToOne
+	private Role role;
 
 	public Alumno() {
 	}
@@ -62,6 +65,14 @@ public class Alumno extends Persona implements BaseEntity<Long>{
 	@Override
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getRole() {
+		return role.getRole();
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 	@Override

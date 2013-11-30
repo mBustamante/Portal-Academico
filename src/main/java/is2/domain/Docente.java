@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -25,6 +26,9 @@ public class Docente extends Persona implements BaseEntity<Long>{
 	@SequenceGenerator(name = "DOCENTE_ID_GENERATOR", sequenceName = "DOCENTE_STUDY_ID_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DOCENTE_ID_GENERATOR")
 	private Long id;
+	
+	@ManyToOne
+	private Role role;
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="docente_por_curso_dictado",
@@ -51,6 +55,14 @@ public class Docente extends Persona implements BaseEntity<Long>{
 
 	public void setCursosDictados(List<CursoDictado> cursosDictados) {
 		this.cursosDictados = cursosDictados;
+	}
+	
+	public String getRole() {
+		return role.getRole();
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 }

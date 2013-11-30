@@ -34,7 +34,6 @@ public class JpaAlumnoDao extends JpaGenericDao<Alumno, Long> implements AlumnoD
 
 	@Override
 	protected Class<Alumno> getClase() {
-		// TODO Auto-generated method stub
-		return null;
+		return Alumno.class;
 	}
 }

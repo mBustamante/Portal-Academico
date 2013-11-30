@@ -1,7 +1,0 @@
-<html>
-<body>
-<title>Home Docente</title>
-Bienvenido Docente:  id:$id_user  usuario:$username  </br></br>    
-    <a href="logout"><button>Logout</button></a></br>
-</body>
-</html>

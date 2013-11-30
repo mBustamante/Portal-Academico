@@ -1,8 +1,29 @@
+#parse( "declaraciones.vm" )
 <html>
+<head>
+	#parse( "head.vm" )
+</head>
+
 <body>
-<ul>
- <li><a href="user/list.html">Usuarios</a></li>
- <li><a href="producto/list.html">Productos</a></li>
-</ul>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "master-header.vm" )
+		</div>
+
+		<div class="master-content">
+			
+			<h1>Portal Academico</h1>
+	        <p>
+	            <a href="signin" th:href="@{signin}" class="btn btn-large btn-success">Sign in</a>
+	        </p>
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
 </body>
 </html>

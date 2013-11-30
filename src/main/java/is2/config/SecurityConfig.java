@@ -23,6 +23,7 @@ public class SecurityConfig {
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new StandardPasswordEncoder();
+		PasswordEncoder encoder = new StandardPasswordEncoder();
+		return encoder;
 	}
 }
