@@ -54,4 +54,20 @@ public class CursoDictado implements BaseEntity<Long>{
 	public void setMatriculas(List<Matricula> matriculas) {
 		this.matriculas = matriculas;
 	}
+
+	public List<Docente> getDocentes() {
+		return docentes;
+	}
+
+	public void setDocentes(List<Docente> docentes) {
+		this.docentes = docentes;
+	}
+
+	public List<Bloque> getBloques() {
+		return bloques;
+	}
+
+	public void setBloques(List<Bloque> bloques) {
+		this.bloques = bloques;
+	}
 }

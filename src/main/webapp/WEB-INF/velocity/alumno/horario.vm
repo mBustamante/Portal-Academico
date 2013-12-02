@@ -14,20 +14,26 @@
 		<div class="master-content">
 
 
-			<h1>Avance curricular de $service.alumno.nombre</h1>
-			<h2>$service.alumno.carrera.nombre</h2>
+			<h1>Avance curricular de $alumno.nombre</h1>
+			<h2>$alumno.carrera.nombre</h2>
 			
 			<table class="table table-hover">
 				<tr>
 					<th>Curso</th>
-					<th>Creditos</th>
-					<th>Estado</th>
+					<th>Día</th>
+					<th>Aula</th>
+					<th>Inicio</th>
+					<th>Fin</th>
 				</tr>
-				#foreach($matricula in $service.matriculas)
+				#foreach($matricula in $matriculas)
 				<tr>
-					<td>$matricula.cursoDictado.curso.nombre</td>
-					<td>$matricula.cursoDictado.curso.creditos</td>
-					<td>$matricula.estado</td>
+					#foreach($bloque in $matricula.cursoDictado.bloques)
+						<td> $matricula.cursoDictado.curso.nombre</td>
+						<td> $bloque.getHorario().dia</td>
+						<td> $bloque.getAula().nombre</td>
+						<td> $bloque.getHorario().hora_inicio</td>
+						<td> $bloque.getHorario().hora_fin</td>
+					#end
 				</tr>
 				#end
 			</table>

@@ -1,4 +1,5 @@
-﻿INSERT INTO role( id, role) VALUES (1, 'ROLE_ADMIN');
+﻿
+INSERT INTO role( id, role) VALUES (1, 'ROLE_ADMIN');
 INSERT INTO role( id, role) VALUES (2, 'ROLE_DOCENTE');
 INSERT INTO role( id, role) VALUES (3, 'ROLE_ALUMNO');
 
@@ -43,34 +44,34 @@ INSERT INTO admin(
 
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8001,30,'Introduccion a la vida universitaria');
+    VALUES (8001,30,'307');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8002,20,'Logica');
+    VALUES (8002,20,'306');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8003,30,'Formacion cristiana');
+    VALUES (8003,30,'309');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8004,15,'Musica');
+    VALUES (8004,15,'210');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8005,25,'Analisis Matematico');
+    VALUES (8005,25,'201');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8006,33,'Calculo I');
+    VALUES (8006,33,'PB-01');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8007,10,'Teologia I');
+    VALUES (8007,10,'PB-09');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8008,12,'Fisica');
+    VALUES (8008,12,'401');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8009,25,'Base de Datos I');
+    VALUES (8009,25,'LAB-C');
 INSERT INTO aula(
             id, maxalumnos, nombre)
-    VALUES (8010,25,'Base de Datos II');
+    VALUES (8010,25,'LAB-E');
     
 INSERT INTO carrera(
             id, nombre)
@@ -169,37 +170,38 @@ INSERT INTO docente(
 INSERT INTO docente(
             id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
     VALUES (1107,'Tejada','26/09/1982','Javier','tjk4203',954910234,'javier.tejada',2);
-    
-    INSERT INTO horario(
+
+
+﻿INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1301,'Lunes',830, 7);
+    VALUES (1301,'Lunes',830, 700);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1302,'Martes',830, 7);
+    VALUES (1302,'Martes',830, 700);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1303,'Lunes',145, 315);
+    VALUES (1303,'Lunes',1515, 1345);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1304,'Miercoles',4, 530);
+    VALUES (1304,'Miercoles',1730, 1600);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1305,'Jueves',19,2030);
+    VALUES (1305,'Jueves',830,700);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1306,'Viernes',1975,2115);
+    VALUES (1306,'Viernes',2115,1945);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1307,'Viernes',1815, 1945);
+    VALUES (1307,'Viernes',1945, 1815);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1308,'Jueves',1430,16);
+    VALUES (1308,'Jueves',1600,1730);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
     VALUES (1309,'Miercoles',1515,1645);
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
-    VALUES (1310,'Martes',445,1815);
+    VALUES (1310,'Martes',1815,1600);
     
     INSERT INTO malla(
            id, descripcion, fecha, vigencia, carrera_id)

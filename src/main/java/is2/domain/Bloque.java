@@ -29,4 +29,28 @@ public class Bloque implements BaseEntity<Long>{
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public Horario getHorario() {
+		return horario;
+	}
+
+	public void setHorario(Horario horario) {
+		this.horario = horario;
+	}
+
+	public CursoDictado getCursoDictado() {
+		return cursoDictado;
+	}
+
+	public void setCursoDictado(CursoDictado cursoDictado) {
+		this.cursoDictado = cursoDictado;
+	}
+
+	public Aula getAula() {
+		return aula;
+	}
+
+	public void setAula(Aula aula) {
+		this.aula = aula;
+	}
 }
