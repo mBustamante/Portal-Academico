@@ -14,27 +14,27 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Admin;
-import is2.repository.AdminDao;
+import is2.service.AdminService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
 	@Inject
-	AdminDao adminDao;
+	AdminService adminService;
 
 	@Inject
 	Validator validator;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
-		return new ModelAndView("admin/list", "admins", adminDao.findAll());
+		return new ModelAndView("admin/list", "admins", adminService.findAll());
 	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("admin", adminDao.find(id));
+		view.addObject("admin", adminService.find(id));
 		view.setViewName("admin/details");
 		return view;
 	}
@@ -42,7 +42,7 @@ public class AdminController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("admin", adminDao.find(id));
+		view.addObject("admin", adminService.find(id));
 		view.setViewName("admin/edit");
 		return view;
 	}
@@ -58,11 +58,11 @@ public class AdminController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("admin") @Valid Admin Admin, BindingResult result, SessionStatus status) {
 		if (Admin.getId() == null) {
-			adminDao.persist(Admin);
+			adminService.persist(Admin);
 			status.setComplete();
 		}
 		else {
-			adminDao.merge(Admin);
+			adminService.merge(Admin);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "admin/edit" : "redirect:list.html");
