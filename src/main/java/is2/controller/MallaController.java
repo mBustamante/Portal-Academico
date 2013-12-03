@@ -1,7 +1,7 @@
 package is2.controller;
 
 import is2.domain.Malla;
-import is2.repository.MallaDao;
+import is2.service.MallaService;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -20,17 +20,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class MallaController {
 
 	@Inject
-	MallaDao mallaDao;
+	MallaService mallaService;
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
-		return new ModelAndView("malla/list" , "mallas" , mallaDao.findAll());
+		return new ModelAndView("malla/list" , "mallas" , mallaService.findAll());
 	}
 	
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("malla", mallaDao.find(id));
+		view.addObject("malla", mallaService.find(id));
 		view.setViewName("malla/details");
 		return view;
 	}
@@ -38,7 +38,7 @@ public class MallaController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("malla", mallaDao.find(id));
+		view.addObject("malla", mallaService.find(id));
 		view.setViewName("malla/edit");
 		return view;
 	}
@@ -54,11 +54,11 @@ public class MallaController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("malla") @Valid Malla malla, BindingResult result, SessionStatus status) {
 		if (malla.getId() == null) {
-			mallaDao.persist(malla);
+			mallaService.persist(malla);
 			status.setComplete();
 		}
 		else {
-			mallaDao.merge(malla);
+			mallaService.merge(malla);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "student/edit" : "redirect:list.html");

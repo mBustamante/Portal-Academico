@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Docente;
 import is2.domain.Nota;
-import is2.repository.CursoDictadoDao;
-import is2.repository.DocenteDao;
+import is2.service.CursoDictadoService;
+import is2.service.DocenteService;
 import is2.service.MatriculaService;
 import is2.service.NotaService;
 
@@ -31,26 +31,24 @@ public class DocenteController {
 	@Inject
 	MatriculaService matriculaService;
 	
-
+	@Inject
+	CursoDictadoService cursoDictadoService;
 	
 	@Inject
-	CursoDictadoDao cursoDictadoDao;
-	
-	@Inject
-	DocenteDao docenteDao;	
+	DocenteService docenteService;	
 
 	@Inject
 	Validator validator;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
-		return new ModelAndView("docente/list", "docentes", docenteDao.findAll());
+		return new ModelAndView("docente/list", "docentes", docenteService.findAll());
 	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("docente", docenteDao.find(id));
+		view.addObject("docente", docenteService.find(id));
 		view.setViewName("docente/details");
 		return view;
 	}
@@ -58,7 +56,7 @@ public class DocenteController {
 	@RequestMapping("/{id}/cursos.html")
 	public ModelAndView cursos(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("docente", docenteDao.find(id));
+		view.addObject("docente", docenteService.find(id));
 		view.setViewName("docente/cursos");
 		return view;
 	}
@@ -66,7 +64,7 @@ public class DocenteController {
 	@RequestMapping("/{id}/alumnos.html")
 	public ModelAndView alumnos(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("curso", cursoDictadoDao.find(id));
+		view.addObject("curso", cursoDictadoService.find(id));
 		view.setViewName("docente/alumnos");
 		return view;
 	}
@@ -90,7 +88,7 @@ public class DocenteController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("docente", docenteDao.find(id));
+		view.addObject("docente", docenteService.find(id));
 		view.setViewName("docente/edit");
 		return view;
 	}
@@ -120,11 +118,11 @@ public class DocenteController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("docente") @Valid Docente Docente, BindingResult result, SessionStatus status) {
 		if (Docente.getId() == null) {
-			docenteDao.persist(Docente);
+			docenteService.persist(Docente);
 			status.setComplete();
 		}
 		else {
-			docenteDao.merge(Docente);
+			docenteService.merge(Docente);
 			status.setComplete();
 		}
 		

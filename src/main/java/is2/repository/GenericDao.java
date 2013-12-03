@@ -18,7 +18,7 @@ public interface GenericDao<T extends BaseEntity<PK>, PK extends Serializable> {
 	int removeAll(boolean isConfirmed);
 
 	void flush();
-
+	
 	void clear();
 
 	@Transactional

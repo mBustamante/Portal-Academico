@@ -1,8 +1,8 @@
 package is2.controller;
 
-import is2.repository.AdminDao;
-import is2.repository.AlumnoDao;
-import is2.repository.DocenteDao;
+import is2.service.AdminService;
+import is2.service.AlumnoService;
+import is2.service.DocenteService;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -19,11 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 	
 	@Inject
-	AlumnoDao alumnoDao;
+	AlumnoService alumnoService;
 	@Inject
-	AdminDao admiDao;
+	AdminService admiService;
 	@Inject
-	DocenteDao docenteDao;
+	DocenteService docenteService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public void index(Principal principal, HttpServletResponse response) throws IOException {
@@ -33,11 +33,11 @@ public class HomeController {
 		}
 		else{
 			String username = principal.getName();
-			if(alumnoDao.findByUsername(username) != null){
+			if(alumnoService.findByUsername(username) != null){
 				response.sendRedirect("alumno/home.html");
 			}
 			else{
-				if(docenteDao.findByUsername(username) != null){
+				if(docenteService.findByUsername(username) != null){
 					response.sendRedirect("docente/home.html");
 				}
 				else  response.sendRedirect("admin/home.html");
