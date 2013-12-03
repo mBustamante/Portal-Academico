@@ -14,7 +14,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Alumno;
-import is2.repository.AlumnoDao;
 import is2.service.AlumnoService;
 
 @Controller
@@ -24,21 +23,21 @@ public class AlumnoController {
 	@Inject 
 	AlumnoService alumnoService;
 	
-	@Inject
-	AlumnoDao alumnoDao;
+	//@Inject
+    //AlumnoDao alumnoDao;
 
 	@Inject
 	Validator validator;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
-		return new ModelAndView("alumno/list", "alumnos", alumnoDao.findAll());
+		return new ModelAndView("alumno/list", "alumnos", alumnoService.findAll());
 	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoDao.find(id));
+		view.addObject("alumno", alumnoService.find(id));
 		view.setViewName("alumno/details");
 		return view;
 	}
@@ -46,7 +45,7 @@ public class AlumnoController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoDao.find(id));
+		view.addObject("alumno", alumnoService.find(id));
 		view.setViewName("alumno/edit");
 		return view;
 	}
@@ -55,7 +54,7 @@ public class AlumnoController {
 	public ModelAndView notas(@PathVariable Long id)
 	{
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoDao.find(id));
+		view.addObject("alumno", alumnoService.find(id));
 		view.setViewName("alumno/notas");
 		return view;
 	}
@@ -80,11 +79,11 @@ public class AlumnoController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("alumno") @Valid Alumno Alumno, BindingResult result, SessionStatus status) {
 		if (Alumno.getId() == null) {
-			alumnoDao.persist(Alumno);
+			alumnoService.persist(Alumno);
 			status.setComplete();
 		}
 		else {
-			alumnoDao.merge(Alumno);
+			alumnoService.merge(Alumno);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "alumno/edit" : "redirect:list.html");

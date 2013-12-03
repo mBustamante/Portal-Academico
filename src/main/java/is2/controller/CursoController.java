@@ -1,7 +1,7 @@
 package is2.controller;
 
 import is2.domain.Curso;
-import is2.repository.CursoDao;
+import is2.service.CursoService;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -20,17 +20,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class CursoController {
 
 	@Inject
-	CursoDao cursoDao;
+	CursoService cursoService;
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
-		return new ModelAndView("curso/list" , "cursos" , cursoDao.findAll());
+		return new ModelAndView("curso/list" , "cursos" , cursoService.findAll());
 	}
 	
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("curso", cursoDao.find(id));
+		view.addObject("curso", cursoService.find(id));
 		view.setViewName("curso/details");
 		return view;
 	}
@@ -38,7 +38,7 @@ public class CursoController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("curso", cursoDao.find(id));
+		view.addObject("curso", cursoService.find(id));
 		view.setViewName("curso/edit");
 		return view;
 	}
@@ -54,11 +54,11 @@ public class CursoController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("curso") @Valid Curso curso, BindingResult result, SessionStatus status) {
 		if (curso.getId() == null) {
-			cursoDao.persist(curso);
+			cursoService.persist(curso);
 			status.setComplete();
 		}
 		else {
-			cursoDao.merge(curso);
+			cursoService.merge(curso);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "student/edit" : "redirect:list.html");

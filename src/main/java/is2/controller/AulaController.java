@@ -1,7 +1,7 @@
 package is2.controller;
 
 import is2.domain.Curso;
-import is2.repository.AulaDao;
+import is2.service.AulaService;
 import is2.domain.Aula;
 
 import javax.inject.Inject;
@@ -22,18 +22,18 @@ public class AulaController {
 
 	
 	@Inject
-	AulaDao aulaDao;
+	AulaService aulaService;
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
-		return new ModelAndView("aula/list" , "aulas" , aulaDao.findAll());
+		return new ModelAndView("aula/list" , "aulas" , aulaService.findAll());
 	}
 	
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("aula", aulaDao.find(id));
+		view.addObject("aula", aulaService.find(id));
 		view.setViewName("aula/details");
 		return view;
 	}
@@ -41,7 +41,7 @@ public class AulaController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("aula", aulaDao.find(id));
+		view.addObject("aula", aulaService.find(id));
 		view.setViewName("aula/edit");
 		return view;
 	}
@@ -57,11 +57,11 @@ public class AulaController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("aula") @Valid Aula aula, BindingResult result, SessionStatus status) {
 		if (aula.getId() == null) {
-			aulaDao.persist(aula);
+			aulaService.persist(aula);
 			status.setComplete();
 		}
 		else {
-			aulaDao.merge(aula);
+			aulaService.merge(aula);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "student/edit" : "redirect:list.html");

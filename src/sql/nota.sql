@@ -1,6 +1,6 @@
-﻿--INSERT INTO nota(
-  --          id, nota, peso, categoria_id, matricula_id)
-    --VALUES (1901, 18,0.2, 1201,1601);
+﻿INSERT INTO nota(
+            id, nota, peso, categoria_id, matricula_id)
+    VALUES (1901, 18,0.2, 1201,1601);
 INSERT INTO nota(
             id, nota, peso, categoria_id, matricula_id)
     VALUES (1902, 15,0.2, 1202,1601);

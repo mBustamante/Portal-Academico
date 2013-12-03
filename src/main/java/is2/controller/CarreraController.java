@@ -1,7 +1,7 @@
 package is2.controller;
 
 import is2.domain.Carrera;
-import is2.repository.CarreraDao;
+import is2.service.CarreraService;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -20,17 +20,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class CarreraController {
 
 	@Inject
-	CarreraDao carreraDao;
+	CarreraService carreraService;
 	
 	@RequestMapping("/list.html")
 	public ModelAndView list(){
-		return new ModelAndView("carrera/list" , "carreras" , carreraDao.findAll());
+		return new ModelAndView("carrera/list" , "carreras" , carreraService.findAll());
 	}
 	
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("carrera", carreraDao.find(id));
+		view.addObject("carrera", carreraService.find(id));
 		view.setViewName("carrera/details");
 		return view;
 	}
@@ -38,7 +38,7 @@ public class CarreraController {
 	@RequestMapping("/{id}/edit.html")
 	public ModelAndView edit(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
-		view.addObject("carrera", carreraDao.find(id));
+		view.addObject("carrera", carreraService.find(id));
 		view.setViewName("carrera/edit");
 		return view;
 	}
@@ -54,11 +54,11 @@ public class CarreraController {
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("carrera") @Valid Carrera carrera, BindingResult result, SessionStatus status) {
 		if (carrera.getId() == null) {
-			carreraDao.persist(carrera);
+			carreraService.persist(carrera);
 			status.setComplete();
 		}
 		else {
-			carreraDao.merge(carrera);
+			carreraService.merge(carrera);
 			status.setComplete();
 		}
 		return new ModelAndView(result.getErrorCount() > 0 ? "carrera/edit" : "redirect:list.html");
