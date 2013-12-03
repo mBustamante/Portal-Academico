@@ -171,8 +171,7 @@ INSERT INTO docente(
             id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
     VALUES (1107,'Tejada','26/09/1982','Javier','tjk4203',954910234,'javier.tejada',2);
 
-
-﻿INSERT INTO horario(
+INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
     VALUES (1301,'Lunes',830, 700);
 INSERT INTO horario(
