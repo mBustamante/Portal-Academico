@@ -5,10 +5,10 @@
 		<a href="/Portal-Academico/">Home</a>
 	</li>
 	<li>
-		<a href="/Portal-Academico/alumno/list.html">Alumnos</a>
+		<a href="/Portal-Academico/admin/alumnos.html">Alumnos</a>
 	</li>
 	<li>
-		<a href="/Portal-Academico/docente/list.html">Docentes</a>
+		<a href="/Portal-Academico/admin/docentes.html">Docentes</a>
 	</li>
 	<li>
 		<a href="/Portal-Academico/j_spring_security_logout">Logout</a>

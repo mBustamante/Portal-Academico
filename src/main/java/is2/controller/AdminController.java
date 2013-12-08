@@ -17,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Admin;
 import is2.domain.Alumno;
+import is2.domain.Docente;
 import is2.service.AdminService;
 import is2.service.AlumnoService;
+import is2.service.DocenteService;
 
 @Controller
 @RequestMapping("/admin")
@@ -29,6 +31,9 @@ public class AdminController {
 	
 	@Inject
 	AlumnoService alumnoService;
+	
+	@Inject
+	DocenteService docenteService;
 
 	@Inject
 	Validator validator;
@@ -43,6 +48,14 @@ public class AdminController {
 		List<Alumno> alumnos = alumnoService.findAll();
 		ModelAndView model = new ModelAndView("admin/alumnos");
 		model.addObject("alumnos",alumnos);
+		return model;
+	}
+	
+	@RequestMapping("/docentes.html")
+	public ModelAndView docentes() {
+		List<Docente> docentes = docenteService.findAll();
+		ModelAndView model = new ModelAndView("admin/docentes");
+		model.addObject("docentes",docentes);
 		return model;
 	}
 
