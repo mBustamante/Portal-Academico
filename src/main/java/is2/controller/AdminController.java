@@ -1,5 +1,7 @@
 package is2.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -14,7 +16,9 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import is2.domain.Admin;
+import is2.domain.Alumno;
 import is2.service.AdminService;
+import is2.service.AlumnoService;
 
 @Controller
 @RequestMapping("/admin")
@@ -22,6 +26,9 @@ public class AdminController {
 
 	@Inject
 	AdminService adminService;
+	
+	@Inject
+	AlumnoService alumnoService;
 
 	@Inject
 	Validator validator;
@@ -29,6 +36,14 @@ public class AdminController {
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
 		return new ModelAndView("admin/list", "admins", adminService.findAll());
+	}
+	
+	@RequestMapping("/alumnos.html")
+	public ModelAndView alumnos() {
+		List<Alumno> alumnos = alumnoService.findAll();
+		ModelAndView model = new ModelAndView("admin/alumnos");
+		model.addObject("alumnos",alumnos);
+		return model;
 	}
 
 	@RequestMapping("/{id}/details.html")

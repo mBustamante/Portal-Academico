@@ -5,7 +5,7 @@
 		<a href="/Portal-Academico/">Home</a>
 	</li>
 	<li>
-		<a href="/Portal-Academico/alumno/list.html">Alumnos</a>
+		<a href="/Portal-Academico/admin/alumnos.html">Alumnos</a>
 	</li>
 	<li>
 		<a href="/Portal-Academico/docente/list.html">Docentes</a>
