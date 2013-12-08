@@ -14,6 +14,15 @@
 		<div class="master-content">
 			
 			<h1>Portal Academico</h1>
+			<p>
+				Bienvenido al portal academico de la Univesidad Catolica
+				San Pablo. Aqui encontraras informacion relacionada con
+				tu carrera universitaria si eres un alumno. Si eres un 
+				profesor, tendras la posibilidad de manejar todas tus notas
+				y cursos de forma on-line. Y si eres un administrativo
+				podras manejar toda la informacion relevante para la 
+				universidad.				
+			</p>
 	        <p>
 	            <a href="signin" th:href="@{signin}" class="btn btn-large btn-success">Sign in</a>
 	        </p>

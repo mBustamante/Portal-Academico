@@ -1,5 +1,4 @@
-﻿
-INSERT INTO role( id, role) VALUES (1, 'ROLE_ADMIN');
+﻿INSERT INTO role( id, role) VALUES (1, 'ROLE_ADMIN');
 INSERT INTO role( id, role) VALUES (2, 'ROLE_DOCENTE');
 INSERT INTO role( id, role) VALUES (3, 'ROLE_ALUMNO');
 
@@ -41,6 +40,10 @@ INSERT INTO admin(
 INSERT INTO admin(
             id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
     VALUES (10,'Loayza Soto','15/04/1992','Jennifer','ls2425',958462032,'jennifer.loayza',1);
+    
+INSERT INTO admin(
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (11,'Kaio','26/03/1991','Supremo','pass',99777666,'admin',1);
 
 INSERT INTO aula(
             id, maxalumnos, nombre)
@@ -170,6 +173,9 @@ INSERT INTO docente(
 INSERT INTO docente(
             id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
     VALUES (1107,'Tejada','26/09/1982','Javier','tjk4203',954910234,'javier.tejada',2);
+INSERT INTO docente(
+            id, apellido, fecha_n, nombre, password, telefono, usuario, role_id)
+    VALUES (1108,'Sama','26/09/1982','Jiraya','pass',954910234,'docente',2);
 
 INSERT INTO horario(
             id, dia, hora_fin, hora_inicio)
@@ -372,7 +378,12 @@ INSERT INTO alumno(
             telefono, usuario, carrera_id, role_id)
     VALUES (1010,'Tejada Begazo','Maria Begazo','Mercedario','31/10/1993','Maria Fernanda','tbm4867', 
             920136920,'maria.tejada',004101,3);
-
+INSERT INTO alumno(
+            id, apellido, apoderado, colegio, fecha_n, nombre, password, 
+            telefono, usuario, carrera_id, role_id)
+    VALUES (1011,'Yagami','Maria Begazo','Mercedario','31/10/1993','Light','pass', 
+            920136920,'alumno',004101,3);
+            
 INSERT INTO cursodictado(
             id, curso_id, periodo_id)
     VALUES (4001,2001,3001);

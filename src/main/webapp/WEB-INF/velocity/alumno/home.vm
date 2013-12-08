@@ -1,7 +1,25 @@
+#parse( "declaraciones.vm" )
 <html>
+<head>
+	#parse( "head.vm" )
+</head>
+
 <body>
-<title>Home Alumno</title>
-	Bienvenido Alumno
-    <a href="/Portal-Academico/j_spring_security_logout">Log Out</a>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "alumno/header.vm" )
+		</div>
+
+		<div class="master-content">
+			<h1>Alumno Home</h1>
+			Bienvenido $alumno.nombre $alumno.apellido
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
 </body>
 </html>
