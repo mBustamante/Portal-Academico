@@ -23,9 +23,34 @@
 				podras manejar toda la informacion relevante para la 
 				universidad.				
 			</p>
-	        <p>
-	            <a href="signin" th:href="@{signin}" class="btn btn-large btn-success">Sign in</a>
-	        </p>
+	        
+
+			<form class="form-narrow form-horizontal" action="./j_spring_security_check" method="post">
+			    <th:block th:if="${param.error} != null">
+			        <div th:replace="fragments/alert :: alert (type='danger', message='Sign in error. Please try again.')"></div>
+			    </th:block>
+			    <fieldset>
+			        <legend>Sign In</legend>
+			        <div class="form-group">
+			            <label for="inputEmail" class="col-sm-2 control-label">Usuario</label>
+			            <div class="col-sm-10">
+			                <input type="text" class="form-control" id="inputEmail" placeholder="Usuario" name="j_username" />
+			            </div>
+			        </div>
+			        <div class="form-group">
+			            <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+			            <div class="col-sm-10">
+			                <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="j_password" />
+			            </div>
+			        </div>
+			        <div class="form-group">
+			            <div class="col-sm-offset-2 col-sm-10">
+			                <button type="submit" class="btn btn-default">Sign in</button>
+			            </div>
+			        </div>
+			        
+			    </fieldset>
+			</form>
 
 		</div>
 

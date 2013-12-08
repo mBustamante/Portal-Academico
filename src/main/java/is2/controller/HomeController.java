@@ -31,27 +31,23 @@ public class HomeController {
 	DocenteService docenteService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public void index(Principal principal, HttpServletResponse response) throws IOException {
+	public ModelAndView index(Principal principal, HttpServletResponse response) throws IOException {
 		
 		if (principal==null){
-			response.sendRedirect("home.html");
+			return new ModelAndView("home"); 
 		}
 		else{
 			String username = principal.getName();
 			if(alumnoService.findByUsername(username) != null){
-				response.sendRedirect("alumno/home.html");
+				return homeAlumno(response);
 			}
 			else{
 				if(docenteService.findByUsername(username) != null){
-					response.sendRedirect("docente/home.html");
+					return homeDocente(response);
 				}
-				else  response.sendRedirect("admin/home.html");
+				else  return homeAdministrator(response);
 			}
 		}
-	}
-	@RequestMapping("/home.html")
-	public ModelAndView home(HttpServletResponse response) throws IOException {
-		return new ModelAndView("home"); 
 	}
 	
 	@RequestMapping("/alumno/home.html")
