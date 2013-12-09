@@ -20,7 +20,7 @@
 				<th>Curso</th>
 				<th>Alumnos</th>
 			</tr>
-			#foreach($curso in $docente.cursosDictados)
+			#foreach($curso in $cursosDictados)
 				<tr>
 					<td>$curso.curso.nombre</a></td>
 					<td><a href="../${curso.id}/alumnos.html">Ver alumnos</a></td>

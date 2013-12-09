@@ -3,8 +3,6 @@ package is2.service;
 import java.util.List;
 
 import is2.domain.Alumno;
-import is2.domain.Bloque;
-import is2.domain.CursoDictado;
 import is2.domain.Matricula;
 import is2.repository.AlumnoDao;
 

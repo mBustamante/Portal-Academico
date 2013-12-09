@@ -1,10 +1,13 @@
 package is2.repository.jpa;
 
+import java.util.List;
+
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
 import is2.domain.Alumno;
+import is2.domain.Curso;
 import is2.repository.AlumnoDao;
 
 @Repository
@@ -35,5 +38,12 @@ public class JpaAlumnoDao extends JpaGenericDao<Alumno, Long> implements AlumnoD
 	@Override
 	protected Class<Alumno> getClase() {
 		return Alumno.class;
+	}
+
+	@Override
+	public List<Curso> findCursosDisponibles(Long id) {
+		TypedQuery<Curso> query = entityManager.createNamedQuery(Alumno.FIND_CURSOS, Curso.class);
+		List<Curso> results = query.getResultList();
+		return results;
 	}
 }

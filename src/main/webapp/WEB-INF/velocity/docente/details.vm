@@ -36,9 +36,7 @@
 				</tr>
 			</table>
 			
-			<a href="edit.html"><button type="button" class="btn btn-default">Modificar</button></a>
-			<a href="../list.html"><button type="button" class="btn btn-default">Ver todos</button></a>
-			
+			<a href="edit.html"><button type="button" class="btn btn-default">Modificar</button></a>			
 		</div>
 
 		<div class="master-footer">

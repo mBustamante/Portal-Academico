@@ -1,0 +1,48 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "docente/header.vm" )
+		</div>
+
+		<div class="master-content">
+		
+			
+			<h1>Horario Semanal de $docente.nombre</h1>
+			
+			<table class="table table-hover">
+				<tr>
+					<th>Curso</th>
+					<th>Dia</th>
+					<th>Aula</th>
+					<th>Inicio</th>
+					<th>Fin</th>
+				</tr>
+				#foreach($cursoDictado in $cursosDictados)
+				<tr>
+					#foreach($bloque in $cursoDictado.bloques)
+						<td> $cursoDictado.curso.nombre</td>
+						<td> $bloque.getHorario().dia</td>
+						<td> $bloque.getAula().nombre</td>
+						<td> $bloque.getHorario().hora_inicio</td>
+						<td> $bloque.getHorario().hora_fin</td>
+					#end
+				</tr>
+				#end
+			</table>
+			
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>

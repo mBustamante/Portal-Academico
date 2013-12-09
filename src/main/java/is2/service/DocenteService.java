@@ -1,6 +1,7 @@
 package is2.service;
 import java.util.List;
 
+import is2.domain.CursoDictado;
 import is2.domain.Docente;
 import is2.repository.DocenteDao;
 
@@ -36,5 +37,10 @@ public class DocenteService {
 	public Docente findByUsername(String username)
 	{
 		return docenteDao.findByUsername(username);
+	}
+	
+	public List<CursoDictado> getCursosDictados(Long id)
+	{
+		return docenteDao.find(id).getCursosDictados();
 	}
 }

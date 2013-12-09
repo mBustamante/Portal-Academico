@@ -17,6 +17,7 @@ import is2.domain.Docente;
 import is2.domain.Nota;
 import is2.service.CursoDictadoService;
 import is2.service.DocenteService;
+import is2.service.HorarioDocenteService;
 import is2.service.MatriculaService;
 import is2.service.NotaService;
 
@@ -39,6 +40,9 @@ public class DocenteController {
 
 	@Inject
 	Validator validator;
+	
+	@Inject
+	HorarioDocenteService horarioDocenteService;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
@@ -53,10 +57,20 @@ public class DocenteController {
 		return view;
 	}
 	
+	@RequestMapping("/{id}/horario.html")
+	public ModelAndView horario(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+        view.addObject("docente",docenteService.find(id));
+        view.addObject("cursosDictados", horarioDocenteService.getCursosDictados(id));
+        view.setViewName("docente/horario");
+        return view;
+	}
+	
 	@RequestMapping("/{id}/cursos.html")
 	public ModelAndView cursos(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
 		view.addObject("docente", docenteService.find(id));
+		view.addObject("cursosDictados", docenteService.getCursosDictados(id));
 		view.setViewName("docente/cursos");
 		return view;
 	}
@@ -125,8 +139,9 @@ public class DocenteController {
 			docenteService.merge(Docente);
 			status.setComplete();
 		}
-		
-		return new ModelAndView(result.getErrorCount() > 0 ? "docente/edit" : "redirect:list.html");
+		ModelAndView view = new ModelAndView(result.getErrorCount() > 0 ? "docente/edit" : "redirect:home.html");
+		view.addObject("docente", docenteService.find(Docente.getId() ));
+		return view;
 //		return new ModelAndView("Docente/save");
 	}
 }
