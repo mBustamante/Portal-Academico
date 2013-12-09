@@ -12,10 +12,10 @@
 		</div>
 
 		<div class="master-content">
-			<a href="add.html"><button type="button" class="btn btn-default">Agregar nuevo periodo</button></a>
+			<a href="add.html"><button type="button" class="btn btn-default">Nueva</button></a>
 			<br><br>
 			#if($carreras.empty)
-				<div> No hay periodos registrados</div>
+				<div> No hay carreras registradas</div>
 			#else
 				<table class="table table-hover">
 					<tr>

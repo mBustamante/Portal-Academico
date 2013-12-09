@@ -18,11 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 import is2.domain.Admin;
 import is2.domain.Alumno;
 import is2.domain.Carrera;
+import is2.domain.CategoriaNota;
 import is2.domain.Docente;
 import is2.domain.Periodo;
 import is2.service.AdminService;
 import is2.service.AlumnoService;
 import is2.service.CarreraService;
+import is2.service.CategoriaNotaService;
 import is2.service.DocenteService;
 import is2.service.PeriodoService;
 
@@ -44,6 +46,9 @@ public class AdminController {
 	
 	@Inject
 	CarreraService carreraService;
+	
+	@Inject
+	CategoriaNotaService categoriaNotaService;
 
 	@Inject
 	Validator validator;
@@ -74,6 +79,14 @@ public class AdminController {
 		List<Periodo> periodos = periodoService.findAll();
 		ModelAndView model = new ModelAndView("admin/periodos");
 		model.addObject("periodos",periodos);
+		return model;
+	}
+	
+	@RequestMapping("/categorias_notas.html")
+	public ModelAndView categorias_notas() {
+		List<CategoriaNota> categorias = categoriaNotaService.findAll();
+		ModelAndView model = new ModelAndView("admin/categorias_notas");
+		model.addObject("categorias",categorias);
 		return model;
 	}
 	

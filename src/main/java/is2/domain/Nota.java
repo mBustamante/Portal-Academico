@@ -18,7 +18,6 @@ public class Nota implements BaseEntity<Long>{
 	
 	private Double nota;
 	
-	private Double peso;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Matricula matricula;
@@ -34,13 +33,6 @@ public class Nota implements BaseEntity<Long>{
 		this.nota = nota;
 	}
 
-	public Double getPeso() {
-		return peso;
-	}
-
-	public void setPeso(Double peso) {
-		this.peso = peso;
-	}
 	
 
 

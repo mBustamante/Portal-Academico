@@ -12,20 +12,20 @@
 		</div>
 
 		<div class="master-content">
-			<a href="add.html"><button type="button" class="btn btn-default">Nuevo</button></a>
+			<a href="add.html"><button type="button" class="btn btn-default">Nueva</button></a>
 			<br><br>
-			#if($docentes.empty)
-				<div> No hay docentes registrados</div>
+			#if($categorias.empty)
+				<div> No hay categorias de notas registradas</div>
 			#else
 				<table class="table table-hover">
 					<tr>
-						<th>Docente</th>
-						<th>Cursos</th>
+						<th>Categoria</th>
+						<th>Peso</th>
 					</tr>
-				#foreach($docente in $docentes)
+				#foreach($categoria in $categorias)
 					<tr>
-						<td><a href="${docente.id}/details.html">$docente.nombre $docente.apellido</a></td>
-						<td><a href="${docente.id}/cursos.html">Ver cursos</a></td>
+						<td>$categoria.nombre</td>
+						<td>$categoria.peso</td>
 					</tr>
 				#end
 				</table>

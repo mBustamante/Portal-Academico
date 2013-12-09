@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="master-content">
-			<a href="add.html"><button type="button" class="btn btn-default">Agregar nuevo periodo</button></a>
+			<a href="add.html"><button type="button" class="btn btn-default">Nuevo</button></a>
 			<br><br>
 			#if($periodos.empty)
 				<div> No hay periodos registrados</div>

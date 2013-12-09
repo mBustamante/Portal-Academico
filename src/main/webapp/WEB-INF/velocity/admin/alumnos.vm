@@ -12,11 +12,10 @@
 		</div>
 
 		<div class="master-content">
-			<a href="add.html"><button class="btn btn-default" type="button">Agregar nuevo alumno</button></a>
+			<a href="add.html"><button class="btn btn-default" type="button">Nuevo</button></a>
 			<br><br>
-			#if($alumno.empty)
+			#if($alumnos.empty)
 				<div> No hay alumnos registrados</div>
-				<a href="add.html">Agregar Nuevo</a>
 			#else
 				<table class="table table-hover">
 				<tr><th>Alumno</th><th>Notas</th><th>Avance curricular</th><th>Ver horario</th></tr>
