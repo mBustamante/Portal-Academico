@@ -18,4 +18,12 @@ public class CategoriaNotaService {
 	public List<CategoriaNota> findAll(){
 		return categoriaNotaDao.findAll();
 	}
+	
+	public CategoriaNota persist(CategoriaNota categoria){
+		return categoriaNotaDao.persist(categoria);
+	}
+	
+	public CategoriaNota merge(CategoriaNota categoria){
+		return categoriaNotaDao.merge(categoria);
+	}
 }

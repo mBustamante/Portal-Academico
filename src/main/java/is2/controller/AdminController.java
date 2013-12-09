@@ -90,6 +90,27 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/add_categoria_nota.html")
+	public ModelAndView add_categoria_nota() {
+		CategoriaNota categoria = new CategoriaNota();
+		ModelAndView model = new ModelAndView("admin/add_categoria_nota");
+		model.addObject("categoria", categoria);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_categoria_nota.html", method=RequestMethod.POST)
+	public ModelAndView save_categoria_nota(@ModelAttribute("categoria") @Valid CategoriaNota categoria, SessionStatus status) {
+		if (categoria.getId() == null) {
+			categoriaNotaService.persist(categoria);
+			status.setComplete();
+		}
+		else {
+			categoriaNotaService.merge(categoria);
+			status.setComplete();
+		}
+		return categorias_notas();
+	}
+	
 	@RequestMapping("/carreras.html")
 	public ModelAndView carreras() {
 		List<Carrera> carreras = carreraService.findAll();
