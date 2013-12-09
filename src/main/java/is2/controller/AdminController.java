@@ -98,6 +98,14 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/{id}/edit_categoria_nota.html")
+	public ModelAndView edit_categoria_nota(@PathVariable Long id) {
+		CategoriaNota categoria = categoriaNotaService.find(id);
+		ModelAndView model = new ModelAndView("admin/add_categoria_nota");
+		model.addObject("categoria", categoria);
+		return model;
+	}
+	
 	@RequestMapping(value="/save_categoria_nota.html", method=RequestMethod.POST)
 	public ModelAndView save_categoria_nota(@ModelAttribute("categoria") @Valid CategoriaNota categoria, SessionStatus status) {
 		if (categoria.getId() == null) {
@@ -108,7 +116,7 @@ public class AdminController {
 			categoriaNotaService.merge(categoria);
 			status.setComplete();
 		}
-		return categorias_notas();
+		return new ModelAndView("redirect:categorias_notas.html");
 	}
 	
 	@RequestMapping("/carreras.html")

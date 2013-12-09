@@ -24,7 +24,7 @@
 					</tr>
 				#foreach($categoria in $categorias)
 					<tr>
-						<td>$categoria.nombre</td>
+						<td><a href="$categoria.id/edit_categoria_nota.html">$categoria.nombre</a></td>
 						<td>$categoria.peso</td>
 					</tr>
 				#end

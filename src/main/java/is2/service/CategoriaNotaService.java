@@ -15,6 +15,10 @@ public class CategoriaNotaService {
 	@Inject
 	CategoriaNotaDao categoriaNotaDao;
 	
+	public CategoriaNota find(Long id){
+		return categoriaNotaDao.find(id);
+	}
+	
 	public List<CategoriaNota> findAll(){
 		return categoriaNotaDao.findAll();
 	}
