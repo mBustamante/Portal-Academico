@@ -14,6 +14,9 @@
 		<a href="/Portal-Academico/admin/periodos.html">Periodos</a>
 	</li>
 	<li>
+		<a href="/Portal-Academico/admin/carreras.html">Carreras</a>
+	</li>
+	<li>
 		<a href="/Portal-Academico/j_spring_security_logout">Logout</a>
 	</li>
 </ul>
