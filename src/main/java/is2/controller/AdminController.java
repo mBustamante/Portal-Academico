@@ -21,6 +21,7 @@ import is2.domain.Carrera;
 import is2.domain.CategoriaNota;
 import is2.domain.Docente;
 import is2.domain.Matricula;
+import is2.domain.Nota;
 import is2.domain.Periodo;
 import is2.service.AdminService;
 import is2.service.AlumnoService;
@@ -28,6 +29,7 @@ import is2.service.CarreraService;
 import is2.service.CategoriaNotaService;
 import is2.service.DocenteService;
 import is2.service.MatriculaService;
+import is2.service.NotaService;
 import is2.service.PeriodoService;
 
 @Controller
@@ -54,6 +56,9 @@ public class AdminController {
 	
 	@Inject
 	MatriculaService matriculaService;
+	
+	@Inject
+	NotaService notaService;
 
 	@Inject
 	Validator validator;
@@ -224,6 +229,27 @@ public class AdminController {
 		ModelAndView model = new ModelAndView("admin/notas");
 		model.addObject("matricula",matricula);
 		return model;
+	}
+	
+	@RequestMapping("{id}/editar_nota.html")
+	public ModelAndView edit_nota(@PathVariable Long id) {
+		Nota nota = notaService.find(id);
+		ModelAndView model = new ModelAndView("admin/edit_nota");
+		model.addObject("nota",nota);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_nota.html", method=RequestMethod.POST)
+	public ModelAndView save_nota(@ModelAttribute("nota") @Valid Nota nota, SessionStatus status) {
+		if (nota.getId() == null) {
+			notaService.persist(nota);
+			status.setComplete();
+		}
+		else {
+			nota = notaService.cambiar_nota(nota.getId(), nota.getNota());
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:"+nota.getMatricula().getId()+"/notas.html");
 	}
 	
 	@RequestMapping("/carreras.html")

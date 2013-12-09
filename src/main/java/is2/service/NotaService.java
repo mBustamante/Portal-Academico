@@ -21,10 +21,14 @@ public class NotaService {
 		return notaDao.persist(nota);
 	}
 	
-	public void cambiar_nota(Long id, Double nueva_nota){
+	public Nota merge(Nota nota){
+		return notaDao.merge(nota);
+	}
+	
+	public Nota cambiar_nota(Long id, Double nueva_nota){
 		Nota nota = notaDao.find(id);
 		nota.setNota(nueva_nota);
-		notaDao.merge(nota);
+		return notaDao.merge(nota);
 	}
 	
 }
