@@ -30,7 +30,7 @@
 				</tr>
 				#foreach($matricula in $alumno.matriculas)
 				<tr>
-					<td>$matricula.cursoDictado.curso.nombre</td>
+					<td><a href="../$matricula.id/notas.html">$matricula.cursoDictado.curso.nombre</a></td>
 					<td>$matricula.cursoDictado.curso.creditos</td>
 					<td>$matricula.estado</td>
 				</tr>
