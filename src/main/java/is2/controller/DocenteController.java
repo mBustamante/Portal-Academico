@@ -125,8 +125,9 @@ public class DocenteController {
 			docenteService.merge(Docente);
 			status.setComplete();
 		}
-		
-		return new ModelAndView(result.getErrorCount() > 0 ? "docente/edit" : "redirect:list.html");
+		ModelAndView view = new ModelAndView(result.getErrorCount() > 0 ? "docente/edit" : "redirect:home.html");
+		view.addObject("docente", docenteService.find(Docente.getId() ));
+		return view;
 //		return new ModelAndView("Docente/save");
 	}
 }
