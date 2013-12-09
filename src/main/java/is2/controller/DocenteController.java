@@ -70,6 +70,7 @@ public class DocenteController {
 	public ModelAndView cursos(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
 		view.addObject("docente", docenteService.find(id));
+		view.addObject("cursosDictados", docenteService.getCursosDictados(id));
 		view.setViewName("docente/cursos");
 		return view;
 	}
