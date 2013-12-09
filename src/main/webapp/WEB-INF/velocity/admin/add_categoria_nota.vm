@@ -2,17 +2,22 @@
 <html>
 <head>
 	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#notas").addClass("active");
+		});
+	</script>
 </head>
 
 <body>
 	<div class="container">
 
 		<div class="master-header">
-			#parse( "alumno/header.vm" )
+			#parse( "admin/header.vm" )
 		</div>
 
 		<div class="master-content">
-
+	
 			<form class="form-horizontal" role="form" action="#springUrl("/admin/save_categoria_nota.html")" method="POST">
 
 				<input type="hidden" name="id" value="$!categoria.id" />
