@@ -23,14 +23,19 @@
 				<div> No hay alumnos registrados</div>
 			#else
 				<table class="table table-hover">
-				<tr><th>Alumno</th><th>Notas</th><th>Avance curricular</th><th>Ver horario</th></tr>
+				<tr>
+					<th>Alumno</th>
+					<th>Cursos</th>
+					<th>Horario</th>
+					<th>Eliminar</th>
+				</tr>
 				#foreach($alumno in $alumnos)
 					<tr>
 						<td><a href="${alumno.id}/edit_alumno.html">$alumno.nombre $alumno.apellido</a></td>
-						<td><a href="${alumno.id}/notas.html">Ver notas</a></td>
-						<td><a href="${alumno.id}/avance_curricular.html">Ver avance</a></td>
+						<td><a href="${alumno.id}/cursos.html">Ver cursos</a></td>
 						<td><a href="${alumno.id}/horario.html">Ver horario</a></td>
-						
+						<td><a href="$alumno.id/remove_alumno.html" 
+							onclick="return confirm('Eliminar a $alumno.nombre $alumno.apellido?');">Eliminar</a></td>
 					</tr>
 				#end
 				</table>

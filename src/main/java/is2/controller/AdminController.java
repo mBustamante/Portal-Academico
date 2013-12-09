@@ -20,12 +20,14 @@ import is2.domain.Alumno;
 import is2.domain.Carrera;
 import is2.domain.CategoriaNota;
 import is2.domain.Docente;
+import is2.domain.Matricula;
 import is2.domain.Periodo;
 import is2.service.AdminService;
 import is2.service.AlumnoService;
 import is2.service.CarreraService;
 import is2.service.CategoriaNotaService;
 import is2.service.DocenteService;
+import is2.service.MatriculaService;
 import is2.service.PeriodoService;
 
 @Controller
@@ -49,6 +51,9 @@ public class AdminController {
 	
 	@Inject
 	CategoriaNotaService categoriaNotaService;
+	
+	@Inject
+	MatriculaService matriculaService;
 
 	@Inject
 	Validator validator;
@@ -94,10 +99,8 @@ public class AdminController {
 			status.setComplete();
 		}
 		else {
-			System.out.println("##############################"+alumno.getPassword()+"##############");
 			if( alumno.getPassword() != "" ){
 				alumnoService.encodePassword(alumno);
-				System.out.println("##############################"+alumno.getPassword()+"##############");
 				alumnoService.merge(alumno);
 			}
 			else
@@ -105,6 +108,12 @@ public class AdminController {
 			status.setComplete();
 		}
 		return new ModelAndView("redirect:alumnos.html");
+	}
+	
+	@RequestMapping("/{id}/remove_alumno.html")
+	public ModelAndView remove_alumno(@PathVariable Long id){
+		alumnoService.removeById(id);
+		return new ModelAndView("redirect:../alumnos.html");
 	}
 	
 	@RequestMapping("/docentes.html")
@@ -199,6 +208,22 @@ public class AdminController {
 	public ModelAndView remove_categoria_nota(@PathVariable Long id){
 		categoriaNotaService.removeById(id);
 		return new ModelAndView("redirect:../categorias_notas.html");
+	}
+	
+	@RequestMapping("{id}/cursos.html")
+	public ModelAndView cursos(@PathVariable Long id) {
+		Alumno alumno = alumnoService.find(id);
+		ModelAndView model = new ModelAndView("admin/cursos");
+		model.addObject("alumno",alumno);
+		return model;
+	}
+	
+	@RequestMapping("{id}/notas.html")
+	public ModelAndView notas(@PathVariable Long id) {
+		Matricula matricula = matriculaService.find(id);
+		ModelAndView model = new ModelAndView("admin/notas");
+		model.addObject("matricula",matricula);
+		return model;
 	}
 	
 	@RequestMapping("/carreras.html")

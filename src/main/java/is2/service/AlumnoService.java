@@ -27,32 +27,27 @@ public class AlumnoService {
 		return alumnoDao.find(id);
 	}
 	
-	public List<Alumno>  findAll()
-	{
+	public List<Alumno>  findAll()	{
 		return alumnoDao.findAll();
 	}
 	
-	public Alumno findByUsername(String username)
-	{
+	public Alumno findByUsername(String username)	{
 		return alumnoDao.findByUsername(username);
 	}
-	public Alumno persist(Alumno alumno)
-	{
+	public Alumno persist(Alumno alumno)	{
 		alumno.setRole(roleDao.findByRole("ROLE_ALUMNO"));
 		return alumnoDao.persist(alumno);
 	}
 	
-	public Alumno merge(Alumno alumno)
-	{
+	public Alumno merge(Alumno alumno)	{
 		return alumnoDao.merge(alumno);
+	}
+	public void removeById(Long id){
+		alumnoDao.removeById(id);
 	}
 	
 	public Alumno encodePassword(Alumno alumno){
-		System.out.println("ed6296326e7e82dab1a737d129ee74e314911403ac305a2e1ed18826d4165dec644f58cd3aea272a");
-		System.out.println(encoder.matches("pass", "ed6296326e7e82dab1a737d129ee74e314911403ac305a2e1ed18826d4165dec644f58cd3aea272a"));
 		alumno.setPassword(encoder.encode(alumno.getPassword()));
-		System.out.println(alumno.getPassword());
-		System.out.println(encoder.matches("pass", alumno.getPassword()));
 		return alumno;
 	}
 	

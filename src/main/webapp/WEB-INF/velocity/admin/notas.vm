@@ -1,0 +1,47 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#alumnos").addClass("active");
+		});
+	</script>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "admin/header.vm" )
+		</div>
+
+		<div class="master-content">
+
+			<h1>$matricula.alumno.nombre $matricula.alumno.apellido</h1>
+			<h2>Notas</h2>
+			
+			<table class="table table-hover">
+				<tr>
+					<th>Categoria</th>
+					<th>Nota</th>
+					<th>Editar</th>
+				</tr>
+				#foreach($nota in $matricula.notas)
+				<tr>
+					<td>$nota.categoria.nombre</td>
+					<td>$nota.nota</td>
+					<td><a href="../$nota.id/editar_nota.html">Editar</a></td>
+				</tr>			
+				#end
+			</table>		
+			
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
