@@ -133,6 +133,33 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/add_docente.html")
+	public ModelAndView add_docente() {
+		Docente docente = new Docente();
+		ModelAndView model = new ModelAndView("admin/add_docente");
+		model.addObject("docente",docente);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_docente.html", method=RequestMethod.POST)
+	public ModelAndView save_docente(@ModelAttribute("docente") @Valid Docente docente, SessionStatus status){
+		if (docente.getId() == null) {
+			docenteService.encodePassword(docente);
+			docenteService.persist(docente);
+			status.setComplete();
+		}
+		else {
+			if( docente.getPassword() != "" ){
+				docenteService.encodePassword(docente);
+				docenteService.merge(docente);
+			}
+			else
+				docenteService.merge_sin_password(docente);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:docentes.html");
+	}
+	
 	@RequestMapping("/periodos.html")
 	public ModelAndView periodos() {
 		List<Periodo> periodos = periodoService.findAll();
