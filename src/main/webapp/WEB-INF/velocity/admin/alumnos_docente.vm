@@ -4,7 +4,7 @@
 	#parse( "head.vm" )
 	<script>
 		$(document).ready(function(){
-			$("#alumnos").addClass("active");
+			$("#docentes").addClass("active");
 		});
 	</script>
 </head>
@@ -19,22 +19,22 @@
 		<div class="master-content">
 			<a href="/Portal-Academico/admin/add_alumno.html"><button class="btn btn-default" type="button">Nuevo</button></a>
 			<br><br>
-			#if($alumnos.empty)
+			#if($matriculas.empty)
 				<div> No hay alumnos registrados</div>
 			#else
 				<table class="table table-hover">
 				<tr>
 					<th>Alumno</th>
-					<th>Cursos</th>
+					<th>Notas</th>
 					<th>Horario</th>
 					<th>Eliminar</th>
 				</tr>
-				#foreach($alumno in $alumnos)
+				#foreach($matricula in $matriculas)
 					<tr>
-						<td><a href="/Portal-Academico/admin/${alumno.id}/edit_alumno.html">$alumno.nombre $alumno.apellido</a></td>
-						<td><a href="/Portal-Academico/admin/${alumno.id}/cursos.html">Ver cursos</a></td>
-						<td><a href="/Portal-Academico/admin/${alumno.id}/horario.html">Ver horario</a></td>
-						<td><a href="/Portal-Academico/admin/$alumno.id/remove_alumno.html" 
+						<td><a href="/Portal-Academico/admin/${matricula.alumno.id}/edit_alumno.html">$matricula.alumno.nombre $matricula.alumno.apellido</a></td>
+						<td><a href="/Portal-Academico/admin/${matricula.id}/notas.html">Ver notas</a></td>
+						<td><a href="/Portal-Academico/admin/${matricula.alumno.id}/horario.html">Ver horario</a></td>
+						<td><a href="/Portal-Academico/admin/$matricula.alumno.id/remove_alumno.html" 
 							onclick="return confirm('Eliminar a $alumno.nombre $alumno.apellido?');">Eliminar</a></td>
 					</tr>
 				#end
