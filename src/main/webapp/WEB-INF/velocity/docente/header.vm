@@ -5,13 +5,13 @@
 		<a href="/Portal-Academico/">Home</a>
 	</li>
 	<li>
-		<a href="/Portal-Academico/docente/details.html">Ver Datos</a>
+		<a href="/Portal-Academico/docente/${docente.id}/details.html">Ver Datos</a>
 	</li>
 	<li>
-		<a href="/Portal-Academico/docente/horario.html">Ver Horario</a>
+		<a href="/Portal-Academico/docente/${docente.id}/horario.html">Ver Horario</a>
 	</li>
 	<li>
-		<a href="/Portal-Academico/docente/cursos.html">Ver Cursos</a>
+		<a href="/Portal-Academico/docente/${docente.id}/cursos.html">Ver Cursos</a>
 	</li>
 	<li>
 		<a href="/Portal-Academico/j_spring_security_logout">Logout</a>
