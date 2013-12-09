@@ -282,6 +282,14 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/{id}/edit_carrera.html")
+	public ModelAndView edit_carrera(@PathVariable Long id){
+		Carrera carrera = carreraService.find(id);
+		ModelAndView model = new ModelAndView("admin/add_carrera");
+		model.addObject("carrera",carrera);
+		return model;
+	}
+	
 	@RequestMapping(value="/save_carrera.html", method = RequestMethod.POST)
 	public ModelAndView save_carrera(@ModelAttribute("carrera") @Valid Carrera carrera, SessionStatus status){
 		if (carrera.getId() == null) {

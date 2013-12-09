@@ -28,7 +28,7 @@
 					</tr>
 				#foreach($carrera in $carreras)
 					<tr>
-						<td>$carrera.nombre</td>
+						<td><a href="$carrera.id/edit_carrera.html">$carrera.nombre</a></td>
 					</tr>
 				#end
 				</table>
