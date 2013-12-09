@@ -21,11 +21,14 @@
 					<tr>
 						<th>Categoria</th>
 						<th>Peso</th>
+						<th>Eliminar</th>
 					</tr>
 				#foreach($categoria in $categorias)
 					<tr>
 						<td><a href="$categoria.id/edit_categoria_nota.html">$categoria.nombre</a></td>
 						<td>$categoria.peso</td>
+						<td><a href="$categoria.id/remove_categoria_nota.html" 
+							onclick="return confirm('Eliminar $categoria.nombre?');">Eliminar</a></td>
 					</tr>
 				#end
 				</table>

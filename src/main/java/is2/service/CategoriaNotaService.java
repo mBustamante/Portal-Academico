@@ -30,4 +30,12 @@ public class CategoriaNotaService {
 	public CategoriaNota merge(CategoriaNota categoria){
 		return categoriaNotaDao.merge(categoria);
 	}
+	
+	public void remove(CategoriaNota categoria){
+		categoriaNotaDao.remove(categoria);
+	}
+	
+	public void removeById(Long id){
+		categoriaNotaDao.removeById(id);
+	}
 }

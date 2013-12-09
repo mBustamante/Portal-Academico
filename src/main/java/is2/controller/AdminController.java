@@ -119,6 +119,12 @@ public class AdminController {
 		return new ModelAndView("redirect:categorias_notas.html");
 	}
 	
+	@RequestMapping("/{id}/remove_categoria_nota.html")
+	public ModelAndView remove_categoria_nota(@PathVariable Long id){
+		categoriaNotaService.removeById(id);
+		return new ModelAndView("redirect:../categorias_notas.html");
+	}
+	
 	@RequestMapping("/carreras.html")
 	public ModelAndView carreras() {
 		List<Carrera> carreras = carreraService.findAll();
