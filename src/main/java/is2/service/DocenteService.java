@@ -40,6 +40,7 @@ public class DocenteService {
 	
 	public Docente merge(Docente docente)
 	{
+		docente.setRole(roleDao.findByRole("ROLE_DOCENTE"));
 		return docenteDao.merge(docente);
 	}
 	
@@ -60,5 +61,8 @@ public class DocenteService {
 		Docente original = find(docente.getId());
 		docente.setPassword(original.getPassword());
 		return merge(docente);
+	}
+	public void removeById(Long id){
+		docenteDao.removeById(id);
 	}
 }

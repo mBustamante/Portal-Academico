@@ -26,11 +26,14 @@
 					<tr>
 						<th>Docente</th>
 						<th>Cursos</th>
+						<th>Eliminar</th>
 					</tr>
 				#foreach($docente in $docentes)
 					<tr>
-						<td><a href="${docente.id}/details.html">$docente.nombre $docente.apellido</a></td>
+						<td><a href="${docente.id}/edit_docente.html">$docente.nombre $docente.apellido</a></td>
 						<td><a href="${docente.id}/cursos.html">Ver cursos</a></td>
+						<td><a href="$docente.id/remove_docente.html" 
+							onclick="return confirm('Eliminar a $docente.nombre $docente.apellido?');">Eliminar</a></td>
 					</tr>
 				#end
 				</table>

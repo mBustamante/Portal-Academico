@@ -141,6 +141,14 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/{id}/edit_docente.html")
+	public ModelAndView edit_docente(@PathVariable Long id){
+		Docente docente = docenteService.find(id);
+		ModelAndView model = new ModelAndView("admin/add_docente");
+		model.addObject("docente", docente);
+		return model;
+	}
+	
 	@RequestMapping(value="/save_docente.html", method=RequestMethod.POST)
 	public ModelAndView save_docente(@ModelAttribute("docente") @Valid Docente docente, SessionStatus status){
 		if (docente.getId() == null) {
@@ -158,6 +166,12 @@ public class AdminController {
 			status.setComplete();
 		}
 		return new ModelAndView("redirect:docentes.html");
+	}
+	
+	@RequestMapping("/{id}/remove_docente.html")
+	public ModelAndView remove_docente(@PathVariable Long id){
+		docenteService.removeById(id);
+		return new ModelAndView("redirect:../docentes.html");
 	}
 	
 	@RequestMapping("/periodos.html")

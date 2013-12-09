@@ -40,6 +40,7 @@ public class AlumnoService {
 	}
 	
 	public Alumno merge(Alumno alumno)	{
+		alumno.setRole(roleDao.findByRole("ROLE_ALUMNO"));
 		return alumnoDao.merge(alumno);
 	}
 	public void removeById(Long id){
