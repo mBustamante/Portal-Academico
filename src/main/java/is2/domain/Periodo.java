@@ -4,12 +4,17 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 @Entity
 public class Periodo implements BaseEntity<Long>{
 	
 	@Id
+	@SequenceGenerator(name = "periodo_id_gen", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "periodo_id_gen")
 	private Long id;
 	
 	private String nombre;

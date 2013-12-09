@@ -14,7 +14,23 @@ public class PeriodoService {
 	@Inject
 	PeriodoDao periodoDao; 
 	
+	public Periodo find(Long id){
+		return periodoDao.find(id);
+	}
+	
 	public List<Periodo> findAll(){
 		return periodoDao.findAll();
+	}
+	
+	public Periodo persist(Periodo periodo){
+		return periodoDao.persist(periodo);
+	}
+	
+	public Periodo merge(Periodo periodo){
+		return periodoDao.merge(periodo);
+	}
+	
+	public void removeById(Long id){
+		periodoDao.removeById(id);
 	}
 }

@@ -59,19 +59,17 @@ public abstract class JpaGenericDao<T extends BaseEntity<PK>, PK extends Number>
 		}
 
 		@Override
+		@Transactional
 		public void remove(T entity) {
-			if (this.entityManager.contains(entity)) {
-				this.entityManager.remove(entity);
-			} else {
-				T attached = find(entity.getId());
-				this.entityManager.remove(attached);
-			}
+			this.entityManager.createQuery("DELETE FROM " + entityClass.getSimpleName() + " e WHERE e.id = :id")
+			.setParameter("id", entity.getId()).executeUpdate();
 		}
 
 		@Override
+		@Transactional
 		public void removeById(PK id) {
-			T attached = find(id);
-			this.entityManager.remove(attached);
+			this.entityManager.createQuery("DELETE FROM " + entityClass.getSimpleName() + " e WHERE e.id = :id")
+			.setParameter("id", id).executeUpdate();
 		}
 
 		@Override

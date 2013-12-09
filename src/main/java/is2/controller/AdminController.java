@@ -18,11 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 import is2.domain.Admin;
 import is2.domain.Alumno;
 import is2.domain.Carrera;
+import is2.domain.CategoriaNota;
 import is2.domain.Docente;
 import is2.domain.Periodo;
 import is2.service.AdminService;
 import is2.service.AlumnoService;
 import is2.service.CarreraService;
+import is2.service.CategoriaNotaService;
 import is2.service.DocenteService;
 import is2.service.PeriodoService;
 
@@ -44,6 +46,9 @@ public class AdminController {
 	
 	@Inject
 	CarreraService carreraService;
+	
+	@Inject
+	CategoriaNotaService categoriaNotaService;
 
 	@Inject
 	Validator validator;
@@ -61,6 +66,27 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/add_alumno.html")
+	public ModelAndView add_alumno(){
+		Alumno alumno = new Alumno();
+		ModelAndView model = new ModelAndView("admin/add_alumno");
+		model.addObject("alumno", alumno);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_alumno.html", method=RequestMethod.POST)
+	public ModelAndView save_alumno(@ModelAttribute("alumno") @Valid Alumno alumno, SessionStatus status){
+		if (alumno.getId() == null) {
+			alumnoService.persist(alumno);
+			status.setComplete();
+		}
+		else {
+			alumnoService.merge(alumno);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:alumnos.html");
+	}
+	
 	@RequestMapping("/docentes.html")
 	public ModelAndView docentes() {
 		List<Docente> docentes = docenteService.findAll();
@@ -75,6 +101,84 @@ public class AdminController {
 		ModelAndView model = new ModelAndView("admin/periodos");
 		model.addObject("periodos",periodos);
 		return model;
+	}
+	
+	@RequestMapping("/add_periodo.html")
+	public ModelAndView add_periodo(){
+		Periodo periodo = new Periodo();
+		ModelAndView model = new ModelAndView("admin/add_periodo");
+		model.addObject("periodo", periodo);
+		return model;
+	}
+	
+	@RequestMapping("/{id}/edit_periodo.html")
+	public ModelAndView edit_periodo(@PathVariable Long id){
+		Periodo periodo = periodoService.find(id);
+		ModelAndView model = new ModelAndView("admin/add_periodo");
+		model.addObject("periodo", periodo);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_periodo.html", method=RequestMethod.POST)
+	public ModelAndView save_periodo(@ModelAttribute("periodo") @Valid Periodo periodo, SessionStatus status){
+		if (periodo.getId() == null) {
+			periodoService.persist(periodo);
+			status.setComplete();
+		}
+		else {
+			periodoService.merge(periodo);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:periodos.html");
+	}
+	
+	@RequestMapping(value="/{id}/remove_periodo.html")
+	public ModelAndView remove_periodo(@PathVariable Long id){
+		periodoService.removeById(id);
+		return new ModelAndView("redirect:../periodos.html");
+	}
+	
+	@RequestMapping("/categorias_notas.html")
+	public ModelAndView categorias_notas() {
+		List<CategoriaNota> categorias = categoriaNotaService.findAll();
+		ModelAndView model = new ModelAndView("admin/categorias_notas");
+		model.addObject("categorias",categorias);
+		return model;
+	}
+	
+	@RequestMapping("/add_categoria_nota.html")
+	public ModelAndView add_categoria_nota() {
+		CategoriaNota categoria = new CategoriaNota();
+		ModelAndView model = new ModelAndView("admin/add_categoria_nota");
+		model.addObject("categoria", categoria);
+		return model;
+	}
+	
+	@RequestMapping("/{id}/edit_categoria_nota.html")
+	public ModelAndView edit_categoria_nota(@PathVariable Long id) {
+		CategoriaNota categoria = categoriaNotaService.find(id);
+		ModelAndView model = new ModelAndView("admin/add_categoria_nota");
+		model.addObject("categoria", categoria);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_categoria_nota.html", method=RequestMethod.POST)
+	public ModelAndView save_categoria_nota(@ModelAttribute("categoria") @Valid CategoriaNota categoria, SessionStatus status) {
+		if (categoria.getId() == null) {
+			categoriaNotaService.persist(categoria);
+			status.setComplete();
+		}
+		else {
+			categoriaNotaService.merge(categoria);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:categorias_notas.html");
+	}
+	
+	@RequestMapping("/{id}/remove_categoria_nota.html")
+	public ModelAndView remove_categoria_nota(@PathVariable Long id){
+		categoriaNotaService.removeById(id);
+		return new ModelAndView("redirect:../categorias_notas.html");
 	}
 	
 	@RequestMapping("/carreras.html")

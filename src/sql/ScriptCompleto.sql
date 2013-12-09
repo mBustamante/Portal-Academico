@@ -98,29 +98,29 @@ INSERT INTO carrera(
             id, nombre)
     VALUES (007105, 'Contabilidad');
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1201,'permanente1');
+            id, nombre, peso)
+    VALUES (1201,'permanente1', 0.25);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1202,'permanente2');
+            id, nombre, peso)
+    VALUES (1202,'permanente2', 0.25);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1203,'parcial');
+            id, nombre, peso)
+    VALUES (1203,'parcial', 0.25);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1204,'final');
+            id, nombre, peso)
+    VALUES (1204,'final', 0.25);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1205,'parcial teoria');
+            id, nombre, peso)
+    VALUES (1205,'parcial teoria', 0.125);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1206,'parcial practica');
+            id, nombre, peso)
+    VALUES (1206,'parcial practica', 0.125);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1207,'final teoria');
+            id, nombre, peso)
+    VALUES (1207,'final teoria', 0.125);
 INSERT INTO categoria_nota(
-            id, nombre)
-    VALUES (1208,'final practica');
+            id, nombre, peso)
+    VALUES (1208,'final practica', 0.125);
 INSERT INTO curso(
             id, creditos, idequivalencia, nombre)
     VALUES (2001, 2, 200101,'Introduccion a la vida universitaria');
@@ -286,34 +286,34 @@ INSERT INTO malla(
 
 INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3001,'07/07/2010','01/03/2010','Introduccion a la vida universitaria');
+    VALUES (3001,'01/03/2009','30/06/2009','2009-1');
 INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3002,'15/12/2011','15/08/2011','Teologia I');
+    VALUES (3002,'15/08/2009','15/12/2009','2009-2');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3003,'10/07/2011','10/03/2011','Base de Datos II');
+    VALUES (3003,'01/03/2010','30/06/2010','2010-1');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3004,'07/07/2012','10/03/2012','Fisica I');
+    VALUES (3004,'15/08/2010','15/12/2010','2010-2');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3005,'10/07/2011','10/03/2011','Logica');
+    VALUES (3005,'01/03/2011','30/06/2011','2011-1');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3006,'07/07/2012','10/03/2012','Formacion cristiana');
+    VALUES (3006,'15/08/2011','15/12/2011','2011-2');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3007,'07/12/2012','16/08/2012','Musica');
+    VALUES (3007,'01/03/2012','30/06/2012','2012-1');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3008,'10/07/2013','15/03/2013','Analisis Matematico'); 
+    VALUES (3008,'15/08/2012','15/12/2012','2012-2'); 
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3009,'10/12/2013','17/08/2013','Calculo I');
+    VALUES (3009,'01/03/2013','30/06/2013','2013-1');
  INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
-    VALUES (3010,'10/12/2013','17/08/2013','Base de Datos I');
+    VALUES (3010,'15/08/2013','15/12/2013','2013-2');
     
 INSERT INTO prerequisitos(
             curso_id, prerequisito_id)
@@ -553,65 +553,65 @@ INSERT INTO matricula(
     VALUES (1612,0,'24/02/13',1001,4010);
 
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1901, 18,0.2, 1201,1601);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1901, 18, 1201,1601);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1902, 15,0.2, 1202,1601);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1902, 15, 1202,1601);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1903, 10,0.3, 1203,1601);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1903, 10, 1203,1601);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1904, 08,0.05, 1205,1602);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1904, 08, 1205,1602);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1905, 20,0.05, 1206,1602);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1905, 20, 1206,1602);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1906, 13.5,0.2, 1201,1603);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1906, 13.5, 1201,1603);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1907, 14.75,0.2, 1203,1603);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1907, 14.75, 1203,1603);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1908, 8.5,0.2, 1203,1604);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1908, 8.5, 1203,1604);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (1909, 15,0.2, 1204,1605);
+            id, nota, categoria_id, matricula_id)
+    VALUES (1909, 15, 1204,1605);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19010, 17.5,0.2, 1201,1605);
+            id, nota,  categoria_id, matricula_id)
+    VALUES (19010, 17.5, 1201,1605);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19011, 13.8,0.2, 1202,1606);
+            id, nota, categoria_id, matricula_id)
+    VALUES (19011, 13.8, 1202,1606);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19012, 10.5,0.2, 1201,1607);
+            id, nota,  categoria_id, matricula_id)
+    VALUES (19012, 10.5, 1201,1607);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19013, 14.6,0.3, 1203,1607);
+            id, nota, categoria_id, matricula_id)
+    VALUES (19013, 14.6, 1203,1607);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19014, 12,0.2, 1201,1608);
+            id, nota,categoria_id, matricula_id)
+    VALUES (19014, 12, 1201,1608);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19015, 20,0.3, 1203,1608);
+            id, nota,  categoria_id, matricula_id)
+    VALUES (19015, 20,1203,1608);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19016, 13.75,0.2, 1202,1608);
+            id, nota,  categoria_id, matricula_id)
+    VALUES (19016, 13.75,1202,1608);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19017,14,0.2, 1201,1609);
+            id, nota, categoria_id, matricula_id)
+    VALUES (19017,14, 1201,1609);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19018,13.5,0.3, 1203,1609);
+            id, nota,  categoria_id, matricula_id)
+    VALUES (19018,13.5, 1203,1609);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19019,12,0.2, 1202,1609);
+            id, nota, categoria_id, matricula_id)
+    VALUES (19019,12, 1202,1609);
 INSERT INTO nota(
-            id, nota, peso, categoria_id, matricula_id)
-    VALUES (19020, 10,0.2, 1202,1604);
+            id, nota, categoria_id, matricula_id)
+    VALUES (19020, 10, 1202,1604);
 
 INSERT INTO bloque(
             id, aula_id, cursodictado_id, horario_id)

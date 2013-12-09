@@ -1,0 +1,54 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#notas").addClass("active");
+		});
+	</script>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "admin/header.vm" )
+		</div>
+
+		<div class="master-content">
+		
+			<a href="add_categoria_nota.html"><button type="button" class="btn btn-default">Nueva</button></a>
+			<br><br>
+			#if($categorias.empty)
+				<div> No hay categorias de notas registradas</div>
+			#else
+				<table class="table table-hover">
+					<tr>
+						<th>Categoria</th>
+						<th>Peso</th>
+						<th>Eliminar</th>
+					</tr>
+				#foreach($categoria in $categorias)
+					<tr>
+						<td><a href="$categoria.id/edit_categoria_nota.html">$categoria.nombre</a></td>
+						<td>$categoria.peso</td>
+						<td><a href="$categoria.id/remove_categoria_nota.html" 
+							onclick="return confirm('Eliminar $categoria.nombre?');">Eliminar</a></td>
+					</tr>
+				#end
+				</table>
+			#end
+			
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
+

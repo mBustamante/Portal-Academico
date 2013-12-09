@@ -1,20 +1,23 @@
 <div class="header-title"><img src="http://ucsp.edu.pe/lars2013/wp-content/uploads/2013/02/ucsporg.png" class="img-responsive"></div>
 
 <ul class="nav nav-pills nav-justified">
-	<li class="active">
+	<li id="home">
 		<a href="/Portal-Academico/">Home</a>
 	</li>
-	<li>
+	<li id="alumnos">
 		<a href="/Portal-Academico/admin/alumnos.html">Alumnos</a>
 	</li>
-	<li>
+	<li id="docentes">
 		<a href="/Portal-Academico/admin/docentes.html">Docentes</a>
 	</li>
-	<li>
+	<li id="periodos">
 		<a href="/Portal-Academico/admin/periodos.html">Periodos</a>
 	</li>
-	<li>
+	<li id="carreras">
 		<a href="/Portal-Academico/admin/carreras.html">Carreras</a>
+	</li>
+	<li id="notas">
+		<a href="/Portal-Academico/admin/categorias_notas.html">Notas</a>
 	</li>
 	<li>
 		<a href="/Portal-Academico/j_spring_security_logout">Logout</a>

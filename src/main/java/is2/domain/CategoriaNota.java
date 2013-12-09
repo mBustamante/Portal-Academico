@@ -21,6 +21,8 @@ public class CategoriaNota implements BaseEntity<Long>{
         
         private String nombre;
         
+        private Double peso;
+        
         @OneToMany(mappedBy="categoria")
         private List<Nota> notas;
 
@@ -41,5 +43,13 @@ public class CategoriaNota implements BaseEntity<Long>{
     	public void setId(Long id) {
     		this.id = id;
     	}
+
+		public Double getPeso() {
+			return peso;
+		}
+
+		public void setPeso(Double peso) {
+			this.peso = peso;
+		}
         
 }
