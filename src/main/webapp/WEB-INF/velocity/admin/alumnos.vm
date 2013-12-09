@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="master-content">
-			<a href="add.html"><button class="btn btn-default" type="button">Nuevo</button></a>
+			<a href="add_alumno.html"><button class="btn btn-default" type="button">Nuevo</button></a>
 			<br><br>
 			#if($alumnos.empty)
 				<div> No hay alumnos registrados</div>

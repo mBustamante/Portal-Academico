@@ -66,6 +66,27 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/add_alumno.html")
+	public ModelAndView add_alumno(){
+		Alumno alumno = new Alumno();
+		ModelAndView model = new ModelAndView("admin/add_alumno");
+		model.addObject("alumno", alumno);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_alumno.html", method=RequestMethod.POST)
+	public ModelAndView save_alumno(@ModelAttribute("alumno") @Valid Alumno alumno, SessionStatus status){
+		if (alumno.getId() == null) {
+			alumnoService.persist(alumno);
+			status.setComplete();
+		}
+		else {
+			alumnoService.merge(alumno);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:alumnos.html");
+	}
+	
 	@RequestMapping("/docentes.html")
 	public ModelAndView docentes() {
 		List<Docente> docentes = docenteService.findAll();
