@@ -28,6 +28,7 @@ import is2.service.AlumnoService;
 import is2.service.CarreraService;
 import is2.service.CategoriaNotaService;
 import is2.service.DocenteService;
+import is2.service.HorarioAlumnoService;
 import is2.service.MatriculaService;
 import is2.service.NotaService;
 import is2.service.PeriodoService;
@@ -59,6 +60,9 @@ public class AdminController {
 	
 	@Inject
 	NotaService notaService;
+	
+	@Inject
+    HorarioAlumnoService horarioAlumnoService;
 
 	@Inject
 	Validator validator;
@@ -251,6 +255,16 @@ public class AdminController {
 		}
 		return new ModelAndView("redirect:"+nota.getMatricula().getId()+"/notas.html");
 	}
+	
+	@RequestMapping("/{id}/horario.html")
+    public ModelAndView horarios (@PathVariable Long id)
+    {
+            ModelAndView view = new ModelAndView();
+            view.addObject("alumno",alumnoService.find(id));
+            view.addObject("matriculas", horarioAlumnoService.getMatriculas(id));
+            view.setViewName("admin/horario");
+            return view;
+    }
 	
 	@RequestMapping("/carreras.html")
 	public ModelAndView carreras() {
