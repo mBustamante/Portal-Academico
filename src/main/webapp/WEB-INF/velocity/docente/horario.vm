@@ -14,8 +14,28 @@
 		<div class="master-content">
 		
 			
-
-			Aqui vael horario.
+			<h1>Horario Semanal de $docente.nombre</h1>
+			
+			<table class="table table-hover">
+				<tr>
+					<th>Curso</th>
+					<th>Dia</th>
+					<th>Aula</th>
+					<th>Inicio</th>
+					<th>Fin</th>
+				</tr>
+				#foreach($cursoDictado in $cursosDictados)
+				<tr>
+					#foreach($bloque in $cursoDictado.bloques)
+						<td> $cursoDictado.curso.nombre</td>
+						<td> $bloque.getHorario().dia</td>
+						<td> $bloque.getAula().nombre</td>
+						<td> $bloque.getHorario().hora_inicio</td>
+						<td> $bloque.getHorario().hora_fin</td>
+					#end
+				</tr>
+				#end
+			</table>
 			
 		</div>
 

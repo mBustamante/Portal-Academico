@@ -17,6 +17,7 @@ import is2.domain.Docente;
 import is2.domain.Nota;
 import is2.service.CursoDictadoService;
 import is2.service.DocenteService;
+import is2.service.HorarioDocenteService;
 import is2.service.MatriculaService;
 import is2.service.NotaService;
 
@@ -39,6 +40,9 @@ public class DocenteController {
 
 	@Inject
 	Validator validator;
+	
+	@Inject
+	HorarioDocenteService horarioDocenteService;
 
 	@RequestMapping("/list.html")
 	public ModelAndView list() {
@@ -51,6 +55,15 @@ public class DocenteController {
 		view.addObject("docente", docenteService.find(id));
 		view.setViewName("docente/details");
 		return view;
+	}
+	
+	@RequestMapping("/{id}/horario.html")
+	public ModelAndView horario(@PathVariable Long id) {
+		ModelAndView view = new ModelAndView();
+        view.addObject("docente",docenteService.find(id));
+        view.addObject("cursosDictados", horarioDocenteService.getCursosDictados(id));
+        view.setViewName("docente/horario");
+        return view;
 	}
 	
 	@RequestMapping("/{id}/cursos.html")
