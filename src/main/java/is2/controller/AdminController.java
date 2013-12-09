@@ -82,6 +82,27 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/add_periodo.html")
+	public ModelAndView add_periodo(){
+		Periodo periodo = new Periodo();
+		ModelAndView model = new ModelAndView("admin/add_periodo");
+		model.addObject("periodo", periodo);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_periodo.html", method=RequestMethod.POST)
+	public ModelAndView save_periodo(@ModelAttribute("periodo") @Valid Periodo periodo, SessionStatus status){
+		if (periodo.getId() == null) {
+			periodoService.persist(periodo);
+			status.setComplete();
+		}
+		else {
+			periodoService.merge(periodo);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:periodos.html");
+	}
+	
 	@RequestMapping("/categorias_notas.html")
 	public ModelAndView categorias_notas() {
 		List<CategoriaNota> categorias = categoriaNotaService.findAll();

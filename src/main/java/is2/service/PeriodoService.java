@@ -17,4 +17,12 @@ public class PeriodoService {
 	public List<Periodo> findAll(){
 		return periodoDao.findAll();
 	}
+	
+	public Periodo persist(Periodo periodo){
+		return periodoDao.persist(periodo);
+	}
+	
+	public Periodo merge(Periodo periodo){
+		return periodoDao.merge(periodo);
+	}
 }
