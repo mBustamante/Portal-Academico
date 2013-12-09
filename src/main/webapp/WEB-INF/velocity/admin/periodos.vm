@@ -1,0 +1,47 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "admin/header.vm" )
+		</div>
+
+		<div class="master-content">
+			<a href="add.html"><button type="button" class="btn btn-default">Agregar nuevo periodo</button></a>
+			<br><br>
+			#if($periodos.empty)
+				<div> No hay periodos registrados</div>
+			#else
+				<table class="table table-hover">
+					<tr>
+						<th>Periodo</th>
+						<th>Inicio</th>
+						<th>Fin</th>
+					</tr>
+				#foreach($periodo in $periodos)
+					<tr>
+						<td>$periodo.nombre</td>
+						<td>$periodo.fecha_inicio</td>
+						<td>$periodo.fecha_fin</td>
+					</tr>
+				#end
+				</table>
+			#end
+			
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
+

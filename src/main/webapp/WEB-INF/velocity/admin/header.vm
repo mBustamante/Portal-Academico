@@ -11,6 +11,9 @@
 		<a href="/Portal-Academico/admin/docentes.html">Docentes</a>
 	</li>
 	<li>
+		<a href="/Portal-Academico/admin/periodos.html">Periodos</a>
+	</li>
+	<li>
 		<a href="/Portal-Academico/j_spring_security_logout">Logout</a>
 	</li>
 </ul>
