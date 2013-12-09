@@ -39,13 +39,13 @@ public class HomeController {
 		else{
 			String username = principal.getName();
 			if(alumnoService.findByUsername(username) != null){
-				return homeAlumno(response);
+				return new ModelAndView("redirect:alumno/home.html");
 			}
 			else{
 				if(docenteService.findByUsername(username) != null){
-					return homeDocente(response);
+					return new ModelAndView("redirect:docente/home.html");
 				}
-				else  return homeAdministrator(response);
+				else  return new ModelAndView("redirect:admin/home.html");
 			}
 		}
 	}

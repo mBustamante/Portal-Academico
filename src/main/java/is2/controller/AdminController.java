@@ -69,19 +69,39 @@ public class AdminController {
 	@RequestMapping("/add_alumno.html")
 	public ModelAndView add_alumno(){
 		Alumno alumno = new Alumno();
+		List<Carrera> carreras = carreraService.findAll();
 		ModelAndView model = new ModelAndView("admin/add_alumno");
 		model.addObject("alumno", alumno);
+		model.addObject("carreras",carreras);
+		return model;
+	}
+	
+	@RequestMapping("/{id}/edit_alumno.html")
+	public ModelAndView edit_alumno(@PathVariable Long id){
+		Alumno alumno = alumnoService.find(id);
+		List<Carrera> carreras = carreraService.findAll();
+		ModelAndView model = new ModelAndView("admin/add_alumno");
+		model.addObject("alumno", alumno);
+		model.addObject("carreras",carreras);
 		return model;
 	}
 	
 	@RequestMapping(value="/save_alumno.html", method=RequestMethod.POST)
 	public ModelAndView save_alumno(@ModelAttribute("alumno") @Valid Alumno alumno, SessionStatus status){
 		if (alumno.getId() == null) {
+			alumnoService.encodePassword(alumno);
 			alumnoService.persist(alumno);
 			status.setComplete();
 		}
 		else {
-			alumnoService.merge(alumno);
+			System.out.println("##############################"+alumno.getPassword()+"##############");
+			if( alumno.getPassword() != "" ){
+				alumnoService.encodePassword(alumno);
+				System.out.println("##############################"+alumno.getPassword()+"##############");
+				alumnoService.merge(alumno);
+			}
+			else
+				alumnoService.merge_sin_password(alumno);
 			status.setComplete();
 		}
 		return new ModelAndView("redirect:alumnos.html");

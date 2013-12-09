@@ -37,6 +37,21 @@
 				</div>
 				
 				<div class="form-group">
+					<label class="col-sm-2 control-label">Carrera:</label>
+					<div class="col-sm-10">
+						<select name="carrera.id" class="form-control">
+						#foreach($carrera in $carreras)
+							#if($carrera.id == $alumno.carrera.id)
+							<option value="$carrera.id" selected="selected">$carrera.nombre</option>
+							#else
+							<option value="$carrera.id" >$carrera.nombre</option>
+							#end
+						#end
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
 					<label class="col-sm-2 control-label">Fecha nacimiento:</label>
 					<div class="col-sm-10">
 						<input class="form-control" type="date" name="fecha_n" value="$!alumno.fecha_n"/>
@@ -51,6 +66,20 @@
 				</div>
 				
 				<div class="form-group">
+					<label class="col-sm-2 control-label">Colegio:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="colegio" value="$!alumno.colegio"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Apoderado:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="apoderado" value="$!alumno.apoderado"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
 					<label class="col-sm-2 control-label">Usuario:</label>
 					<div class="col-sm-10">
 						<input class="form-control" type="text" name="usuario" value="$!alumno.usuario"/>
@@ -58,11 +87,13 @@
 				</div>
 				
 				<div class="form-group">
-					<label class="col-sm-2 control-label">Password:</label>
+					<label class="col-sm-2 control-label">Nuevo Password:</label>
 					<div class="col-sm-10">
-						<input class="form-control" type="text" name="password" value="$!alumno.password"/>
+						<input class="form-control" type="text" name="password" value="" placeholder="Dejar en blanco para no modificar" />
 					</div>
 				</div>
+				
+				
 
 			  	##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
 			  	<div class="form-group">
