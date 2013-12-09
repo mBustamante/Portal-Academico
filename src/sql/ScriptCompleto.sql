@@ -315,18 +315,9 @@ INSERT INTO periodo(
             id, fecha_fin, fecha_inicio, nombre)
     VALUES (3010,'10/12/2013','17/08/2013','Base de Datos I');
     
-    INSERT INTO prerequisitos(
-            curso_id, prerequisito_id)
-    VALUES (2006, 2005);
 INSERT INTO prerequisitos(
             curso_id, prerequisito_id)
-    VALUES (2005, 2006);
-INSERT INTO prerequisitos(
-            curso_id, prerequisito_id)
-    VALUES (2003, 2007);
-INSERT INTO prerequisitos(
-            curso_id, prerequisito_id)
-    VALUES (2007, 2003);
+    VALUES (2010, 2009);
 
 INSERT INTO alumno(
             id, apellido, apoderado, colegio, fecha_n, nombre, password, 
