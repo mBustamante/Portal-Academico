@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import is2.domain.Alumno;
 import is2.service.AlumnoService;
 import is2.service.HorarioAlumnoService;
+import is2.service.MatriculaAlumnoService;
 
 @Controller
 @RequestMapping("/alumno")
@@ -26,6 +27,9 @@ public class AlumnoController {
         
         @Inject
         HorarioAlumnoService horarioAlumnoService;
+        
+        @Inject
+        MatriculaAlumnoService matriculaAlumnoService;
       
 	    @Inject
         Validator validator;
@@ -78,6 +82,17 @@ public class AlumnoController {
             view.setViewName("alumno/horario");
             return view;
     }
+	
+	@RequestMapping("/{id}/matricula.html")
+    public ModelAndView matricula (@PathVariable Long id)
+    {
+            ModelAndView view = new ModelAndView();
+            view.addObject("alumno",alumnoService.find(id));
+            view.addObject("cursos", matriculaAlumnoService.getCursosDisponibles(id));
+            view.setViewName("alumno/matricula");
+            return view;
+    }
+	
         @RequestMapping("/add.html")
         public ModelAndView add() {
                 ModelAndView view = new ModelAndView();

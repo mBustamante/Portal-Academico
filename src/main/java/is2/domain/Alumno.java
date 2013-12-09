@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -14,10 +15,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "alumno")
-@NamedQuery(name = Alumno.FIND_BY_USER, query = "SELECT s FROM Alumno s WHERE s.usuario = :usuario")
+@NamedQueries({
+	@NamedQuery(name = Alumno.FIND_BY_USER, query = "SELECT s FROM Alumno s WHERE s.usuario = :usuario"),
+	@NamedQuery(name = Alumno.FIND_CURSOS, query = "SELECT c FROM Curso c"),
+}) 
+
+
 public class Alumno extends Persona implements BaseEntity<Long>{
 	
 	public static final String FIND_BY_USER = "Alumno.findByUsername";
+	public static final String FIND_CURSOS = "Alumno.findCursosDisponibles";
 
 	@Id
 	@SequenceGenerator(name = "STUDENT_ID_GENERATOR", sequenceName = "STUDENT_STUDY_ID_SEQ", allocationSize = 1)

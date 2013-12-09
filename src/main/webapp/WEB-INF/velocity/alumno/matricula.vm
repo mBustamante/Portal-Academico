@@ -1,0 +1,94 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+	
+	<script> 
+	
+		function contar(item){ 
+			var checkboxes = form1.checkbox;
+			var creditos = form1.creditos;
+			var cont = 0;
+			var maximo=20; 
+			
+			var actual = parseInt(item.value);
+						
+			for (var x=0; x < checkboxes.length; x++) { 
+				if (checkboxes[x].checked) { 
+					cont = cont + parseInt(creditos[x].value);
+					if (cont>maximo){
+						alert ("Numero maximo de creditos excedido");
+						cont = cont -parseInt(creditos[actual].value);
+						checkboxes[actual].checked=false;
+					} 
+				} 
+			}			
+			document.getElementById("usados").innerHTML = cont;	
+			 
+		}
+		
+	</script> 
+	
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "alumno/header.vm" )
+		</div>
+
+		<div class="master-content">
+
+
+			<h1>Matricula de $alumno.nombre</h1>
+			<h2>$alumno.carrera.nombre</h2>
+			
+			<table class="table table-hover">
+				<tr >
+					<th>Creditos Disponibles : 20</th>
+				</tr>
+				<tr >
+					<th>Creditos Usados : <label id="usados">0</label> </th>
+				</tr>
+				<tr><td></td></tr>
+
+			</table>
+			
+			
+			<table class="table table-hover">
+				<tr >
+					<th>Cursos Disponibles</th>
+					<th>Creditos</th>
+					<th >Seleccionar</th>
+				</tr>
+				<form name="form1" method="post" action="../matricularse.html">
+					<input type="hidden" name="id" value="$alumno.id" />
+					#set ($i = -1)
+					#foreach($curso in $cursos)
+					#set ($i = $i + 1)
+					<tr>
+						<td>$curso.nombre</td>
+						<td>$curso.creditos</td>
+						<td>
+							<input type="hidden" name="creditos" value="$curso.creditos" />
+							<input type="checkbox" name="checkbox" value="$i" onClick="contar(this);"> 
+						</td>
+					</tr>
+					#end
+				<tr><td>
+				<input type="submit" value="Matricularse" />
+				</td></tr>
+				</form>
+			</table>
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
