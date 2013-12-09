@@ -111,6 +111,12 @@ public class AdminController {
 		return new ModelAndView("redirect:periodos.html");
 	}
 	
+	@RequestMapping(value="/{id}/remove_periodo.html")
+	public ModelAndView remove_periodo(@PathVariable Long id){
+		periodoService.removeById(id);
+		return new ModelAndView("redirect:../periodos.html");
+	}
+	
 	@RequestMapping("/categorias_notas.html")
 	public ModelAndView categorias_notas() {
 		List<CategoriaNota> categorias = categoriaNotaService.findAll();

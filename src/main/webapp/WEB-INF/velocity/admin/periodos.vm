@@ -27,12 +27,15 @@
 						<th>Periodo</th>
 						<th>Inicio</th>
 						<th>Fin</th>
+						<th>Eliminar</th>
 					</tr>
 				#foreach($periodo in $periodos)
 					<tr>
 						<td><a href="$periodo.id/edit_periodo.html">$periodo.nombre</a></td>
 						<td>$periodo.fecha_inicio</td>
 						<td>$periodo.fecha_fin</td>
+						<td><a href="$periodo.id/remove_periodo.html" 
+							onclick="return confirm('Eliminar $periodo.nombre?');">Eliminar</a></td>
 					</tr>
 				#end
 				</table>

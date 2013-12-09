@@ -29,4 +29,8 @@ public class PeriodoService {
 	public Periodo merge(Periodo periodo){
 		return periodoDao.merge(periodo);
 	}
+	
+	public void removeById(Long id){
+		periodoDao.removeById(id);
+	}
 }
