@@ -1,0 +1,51 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#alumnos").addClass("active");
+		});
+	</script>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "admin/header.vm" )
+		</div>
+
+		<div class="master-content">
+	
+			<form class="form-horizontal" role="form" action="#springUrl("/admin/save_carrera.html")" method="POST">
+
+				<input type="hidden" name="id" value="$!carrera.id" />
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nombre:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="nombre" value="$!carrera.nombre"/>
+					</div>
+				</div>				
+				
+
+			  	##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+			  	<div class="form-group">
+			            <div class="col-sm-offset-2 col-sm-10">
+			            	<button type="submit" class="btn btn-default">Guardar</button>
+			            </div>
+		    	</div>
+			</form>
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
+

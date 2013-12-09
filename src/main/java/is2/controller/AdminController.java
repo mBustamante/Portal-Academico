@@ -274,6 +274,27 @@ public class AdminController {
 		return model;
 	}
 
+	@RequestMapping("/add_carrera.html")
+	public ModelAndView add_carrera() {
+		Carrera carrera = new Carrera();
+		ModelAndView model = new ModelAndView("admin/add_carrera");
+		model.addObject("carrera",carrera);
+		return model;
+	}
+	
+	@RequestMapping(value="/save_carrera.html", method = RequestMethod.POST)
+	public ModelAndView save_carrera(@ModelAttribute("carrera") @Valid Carrera carrera, SessionStatus status){
+		if (carrera.getId() == null) {
+			carreraService.persist(carrera);
+			status.setComplete();
+		}
+		else {
+			carrera = carreraService.merge(carrera);
+			status.setComplete();
+		}
+		return new ModelAndView("redirect:carreras.html");		
+	}
+	
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();
