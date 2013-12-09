@@ -303,6 +303,12 @@ public class AdminController {
 		return new ModelAndView("redirect:carreras.html");		
 	}
 	
+	@RequestMapping("/{id}/remove_carrera.html")
+	public ModelAndView remove_carrera(@PathVariable Long id){
+		carreraService.removeById(id);
+		return new ModelAndView("redirect:../carreras.html");
+	}
+	
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {
 		ModelAndView view = new ModelAndView();

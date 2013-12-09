@@ -33,4 +33,8 @@ public class CarreraService {
 	{
 		return carreraDao.merge(carrera);
 	}
+	
+	public void removeById(Long id){
+		carreraDao.removeById(id);
+	}
 }
