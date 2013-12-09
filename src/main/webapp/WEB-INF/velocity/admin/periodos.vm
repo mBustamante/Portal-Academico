@@ -30,7 +30,7 @@
 					</tr>
 				#foreach($periodo in $periodos)
 					<tr>
-						<td>$periodo.nombre</td>
+						<td><a href="$periodo.id/edit_periodo.html">$periodo.nombre</a></td>
 						<td>$periodo.fecha_inicio</td>
 						<td>$periodo.fecha_fin</td>
 					</tr>

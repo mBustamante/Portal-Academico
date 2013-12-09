@@ -90,6 +90,14 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping("/{id}/edit_periodo.html")
+	public ModelAndView edit_periodo(@PathVariable Long id){
+		Periodo periodo = periodoService.find(id);
+		ModelAndView model = new ModelAndView("admin/add_periodo");
+		model.addObject("periodo", periodo);
+		return model;
+	}
+	
 	@RequestMapping(value="/save_periodo.html", method=RequestMethod.POST)
 	public ModelAndView save_periodo(@ModelAttribute("periodo") @Valid Periodo periodo, SessionStatus status){
 		if (periodo.getId() == null) {

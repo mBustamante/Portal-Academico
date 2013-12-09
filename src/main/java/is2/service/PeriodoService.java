@@ -14,6 +14,10 @@ public class PeriodoService {
 	@Inject
 	PeriodoDao periodoDao; 
 	
+	public Periodo find(Long id){
+		return periodoDao.find(id);
+	}
+	
 	public List<Periodo> findAll(){
 		return periodoDao.findAll();
 	}
