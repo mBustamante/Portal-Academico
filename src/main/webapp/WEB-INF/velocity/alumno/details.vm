@@ -2,6 +2,11 @@
 <html>
 <head>
 	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#datos").addClass("active");
+		});
+	</script>
 </head>
 
 <body>

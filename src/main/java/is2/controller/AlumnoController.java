@@ -59,7 +59,7 @@ public class AlumnoController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Alumno alumno = alumnoService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoService.find(alumno.getId()));
+		view.addObject("alumno", alumno);
 		view.setViewName("alumno/details");
 		return view;
 	}
@@ -97,7 +97,7 @@ public class AlumnoController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Alumno alumno = alumnoService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoService.find(alumno.getId()));
+		view.addObject("alumno", alumno);
 		view.setViewName("alumno/notas");
 		return view;
 	}
@@ -107,7 +107,7 @@ public class AlumnoController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Alumno alumno = alumnoService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoService.find(alumno.getId()));
+		view.addObject("alumno", alumno);
 		view.setViewName("alumno/cursos");
 		return view;
 	}
@@ -148,7 +148,7 @@ public class AlumnoController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Alumno alumno = alumnoService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoService.find(alumno.getId()));
+		view.addObject("alumno", alumno);
 		view.addObject("matriculas", horarioAlumnoService.getMatriculas(alumno.getId()));
 		view.setViewName("alumno/horario");
 		return view;
@@ -170,7 +170,7 @@ public class AlumnoController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Alumno alumno = alumnoService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("alumno", alumnoService.find(alumno.getId()));
+		view.addObject("alumno", alumno);
 		view.addObject("cursos", matriculaAlumnoService.getCursosDisponibles(alumno.getId()));
 		view.setViewName("alumno/matricula");
 		return view;

@@ -2,6 +2,11 @@
 <html>
 <head>
 	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#matricula").addClass("active");
+		});
+	</script>
 	
 	<script> 
 	
@@ -62,7 +67,7 @@
 					<th>Creditos</th>
 					<th >Seleccionar</th>
 				</tr>
-				<form name="form1" method="post" action="../matricularse.html">
+				<form name="form1" method="post" action="cursos.html">
 					<input type="hidden" name="id" value="$alumno.id" />
 					#set ($i = -1)
 					#foreach($curso in $cursos)
