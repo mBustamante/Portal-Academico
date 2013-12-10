@@ -57,16 +57,17 @@ public class DocenteService {
 		docente.setPassword(encoder.encode(docente.getPassword()));
 		return docente;
 	}
-	public Docente merge_sin_password(Docente docente){
+	public Docente set_old_password(Docente docente){
 		Docente original = find(docente.getId());
 		docente.setPassword(original.getPassword());
-		return merge(docente);
+		return docente;
 	}
 	public void removeById(Long id){
 		docenteDao.removeById(id);
 	}
-	public Docente set_null_attributes(Docente docente){
+	public Docente set_old_relations(Docente docente){
 		Docente original = find(docente.getId());
+		docente.setCursosDictados(original.getCursosDictados());
 		return docente;
 	}
 }

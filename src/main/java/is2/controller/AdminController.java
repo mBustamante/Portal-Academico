@@ -162,12 +162,14 @@ public class AdminController {
 			status.setComplete();
 		}
 		else {
+			docente = docenteService.set_old_relations(docente);
 			if( docente.getPassword() != "" ){
 				docenteService.encodePassword(docente);
 				docenteService.merge(docente);
 			}
 			else
-				docenteService.merge_sin_password(docente);
+				docente = docenteService.set_old_password(docente);
+				docenteService.merge(docente);
 			status.setComplete();
 		}
 		return new ModelAndView("redirect:docentes.html");

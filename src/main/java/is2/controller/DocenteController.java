@@ -135,12 +135,15 @@ public class DocenteController {
 
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("docente") @Valid Docente docente, BindingResult result, SessionStatus status) {
+		docente = docenteService.set_old_relations(docente);
 		if( docente.getPassword() != "" ){
 			docenteService.encodePassword(docente);
 			docenteService.merge(docente);
 		}
-		else
-			docenteService.merge_sin_password(docente);
+		else{
+			docente = docenteService.set_old_password(docente);
+			docenteService.merge(docente);
+		}
 		status.setComplete();
 		return new ModelAndView("redirect:details.html");
 	}
