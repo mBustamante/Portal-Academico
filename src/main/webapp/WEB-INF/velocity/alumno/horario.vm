@@ -31,8 +31,24 @@
 						<td> $matricula.cursoDictado.curso.nombre</td>
 						<td> $bloque.getHorario().dia</td>
 						<td> $bloque.getAula().nombre</td>
-						<td> $bloque.getHorario().hora_inicio</td>
-						<td> $bloque.getHorario().hora_fin</td>
+						#set( $fo = "$bloque.getHorario().hora_inicio" )
+						#set($Integer = 0)
+						#set($num = $Integer.parseInt($fo) / 100)
+						#set($nun = $Integer.parseInt($fo) % 100)
+						#if($nun == 0)
+						<td>$num:00</td>
+						#else
+						<td>$num:$nun </td>
+						#end
+						#set( $fo = "$bloque.getHorario().hora_fin" )
+						#set($Integer = 0)
+						#set($num = $Integer.parseInt($fo) / 100)
+						#set($nun = $Integer.parseInt($fo) % 100)
+						#if($nun == 0)
+						<td>$num:00</td>
+						#else
+						<td>$num:$nun </td>
+						#end
 					#end
 				</tr>
 				#end
