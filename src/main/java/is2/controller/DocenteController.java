@@ -125,7 +125,7 @@ public class DocenteController {
 			notaService.cambiar_nota(nota.getId(), nota.getNota());
 			status.setComplete();
 		}
-		return new ModelAndView("redirect:list.html");
+		return new ModelAndView("redirect:home.html");
 //		return new ModelAndView("Docente/save");
 	}
 
