@@ -15,7 +15,9 @@
 		
 			
 			<h1>Horario Semanal de $docente.nombre</h1>
-			
+			#if($cursosDictados.empty)
+				<div> No hay alumnos registrados</div>
+			#else
 			<table class="table table-hover">
 				<tr>
 					<th>Curso</th>
@@ -52,7 +54,7 @@
 				</tr>
 				#end
 			</table>
-			
+			#end
 		</div>
 
 		<div class="master-footer">

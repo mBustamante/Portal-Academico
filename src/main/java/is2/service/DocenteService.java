@@ -65,4 +65,8 @@ public class DocenteService {
 	public void removeById(Long id){
 		docenteDao.removeById(id);
 	}
+	public Docente set_null_attributes(Docente docente){
+		Docente original = find(docente.getId());
+		return docente;
+	}
 }

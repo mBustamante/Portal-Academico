@@ -21,7 +21,9 @@
 
 			<h1>Cursos de $alumno.nombre</h1>
 			<h2>$alumno.carrera.nombre</h2>
-			
+			#if($alumno.matriculas.empty)
+				<div> No hay cursos registrados</div>
+			#else
 			<table class="table table-hover">
 				<tr>
 					<th>Curso</th>
@@ -36,7 +38,7 @@
 				</tr>
 				#end
 			</table>
-
+			#end
 
 		</div>
 

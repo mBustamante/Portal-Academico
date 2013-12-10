@@ -17,6 +17,9 @@
 			<h1>Horario de $alumno.nombre</h1>
 			<h2>$alumno.carrera.nombre</h2>
 			
+			#if($matriculas.empty)
+				<div> No hay horarios registrados</div>
+			#else
 			<table class="table table-hover">
 				<tr>
 					<th>Curso</th>
@@ -53,6 +56,7 @@
 				</tr>
 				#end
 			</table>
+			#end
 
 
 		</div>

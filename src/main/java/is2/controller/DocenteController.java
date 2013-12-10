@@ -3,6 +3,8 @@ package is2.controller;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -44,33 +46,34 @@ public class DocenteController {
 	@Inject
 	HorarioDocenteService horarioDocenteService;
 
-	@RequestMapping("/list.html")
-	public ModelAndView list() {
-		return new ModelAndView("docente/list", "docentes", docenteService.findAll());
-	}
-
-	@RequestMapping("/{id}/details.html")
-	public ModelAndView details(@PathVariable Long id) {
+	@RequestMapping("/details.html")
+	public ModelAndView details() {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Docente docente = docenteService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("docente", docenteService.find(id));
+		view.addObject("docente", docente);
 		view.setViewName("docente/details");
 		return view;
 	}
 	
-	@RequestMapping("/{id}/horario.html")
-	public ModelAndView horario(@PathVariable Long id) {
+	@RequestMapping("/horario.html")
+	public ModelAndView horario() {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Docente docente = docenteService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-        view.addObject("docente",docenteService.find(id));
-        view.addObject("cursosDictados", horarioDocenteService.getCursosDictados(id));
+        view.addObject("docente",docente);
+        view.addObject("cursosDictados", horarioDocenteService.getCursosDictados(docente.getId()));
         view.setViewName("docente/horario");
         return view;
 	}
 	
-	@RequestMapping("/{id}/cursos.html")
-	public ModelAndView cursos(@PathVariable Long id) {
+	@RequestMapping("/cursos.html")
+	public ModelAndView cursos() {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Docente docente = docenteService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("docente", docenteService.find(id));
-		view.addObject("cursosDictados", docenteService.getCursosDictados(id));
+		view.addObject("docente", docente);
+		view.addObject("cursosDictados", docenteService.getCursosDictados(docente.getId()));
 		view.setViewName("docente/cursos");
 		return view;
 	}
@@ -99,10 +102,12 @@ public class DocenteController {
 		return view;
 	}
 
-	@RequestMapping("/{id}/edit.html")
-	public ModelAndView edit(@PathVariable Long id) {
+	@RequestMapping("/edit.html")
+	public ModelAndView edit() {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Docente docente = docenteService.findByUsername(user.getUsername());
 		ModelAndView view = new ModelAndView();
-		view.addObject("docente", docenteService.find(id));
+		view.addObject("docente", docente);
 		view.setViewName("docente/edit");
 		return view;
 	}
@@ -122,26 +127,21 @@ public class DocenteController {
 			status.setComplete();
 		}
 		else {
-			notaService.cambiar_nota(nota.getId(), nota.getNota());
+			nota = notaService.cambiar_nota(nota.getId(), nota.getNota());
 			status.setComplete();
 		}
-		return new ModelAndView("redirect:home.html");
-//		return new ModelAndView("Docente/save");
+		return new ModelAndView("redirect:"+nota.getMatricula().getId()+"/notas.html");
 	}
 
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("docente") @Valid Docente Docente, BindingResult result, SessionStatus status) {
-		if (Docente.getId() == null) {
-			docenteService.persist(Docente);
-			status.setComplete();
+	public ModelAndView save(@ModelAttribute("docente") @Valid Docente docente, BindingResult result, SessionStatus status) {
+		if( docente.getPassword() != "" ){
+			docenteService.encodePassword(docente);
+			docenteService.merge(docente);
 		}
-		else {
-			docenteService.merge(Docente);
-			status.setComplete();
-		}
-		ModelAndView view = new ModelAndView(result.getErrorCount() > 0 ? "docente/edit" : "redirect:home.html");
-		view.addObject("docente", docenteService.find(Docente.getId() ));
-		return view;
-//		return new ModelAndView("Docente/save");
+		else
+			docenteService.merge_sin_password(docente);
+		status.setComplete();
+		return new ModelAndView("redirect:details.html");
 	}
 }

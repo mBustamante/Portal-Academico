@@ -45,10 +45,6 @@ public class AlumnoController {
 	    @Inject
         Validator validator;
 
-	@RequestMapping("/list.html")
-	public ModelAndView list() {
-		return new ModelAndView("alumno/list", "alumnos", alumnoService.findAll());
-	}
 
 	@RequestMapping("/{id}/details.html")
 	public ModelAndView details(@PathVariable Long id) {

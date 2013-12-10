@@ -4,7 +4,7 @@
 	#parse( "head.vm" )
 	<script>
 		$(document).ready(function(){
-			$("#carreras").addClass("active");
+			$("#docentes").addClass("active");
 		});
 	</script>
 </head>

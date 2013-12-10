@@ -380,21 +380,6 @@ public class AdminController {
 		return view;
 	}
 
-	@RequestMapping("/{id}/edit.html")
-	public ModelAndView edit(@PathVariable Long id) {
-		ModelAndView view = new ModelAndView();
-		view.addObject("admin", adminService.find(id));
-		view.setViewName("admin/edit");
-		return view;
-	}
-
-	@RequestMapping("/add.html")
-	public ModelAndView add() {
-		ModelAndView view = new ModelAndView();
-		view.addObject("admin", new Admin());
-		view.setViewName("admin/edit");
-		return view;
-	}
 
 	@RequestMapping(value = "/save.html", method = RequestMethod.POST)
 	public ModelAndView save(@ModelAttribute("admin") @Valid Admin Admin, BindingResult result, SessionStatus status) {

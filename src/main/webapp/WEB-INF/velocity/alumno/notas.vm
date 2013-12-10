@@ -13,6 +13,9 @@
 
 		<div class="master-content">
 			<h1>Notas de $alumno.nombre</h1>
+			#if($alumno.matriculas.empty)
+				<div> No hay notas registradas</div>
+			#else
 			<ul>
 				#foreach( $matricula in $alumno.matriculas )
 				<li> $matricula.cursoDictado.curso.nombre
@@ -24,6 +27,7 @@
 				</li>
 				#end
 			</ul>
+			#end
 		</div>
 
 		<div class="master-footer">

@@ -15,6 +15,9 @@
 
 		<h1>$docente.nombre</h1>
 		<h2>Cursos Dictados</h2>
+		#if($cursosDictados.empty)
+			<div> No hay alumnos registrados</div>
+		#else
 		<table class="table table-hover">
 			<tr>
 				<th>Curso</th>
@@ -23,11 +26,11 @@
 			#foreach($curso in $cursosDictados)
 				<tr>
 					<td>$curso.curso.nombre</a></td>
-					<td><a href="../${curso.id}/alumnos.html">Ver alumnos</a></td>
+					<td><a href="${curso.id}/alumnos.html">Ver alumnos</a></td>
 				</tr>
 			#end
 		</table>
-
+		#end
 		</div>
 
 		<div class="master-footer">

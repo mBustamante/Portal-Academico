@@ -15,10 +15,6 @@
 
 			<table class="table table-hover">
 				<tr>
-					<td><b>Id:</b></td>
-					<td>$docente.id<td>
-				</tr>
-				<tr>
 					<td><b>Nombre:</b></td>
 					<td>$docente.nombre<td>
 				</tr>
