@@ -14,20 +14,31 @@
 		<div class="master-content">
 
 
-			<h1>Avance curricular de $alumno.nombre</h1>
+			<h1>Cursos de $alumno.nombre</h1>
 			<h2>$alumno.carrera.nombre</h2>
 			
 			<table class="table table-hover">
 				<tr>
 					<th>Curso</th>
-					<th>Creditos</th>
-					<th>Estado</th>
-				</tr>
+					<th>Promedio</th>
+					<th>Permanente 1</th>
+					<th>Permanente 2</th>
+					<th>Parcial</th>
+					<th>Final</th>
+					
+					
 				#foreach($matricula in $alumno.matriculas)
+				#set ($promedio=0)
+				#foreach($nota in $matricula.notas)
+					#set ($promedio= $promedio+$nota.nota*$nota.categoria.peso)
+				#end
+				
 				<tr>
-					<td>$matricula.cursoDictado.curso.nombre</td>
-					<td>$matricula.cursoDictado.curso.creditos</td>
-					<td>$matricula.estado</td>
+				<td>$matricula.cursoDictado.curso.nombre</td>
+				<td>$promedio</td>
+				#foreach($nota in $matricula.notas)
+					<td>$nota.nota</td>
+				#end
 				</tr>
 				#end
 			</table>
