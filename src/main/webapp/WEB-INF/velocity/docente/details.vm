@@ -2,6 +2,11 @@
 <html>
 <head>
 	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#datos").addClass("active");
+		});
+	</script>
 </head>
 
 <body>
@@ -23,13 +28,18 @@
 					<td>$docente.apellido<td>
 				</tr>
 				<tr>
-					<td><b>Nombre de Usuario:</b></td>
-					<td>$docente.usuario<td>
-				</tr>
-				<tr>
 					<td><b>Telefono:</b></td>
 					<td>$docente.telefono<td>
 				</tr>
+				<tr>
+					<td><b>Fecha nacimiento:</b></td>
+					<td>$docente.fecha_n<td>
+				</tr>
+				<tr>
+					<td><b>Nombre de Usuario:</b></td>
+					<td>$docente.usuario<td>
+				</tr>
+				
 			</table>
 			
 			<a href="edit.html"><button type="button" class="btn btn-default">Modificar</button></a>			
