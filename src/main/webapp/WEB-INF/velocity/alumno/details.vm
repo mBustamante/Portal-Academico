@@ -30,12 +30,28 @@
 					<td>$alumno.apellido<td>
 				</tr>
 				<tr>
+					<td><b>Carrera:</b></td>
+					<td>$alumno.carrera.nombre<td>
+				</tr>
+				<tr>
 					<td><b>Nombre de Usuario:</b></td>
 					<td>$alumno.usuario<td>
 				</tr>
 				<tr>
+					<td><b>Colegio:</b></td>
+					<td>$alumno.colegio<td>
+				</tr>
+				<tr>
+					<td><b>Apoderado:</b></td>
+					<td>$alumno.apoderado<td>
+				</tr>
+				<tr>
 					<td><b>Telefono:</b></td>
 					<td>$alumno.telefono<td>
+				</tr>
+				<tr>
+					<td><b>Fecha de nacimiento:</b></td>
+					<td>$alumno.fecha_n<td>
 				</tr>
 			</table>
 			<br />

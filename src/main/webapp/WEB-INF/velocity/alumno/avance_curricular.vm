@@ -22,12 +22,18 @@
 					<th>Curso</th>
 					<th>Creditos</th>
 					<th>Estado</th>
+					<th>Nota final</th>
 				</tr>
 				#foreach($matricula in $alumno.matriculas)
+				#set ($promedio=0)
+				#foreach($nota in $matricula.notas)
+					#set ($promedio= $promedio+$nota.nota*$nota.categoria.peso)
+				#end
 				<tr>
 					<td>$matricula.cursoDictado.curso.nombre</td>
 					<td>$matricula.cursoDictado.curso.creditos</td>
 					<td>$matricula.estado</td>
+					<td>$promedio</td>
 				</tr>
 				#end
 			</table>
