@@ -1,0 +1,115 @@
+#parse( "declaraciones.vm" )
+<html>
+<head>
+	#parse( "head.vm" )
+	<script>
+		$(document).ready(function(){
+			$("#alumnos").addClass("active");
+		});
+	</script>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="master-header">
+			#parse( "alumno/header.vm" )
+		</div>
+
+		<div class="master-content">
+	
+			<form class="form-horizontal" role="form" action="#springUrl("/alumno/save2.html")" method="POST">
+
+				<input type="hidden" name="id" value="$!alumno.id" />
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nombre:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="nombre" value="$!alumno.nombre"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Apellido:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="apellido" value="$!alumno.apellido"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Carrera:</label>
+					<div class="col-sm-10">
+						<select name="carrera.id" class="form-control">
+						#foreach($carrera in $carreras)
+							#if($carrera.id == $alumno.carrera.id)
+							<option value="$carrera.id" selected="selected">$carrera.nombre</option>
+							#else
+							<option value="$carrera.id" >$carrera.nombre</option>
+							#end
+						#end
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Fecha nacimiento:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="date" name="fecha_n" value="$!alumno.fecha_n"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Telefono:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="telefono" value="$!alumno.telefono"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Colegio:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="colegio" value="$!alumno.colegio"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Apoderado:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="apoderado" value="$!alumno.apoderado"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Usuario:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="usuario" value="$!alumno.usuario"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Nuevo Password:</label>
+					<div class="col-sm-10">
+						<input class="form-control" type="text" name="password" value="" placeholder="Dejar en blanco para no modificar" />
+					</div>
+				</div>
+				
+				
+
+			  	##foreach($error in $status.errorMessages) <b>$error</b> <br> #end
+			  	<div class="form-group">
+			            <div class="col-sm-offset-2 col-sm-10">
+			            	<button type="submit" class="btn btn-default">Guardar</button>
+			            </div>
+		    	</div>
+			</form>
+
+
+		</div>
+
+		<div class="master-footer">
+			#parse( "master-footer.vm" )
+		</div>
+	</div>
+
+</body>
+</html>
